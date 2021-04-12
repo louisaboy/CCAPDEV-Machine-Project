@@ -59,7 +59,7 @@ body{
     background-color: #d3d3d3;
     border: 1px solid;
     border-radius: 1.5px;
-    border-color: black;
+    border-color: #d8d8d8;
     color: black;
     display: block;
     margin-left: auto;
@@ -74,7 +74,7 @@ body{
     background-color: #d3d3d3;
     border: 1px solid;
     border-radius: 1.5px;
-    border-color: #aaaaaa;
+    border-color: #d8d8d8;
     color: black;
     display: block;
     padding: 8px 0;
@@ -95,7 +95,7 @@ body{
     border-width: 1px;
     font-family: Nexa;
     font-size: 14px;
-    border-color: #aaaaaa;
+    border-color: #d8d8d8;
     border-style: solid;
 }
 
@@ -103,7 +103,7 @@ body{
     background-color: #d3d3d3;
     border: 1px solid;
     border-radius: 1.5px;
-    border-color: #aaaaaa;
+    border-color: #d8d8d8;
     color: black;
     display: block;
     padding: 8px 0;
@@ -113,4 +113,72 @@ body{
     margin-left: 20px;
     margin-bottom: 20px;
     font-family: Nexa;
+}
+
+.search-btn{
+    background-color: #d3d3d3;
+    border: 1px solid;
+    border-radius: 1.5px;
+    border-color: #d8d8d8;
+    color: black;
+    display: block;
+    padding: 3px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 12%;
+    float: right;
+    margin-right: 35%;
+    font-family: Nexa;
+}
+
+.pass{
+    margin: 20px 30px 0;
+}
+
+.field{
+    display: block;
+    position: relative;
+}
+
+.input{
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.txtfield{
+    box-sizing: border-box;
+    font-family: Nexa;
+    font-size: 16px;
+    border: solid 1px #d8d8d8;
+    border-radius: 2px;
+    display: block;
+    width: 50%;
+    color: #000;
+    padding: 10px 11px;
+    height: 44px;
+}
+
+h3{
+    border-color: #e4e6eb;
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+.input-text{
+    border-color: #d8d8d8;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Nexa;
+    font-size: 11px;
+    padding: 3px;
+    width: 50%;
+    margin-left: 10px;
+}
+
+.right-text{
+    float: right;
+    font-size: 12px;
+    margin:14px;
 }
