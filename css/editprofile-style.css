@@ -1,0 +1,116 @@
+body{
+    font-family: Nexa;
+    background-color: white;
+}
+
+.profile-name{
+    background-color: #eeeeee;
+    border-top-color: #e4e6eb;
+    border-bottom-color: #1c4966;
+    border-left-color: #e4e6eb;
+    border-right-color: #e4e6eb;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 16px;
+    margin: 0;
+    padding: 5px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#content{
+    border-style: solid;
+    border-width: 0px 1px 1px;
+    border-color: #e4e6eb;
+}
+
+.navigation{
+    margin-bottom: 8px;
+    margin-top: 16px;
+    border-color: #1c4966;
+    border-style: solid;
+    border-width: 0 0 1.5px;
+    padding-left: 10px;
+}
+
+.link{
+    text-decoration: none;
+    padding: 2px 8px;
+}
+
+.active{
+    text-decoration: none;
+    background-color: #1c4966;
+    color: #fff;
+    padding: 2px 8px;
+}
+
+.settings{
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.profile-picture{
+    display: block;
+    width: 15%;
+}
+
+.button{
+    background-color: #d3d3d3;
+    border: 1px solid;
+    border-radius: 1.5px;
+    border-color: black;
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 85%;
+}
+
+.upload-btn{
+    background-color: #d3d3d3;
+    border: 1px solid;
+    border-radius: 1.5px;
+    border-color: #aaaaaa;
+    color: black;
+    display: block;
+    padding: 8px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 10%;
+    float: right;
+    margin-right: 74%;
+    font-family: Nexa;
+}
+
+.settings-table {
+  border-collapse:separate; 
+  border-spacing: 0 1em;
+}
+
+.txtarea{
+    border-width: 1px;
+    font-family: Nexa;
+    font-size: 14px;
+    border-color: #aaaaaa;
+    border-style: solid;
+}
+
+.submit-btn{
+    background-color: #d3d3d3;
+    border: 1px solid;
+    border-radius: 1.5px;
+    border-color: #aaaaaa;
+    color: black;
+    display: block;
+    padding: 8px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 10%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-family: Nexa;
+}
