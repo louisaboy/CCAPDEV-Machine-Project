@@ -9,34 +9,41 @@ body{
 }
 
 .left-column{
-    width: 20%;
+    width: 17%;
     float: left;
     padding:20px;
     border-style: solid;
-    border-width: 2px;
-    border-left-color: #eeeeee;
-    border-right-color: #eeeeee;
+    border-width: 1.5px;
+    border-left-color: #e4e6eb;
+    border-right-color: #e4e6eb;
     border-top-color: #fafafa;
-    border-bottom-color: #fafafa;
+    border-bottom-color: #e4e6eb;
 }
 
 .right-column{
     float:right;
-    width:80%;
+    width:83%;
+    border-style: solid;
+    border-width: 1.5px;
+    border-left-color: #fafafa;
+    border-right-color: #e4e6eb;
+    border-top-color: #fafafa;
+    border-bottom-color: #e4e6eb;
 }
 
 .header-right {
     float: right;
     font-size: 16px;
     margin:14px;
+    text-decoration: none;
 }
 
 .profile-name{
-    background-color: #e1e7f5;
-    border-top-color: #ebebeb;
+    background-color: #eeeeee;
+    border-top-color: #e4e6eb;
     border-bottom-color: #1d439b;
-    border-left-color: #ebebeb;
-    border-right-color: #ebebeb;
+    border-left-color: #e4e6eb;
+    border-right-color: #e4e6eb;
     border-style: solid;
     border-width: 1px;
     font-size: 16px;
@@ -47,6 +54,85 @@ body{
 
 .profile-picture{
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 225px;
     height: 225px;
+    margin-bottom: 10px;
 }
+
+.information{
+    width: 100%;
+}
+
+.box{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin-bottom: 8px;
+    background-color: #d3d3d3;
+}
+
+.info-header{
+    background-color: #d3d3d3;
+    margin-top:20px;
+    padding-left: 20px;
+}
+
+.info{
+    border: 1.5px solid;
+    border-bottom-color: #e4e6eb;
+    border-top: white;
+    border-left: white;
+    border-right: white;
+}
+
+.status{
+    margin-top: 40px;
+}
+
+.button{
+    background-color: #d3d3d3;
+    border: 1px solid;
+    border-radius: 1.5px;
+    border-color: black;
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 230px;
+}
+
+.statistics{
+    margin-bottom: 20px;
+    padding-left: 10px;
+    display: table;
+    width: 100%;
+}
+
+h3{
+    border-color: #e4e6eb;
+    border-style: solid;
+    border-width: 0 0 1px;
+}
+
+h4{
+    border-color: #e4e6eb;
+    border-style: solid;
+    border-width: 0 0 1px;
+}
+
+.cartoon-stats{
+    display: table-cell;
+    padding-right: 0px;
+    width: 50%;
+}
+
+.update-stats{
+    display: table-cell;
+    padding-left: 0;
+    width: 50%;
+}
+
