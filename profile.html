@@ -64,16 +64,109 @@
         </div>
 
         <div class="right-column">
+            <h3> Statistics </h3>
+  
             <div class="statistics">
-                <h3> Statistics </h3>
-                
-                <div class="carton-stats">
+                <div class="tablecell">
                     <h4>Cartoon Stats</h4>
+                    <div style="display: block; font-size: 12px;">
+                        <ul style="float: left; width: 50%;">
+                            <il style="display: block;">
+                                <span style="float: left;"> Watching: </span>
+                                <span style="float: right;"> 0 </span><br>
+                            </il>
+                            <il style="display: block;">
+                                <span style="float: left;"> Completed: </span>
+                                <span style="float: right;"> 1 </span><br>
+                            </il>
+                            <il style="display: block;">
+                                <span style="float: left;"> On-Hold: </span>
+                                <span style="float: right;"> 0 </span><br>
+                            </il>
+                            <il style="display: block;">
+                                <span style="float: left;"> Dropped: </span>
+                                <span style="float: right;"> 0 </span><br>
+                            </il>
+                            <il style="display: block;">
+                                <span style="float: left;"> Plan to Watch: </span>
+                                <span style="float: right;"> 0 </span><br>
+                            </il>
+                        </ul>
+                        <ul style="float: right; width: 50%;">
+                            <il style="display: block;">
+                                <span style="float: left;"> Total Entries: </span>
+                                <span style="float: right;"> 1 </span><br>
+                            </il>
+                            <il style="display: block;">
+                                <span style="float: left;"> Episodes: </span>
+                                <span style="float: right;"> 274 </span><br>
+                            </il>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="update-stats">
+                <div class="tablecell">
                     <h4>Last Cartoon Updates</h4>
+                    <table>
+                        <tr>
+                            <td><img src="./CartoonPic/adventure-time.jpg" style="height: 85px; width: 55px;"></td>
+                            <td> <p>Adventure Time</p> <p style="font-size: 12px;"> April 12, 2021 </p> <p style="font-size: 12px;">Completed: <span style="color: blue; font-size: 12px;">274</span>/274 | Score: 9</p> </td>
+                        </tr>
+                    </table>
                 </div>
+            </div>
+
+            <h3> Favorites </h3>
+
+            <div class="favorites">
+                <div class="user-favorites">
+                    <div class="tablecell">
+                        <h4>Cartoon</h4>
+                        <table>
+                            <tr>
+                                <td><img src="./CartoonPic/adventure-time.jpg" style="height: 100px; width: 70px;"></td>
+                                <td> <p>Adventure Time</p> <p style="font-size: 12px;">2017</p> </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tablecell">
+                        <h4>Characters</h4>
+                        <table>
+                            <tr>
+                                <td><img src="./CharPic/Jake.jpg" style="height: 100px; width: 75px;"></td>
+                                <td> <p>Jake</p> <p style="font-size: 12px;">Adventure Time</p> </td>
+                            </tr>
+                            <tr>
+                                <td><img src="./CharPic/Finn.png" style="height: 100px; width: 70px;"></td>
+                                <td> <p>Finn</p> <p style="font-size: 12px;">Adventure Time</p> </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h3> Comments </h3>
+
+            <div>
+                <form style="padding-left: 8px;"> 
+                    <textarea class="txtarea" cols="60" rows="7" placeholder="Write a new comment" style="width: 60%; margin-bottom: 10px;"> </textarea>
+                    <input type="button" value="Submit Comment" class="submit-btn">
+                </form>
+
+            </div>
+
+            <div class="comments">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 5%;"><img src="./ProfilePic/Yotsubarashii.jpg" style="height: 70px; width: 70px; margin-left: 20px;"></td>
+                        <td> 
+                            <p class="right-text" style="font-size: 12px;"> April 12, 2021 8:12 PM </p>
+                            <p style="color: blue;">Yotsubarashii</p> 
+                            <a class="right-text" href="./edit-profile.html">Delete</a>
+                            <p style="font-size: 12px;"> Hi! Do you want to be friends? </p>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </body>
