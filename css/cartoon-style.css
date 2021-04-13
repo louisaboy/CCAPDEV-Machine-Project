@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap');
-
 body{
     font-family: Nexa;
     background-color: white;
@@ -37,7 +35,6 @@ body{
     font-size: 16px;
     margin:14px;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
 }
 
 .cartoon-name{
@@ -52,7 +49,8 @@ body{
     margin: 0;
     padding: 5px;
     text-align: left;
-    font-family: 'Poppins', sans-serif;
+    
+    font-family: 'Open Sans', sans-serif;
 }
 
 .cartoon-picture{
