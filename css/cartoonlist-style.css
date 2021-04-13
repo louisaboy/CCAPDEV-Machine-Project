@@ -1,0 +1,96 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+
+.profile-name{
+    background-color: #eeeeee;
+    border-top-color: #e4e6eb;
+    border-bottom-color: #1c4966;
+    border-left-color: #e4e6eb;
+    border-right-color: #e4e6eb;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 16px;
+    margin: 0;
+    padding: 5px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#content{
+    border-style: solid;
+    border-width: 0px 1px 1px;
+    border-color: #e4e6eb;
+}
+
+.editlist{
+    margin-bottom: 8px;
+    margin-top: 16px;
+    border-color: #1c4966;
+    border-style: solid;
+    border-width: 0 0 1.5px;
+    padding-left: 10px;
+}
+
+.txtfield{
+    box-sizing: border-box;
+    font-family: Nexa;
+    font-size: 16px;
+    border: solid 1px #d8d8d8;
+    border-radius: 2px;
+    display: block;
+    width: 50%;
+    color: #000;
+    padding: 10px 11px;
+    height: 44px;
+}
+
+.txtarea{
+    border-width: 1px;
+    font-family: Nexa;
+    font-size: 14px;
+    border-color: #d8d8d8;
+    border-style: solid;
+}
+
+.link{
+    text-decoration: none;
+    padding: 2px 8px;
+    float: right;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.active{
+    text-decoration: none;
+    background-color: #1c4966;
+    color: #fff;
+    padding: 2px 8px;
+    float: right;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+h3{
+    border-color: #e4e6eb;
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+.cartoonpic{
+    height: 170px; 
+    width: 120px;
+    margin-left: 20px;
+}
+
+table{
+    margin-bottom: 30px;
+}
+
+.pic{
+    width: 65%;
+    margin-left: 20px;
+}
