@@ -1,0 +1,204 @@
+body { 
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.medium-button {
+    background:    #25aae7;
+    border: 0;
+    border-radius: 11px;
+    padding:       15px 35px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal bold 19px/1 "Work Sans", sans-serif;
+    font-weight: 500;
+    text-align:    center;
+    cursor: pointer;
+}
+
+.TLLogo {
+    padding-right: 30px;
+}
+
+#all-cartoons {
+    display: relative;
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 2%;
+}
+  
+.dp {
+    width: 40px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #ffffff9d;
+}
+
+.fa-caret-down {
+    color: white;
+    padding-left: 10px;
+}
+
+header {
+    background-color: #23242421;
+    padding: 10px 10px;
+    position: relative;
+    height: 85px;
+    z-index: 4;
+}
+
+.header-left {
+    float: left;
+    text-align: left;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    left: 1%;
+    top: 7.5px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    float: right;
+    padding: 0px 20px;
+    padding-right: 60px;
+    top: 19%;
+}
+
+#sign-in-button {
+    background:    #30b4f1;
+    border:        0px;
+    border-radius: 4px;
+    padding:       8px 25px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          "Work Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-align:    center;
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    right: 80%;
+    transform: translate(-70%,-50%);
+    transition: width 1s;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    padding-right: 10px;
+}
+
+input{
+    position: absolute;
+    top: -20%;
+    right: -35%;
+    width: 100%;
+    height: 40px;
+    line-height: 0px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    padding-right: 50px;
+}
+
+.fa-search{
+    box-sizing: border-box;
+    padding: 10px;
+    padding-right: 80px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -20%;
+    right: -60%;
+    border-radius: 50%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.fa-search:hover {
+    color: black;
+}
+
+form:hover{
+    width: 200px;
+}
+
+form:hover input{
+    display: block;
+}
+
+#list-menu {
+    position: absolute;
+    top: 85%;
+    right: 80%;
+    display: none;
+    width: 155px;
+    background-color: white;
+}
+
+#list-menu ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 2px;
+    padding: 10px;
+}
+
+#list-menu li {
+    font-size: 14px;
+    padding: 5px;
+}   
+
+#add-list:hover + #list-menu {
+    display: block;
+}
+
+#list-menu:hover{
+    display: block;
+}
+
+.drop-down-menu {
+    position: absolute;
+    top: 67%;
+    right: 10%;
+    display: none;
+    width: 155px;
+    background-color: white;
+}
+
+.drop-down-menu ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 2px;
+    padding: 10px;
+}
+
+.drop-down-menu a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 130px;
+    padding: 10px;
+}
+
+.drop-down-menu a:hover, .drop-down-menu li:hover{background-color: rgba(238, 238, 238, 0.199);}
+
+#down:hover + .drop-down-menu {
+    display: block;
+}
+
+.drop-down-menu:hover{
+    display: block;
+}

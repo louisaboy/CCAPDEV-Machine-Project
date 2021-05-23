@@ -1,0 +1,31 @@
+<header>
+    <div class="header-left">
+        <a href="/"><img src="images/Pics/TLLogo.png" class="TLLogo" alt="ToonList"/></a>
+        <a href="/view-all" id="all-cartoons">All Cartoons</a>
+    </div>
+    <div class="header-right">
+        <form action="">
+            <input type="search" placeholder="Shows, users...">
+            <a href="/view-all"><i class="fa fa-search"></i></a>
+        </form>
+        {{#each users}}
+            {{#if user}} <!-- mongodb -->
+                <a href="/profile"><img class="dp" src="{{photo}}"/></a>
+                <div id="drop-down">
+                    <span id="down"><i class="fa fa-caret-down"></i></span>
+                    <div class="drop-down-menu">
+                        <ul>
+                            <li><a href="/profile">My List</a></li>
+                            <li><a href="/profile">Profile</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                            <li><a href="/help">Help Center</a></li>
+                            <li><a href="/">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {{else}}
+                <a href="/signup"><button id="sign-in-button">SIGN IN</button></a>
+            {{/if}}
+        {{/each}}
+    </div> 
+</header>  
