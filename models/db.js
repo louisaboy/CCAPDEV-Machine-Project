@@ -1,4 +1,7 @@
 const mongodb = require("mongodb");
+const dotenv = require('dotenv'); 
+
+dotenv.config(); 
 const client = mongodb.MongoClient;
 const url = 'group10-shard-00-00.oigyx.mongodb.net:27017';
 const options = { useUnifiedTopology: true}
