@@ -112,4 +112,6 @@ app.get('/settings', (req, res) => {
 //     cartoons.shows = cartoons.shows.sort(() => Math.random() - 0.5)
 // });
 
-app.listen(port, () => console.log(`App listening to port ${port}`));
+app.listen(port, () => {
+    console.log(`App listening to port ${port}`)
+});
