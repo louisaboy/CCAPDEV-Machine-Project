@@ -1,13 +1,21 @@
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     background-color: white;
+}
+
+h2 {
+    color: #25aae7;
+    font-family: 'Poppins';
+    font-size: 30px;
+    display: relative;
+    padding-left: 45%;
 }
 
 .profile-name{
     background-color: #eeeeee;
     border-top-color: #e4e6eb;
     border-bottom-color: #1c4966;
-    border-left-color: #e4e6eb;
+    border-left-color: #e4e6eb;     
     border-right-color: #e4e6eb;
     border-style: solid;
     border-width: 1px;
@@ -19,9 +27,8 @@ body{
 }
 
 #content{
-    border-style: solid;
-    border-width: 0px 1px 1px;
-    border-color: #e4e6eb;
+    display: grid;
+    grid-gap: 30px;
 }
 
 .navigation{
@@ -89,6 +96,8 @@ body{
 .settings-table {
   border-collapse:separate; 
   border-spacing: 0 1em;
+  display: flex;
+  justify-content: center;
 }
 
 .txtarea{

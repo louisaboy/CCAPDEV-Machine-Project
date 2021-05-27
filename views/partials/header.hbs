@@ -1,12 +1,12 @@
 <header>
     <div class="header-left">
         <a href="/"><img src="images/Pics/TLLogo.png" class="TLLogo" alt="ToonList"/></a>
-        <a href="/view-all" id="all-cartoons">All Cartoons</a>
+        <a href="/all-cartoons" id="all-cartoons">All Cartoons</a>
     </div>
     <div class="header-right">
         <form action="">
             <input type="search" placeholder="Shows, users...">
-            <a href="/view-all"><i class="fa fa-search"></i></a>
+            <a href="/all-cartoons"><i class="fa fa-search"></i></a>
         </form>
         {{#each users}}
             {{#if user}} <!-- mongodb -->
@@ -18,7 +18,7 @@
                             <li><a href="/profile">My List</a></li>
                             <li><a href="/profile">Profile</a></li>
                             <li><a href="/settings">Settings</a></li>
-                            <li><a href="/help">Help Center</a></li>
+                            <li><a href="/error">Help Center</a></li>
                             <li><a href="/">Log Out</a></li>
                         </ul>
                     </div>

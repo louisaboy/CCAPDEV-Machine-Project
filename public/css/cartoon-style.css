@@ -1,11 +1,11 @@
-body{
+* {
+    box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
     font-size: 14px;
-    background-color: white;
 }
 
-*{
-    box-sizing: border-box;
+body {
+    background-color: white;
 }
 
 .left-column{
@@ -29,13 +29,6 @@ body{
     border-right-color: #e4e6eb;
     border-top-color: #fafafa;
     border-bottom-color: #e4e6eb;
-}
-
-.header-right {
-    float: right;
-    font-size: 16px;
-    margin:14px;
-    text-decoration: none;
 }
 
 .cartoon-name{
@@ -70,23 +63,10 @@ body{
 .box{
     padding-top: .5rem;
     padding-bottom: .5rem;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     background-color: #d3d3d3d5;
 }
 
-.info-header{
-    background-color: #d3d3d3;
-    margin-top:20px;
-    padding-left: 20px;
-}
-
-.info{
-    border: 1.5px solid;
-    border-bottom-color: #e4e6eb;
-    border-top: white;
-    border-left: white;
-    border-right: white;
-}
 
 .status{
     margin-top: 40px;
@@ -107,19 +87,19 @@ body{
     width: 85%;
 }
 
+h2 {
+    bottom: 10px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
 h3{
     border-color: #e4e6eb;
     border-style: solid;
     border-width: 0 0 1px;
-    padding-left: 10px;
-    font-weight: normal;
-}
-
-h4{
-    border-color: #e4e6eb;
-    border-style: solid;
-    border-width: 0 0 1px;
-    font-weight: normal;
+    padding-left: 7px;
+    font-weight: bold;
+    color: rgba(22, 22, 22, 0.856);
 }
 
 .statistics{
@@ -149,10 +129,15 @@ h4{
     border-color: #d8d8d8;
     border-style: solid;
     border-width: 1px;
-    
 }
 
-.submit-btn{
+.submission-box{
+    padding-left: 20px;
+    padding-top: 6px;
+    height: 200px;
+}
+
+.submit-button{
     background-color: #d3d3d3;
     border: 1px solid;
     border-radius: 1.5px;
@@ -168,12 +153,12 @@ h4{
 }
 
 .comments{
-    background-color: #d3d3d32f;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 .comments tr {
-    border:        1px solid #ffffff;
+    border: 1px solid #ffffff;
 }
 
 .extension{

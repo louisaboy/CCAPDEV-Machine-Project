@@ -1,6 +1,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
     background-color: white;
+    margin: 0; padding: 0;
 }
 
 .profile-name{
@@ -16,12 +17,6 @@ body{
     padding: 5px;
     text-align: left;
     padding-left: 10px;
-}
-
-#content{
-    border-style: solid;
-    border-width: 0px 1px 1px;
-    border-color: #e4e6eb;
 }
 
 .link{
@@ -63,4 +58,58 @@ table{
 .pic{
     width: 65%;
     margin-left: 20px;
+}
+
+header {
+    height: 65px;
+}
+
+.cartoonpic {
+    width: 160px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+label:after {
+    content:"More";  
+  }
+  
+input:checked ~ label:after {
+content:"Less";  
+}
+
+.view-all1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    position: relative;
+    left: 46%;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+  color:#25aae7;
+  margin-top: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.inner {
+    padding-left: 40px;
+    padding-right: 80px;
+    padding-top: 15px;
+    display: inline-block;
+    justify-content: space-around;
+    align-content: space-around;
+  max-height:440px;
+  overflow:hidden;
+  transition:all .3s ease;
+  width:100%;
+}
+
+input:checked + .inner {
+  max-height:800px;
 }

@@ -4,6 +4,7 @@
     <!-- CARTOON INFORMATION (LEFT)-->
 
     <div class="left-column">
+         <h2> Adventure Time </h2>
         <div class="box">
             <img class="cartoon-picture" alt="Adventure Time" src="images/CartoonPic/adventure-time.jpg"> 
             <a href="http:www.youtube.com" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> Add Cartoon </a>
@@ -58,18 +59,18 @@
         <div style="padding-left: 30px">Netflix (Philippines)</div>
     </div>
 
-    <div class="right-column">
-        <h2> Adventure Time </h2>
+    {{!-- right --}}
 
+    <div class="right-column">
         <h3> Synopsis </h3>
-        <div style="padding-left: 10px">
+        <div style="padding-left: 20px">
             A 12-year-old boy and his best friend, wise 28-year-old dog with magical powers, 
             go on a series of surreal adventures with each other in a remote future.
         </div>
 
+        <h3>Cartoon Stats</h3>
         <div class="statistics">
             <div class="tablecell">
-                <h4>Cartoon Stats</h4>
                 <div style="font-size: 13px;">
                     <table style="width: 100%;">
                         <tr>
@@ -94,26 +95,26 @@
         </div>
  
         <h3> Notable Quotes </h3>
-        <div style="padding: 10px ">
+        <div style="padding: 0px 0px 15px 20px">
             “People get built different. We don’t need to figure it out, we just need to respect it.” - Princess Bubblegum
         </div>
-        <div style="padding: 10px">
+        <div style="padding: 0px 0px 15px 20px">
             “You don’t need a mirror to look good. You’re beautiful on the inside.” - Finn the Human
         </div>
-        <div style="padding: 10px">
+        <div style="padding: 0px 0px 15px 20px">
             “Sometimes life is scary and dark. That is why we must find the light.” - BMO
         </div>
 
         <h3> Reviews </h3>
-        {{!-- <div>
-            <form style="padding-left: 8px;"> 
-                <textarea class="txtarea" cols="60" rows="7" placeholder="Write a new comment" style="width: 60%; margin-bottom: 10px;"> </textarea>
-                <input type="button" value="Submit Comment" class="submit-btn">
-            </form>
-        </div> --}}
         
         <div class="comments">
             <table style="width: 100%;">
+                <div class="submission-box">
+                    <form style="padding-left: 8px;"> 
+                        <textarea class="txtarea" cols="60" rows="6" placeholder="Write a new comment" style="width: 60%; margin-bottom: 10px;"> </textarea>
+                    </form> 
+                    <a href="#"><button id="submit-button">Submit</button></a>
+                </div>
                 <tr>
                     <td style="width: 7.5%;"><img src="images/ProfilePic/mikuuu.jpg" class="comment-pic"></td>
                     <td> 
