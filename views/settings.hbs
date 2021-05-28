@@ -3,83 +3,14 @@
 <h2> Edit Profile </h2>
 
 <div id="content">
-    <div class="settings">
-        <div class="top-content">
-            <img src="images/ProfilePic/mikuuu.jpg" class="profile-picture"> 
-        </div>
-        <table class="settings-table" style="width: 100%;">
-            <tr>
-                <td style="width: 10%; padding-left: 10px;">
-                    <label> Profile Picture </label>
-                </td>
-                <td>
-                    <input type="button" value="Upload" class="upload-btn">
-                    <img src="images/ProfilePic/mikuuu.jpg" class="profile-picture">
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 10%; padding-left: 10px;">
-                    <label> Display Name </label>
-                    </td>
-                    <td>
-                    <input class="txtarea" type="text" autocomplete="off" value="mikuuu" style="width: 15%;">
-                    </td>
-            </tr>
-            <tr>
-                <td style="width: 10%; padding-left: 10px;">
-                    <label> Username </label>
-                    </td>
-                    <td>
-                    <input class="txtarea" type="text" autocomplete="off" value="ScottC" style="width: 15%;">
-                    </td>
-            </tr>
-            <tr>
-                <td style="width: 10%; padding-left: 10px;">
-                    <label> Email </label>
-                    </td>
-                    <td>
-                    <input class="txtarea" type="text" autocomplete="off" value="nicholas_scott_campos@dlsu.edu.ph" style="width: 15%;">
-                    </td>
-            </tr>
-            <tr>
-                <td style="width: 10%; padding-left: 10px;">
-                    <label> Location </label>
-                    </td>
-                    <td>
-                    <input class="txtarea" type="text" autocomplete="off" value="Philippines" style="width: 15%;">
-                    </td>
-            </tr>
-            <tr>
-                <td style="width: 10%; padding-left: 10px;">
-                    <label> Gender </label>
-                    </td>
-                    <td>
-                    <form> 
-                        <select class="txtarea" style="width: 10%;">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="none">-</option>
-                        </select>
-                    </form>
-                    </td>
-            </tr>
-            <tr>
-                <td style="width: 10%; padding-left: 10px;">
-                    <label> Date of Birth </label>
-                    </td>
-                    <td>
-                    <input class="txtarea" type="Date" style="width: 10%;">
-                    </td>
-            </tr>
-            <tr>
-                <td style="width: 10%; padding-left: 10px;">
-                    <label> About Me </label>
-                    </td>
-                    <td>
-                    <textarea class="txtarea" cols="60" rows="7" placeholder="Write a Message" style="width: 40%; margin-bottom: 10px;"> </textarea>
-                    </td>
-            </tr>
-        </table>
-    </div>
-    <input type="button" value="Submit" class="submit-btn">
+    <div class="prof-pic"> <img src="{{photo}}" class="profile-picture">  </div>
+    <div class="name-field"> <textarea class="txtarea" placeholder="Display Name - {{name}}" style="width: 160%;"></textarea></div>
+    <div class="user-field"> <textarea class="txtarea" placeholder="Username - {{user}}" style="width: 160%;"></textarea></div>
+    <div class="email-field"> <textarea class="txtarea" placeholder="Email - {{email}}" style="width: 120%;"></textarea></div>
+    <div class="pass-field"> <textarea class="txtarea" placeholder="New Password" style="width: 120%;"></textarea></div>
+    {{!-- <div class="pass-field"> <input type="password" placeholder="Current Password" autocomplete="off" class="txtarea"/> </div>
+    <div class="pass-field1"> <input type="password" placeholder="New Password" autocomplete="off" class="txtarea" style="width: 120%;"/> </div> --}}
+    <div class="bio-field"> <textarea class="txtarea" cols="60" rows="4" placeholder="Bio" style="width: 120%;"></textarea> </div>
+
+    <div class="buttoon"><input type="submit" value="Submit" class="submit-btn"></div>
 </div>

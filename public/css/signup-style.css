@@ -119,7 +119,7 @@ body{
 	border-color: #358efb;
 }
 
-.u-form-group button{
+.u-form-group submit{
 	width:50%;
 	background-color: #25aae7;
 	border: none;
@@ -131,6 +131,8 @@ body{
 	border-radius: 2px;
 	text-transform: uppercase;
 }
+
+.
 
 .forgot-password {
 	width:50%;
