@@ -1,7 +1,7 @@
-const db = require(`../models/db.js`);
+const db = require('../models/db.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const mongodb = require(`mongodb`);
+const mongodb = require('mongodb');
 
 // data for the featured show
 var shows = [ // transfer to mongodb(?)
@@ -72,9 +72,9 @@ const controller = {
         res.render('index', {
             layout: 'main', 
             cartoons: shows,
-            users: user,
             style: 'index-style.css',
-            headerStyle: 'header-home-style.css'
+            headerStyle: 'header-home-style.css',
+            users: sample
         });
     },
 
@@ -95,7 +95,7 @@ const controller = {
             users: user
         });
 
-        user.user = true;
+        
     },
 
     postRegister: function(req, res){
@@ -165,27 +165,38 @@ const controller = {
     },
     
     getAllCartoons: function (req, res) {
-        var cartoondb = 
-            {
-                photo: "",
-                name: "",
-                year: "",
-                genre: "",
-                star1: "fa fa-star",
-                star2: "fa fa-star",
-                star3: "fa fa-star",
-                star4: "fa fa-star",
-                star5: "fa fa-star",
-                synopsis: "",
-                file: ""
-            };
+        // var cartoondb = [
+        //     {
+        //         photo: "",
+        //         name: "",
+        //         year: "",
+        //         genre: "",
+        //         star1: "fa fa-star",
+        //         star2: "fa fa-star",
+        //         star3: "fa fa-star",
+        //         star4: "fa fa-star",
+        //         star5: "fa fa-star",
+        //         synopsis: "",
+        //         file: ""
+        //     }
+        // ];
         
+        db.findMany('ToonList.cartoons', {}, null, {}, function(result){
+            if (result != null){
+                console.log('Cartoons successfully acquired');
+                cartoons = result;
+                console.log(cartoons);
+            }
+            else   
+                console.log('Cartoons were not successfully acquired');
+        });
+
         res.render('all-cartoons', {
             layout: 'main',
             style: 'all-cartoons-style.css',
             headerStyle: 'header-style1.css',
             users: user,
-            cartoons: cartoons,
+            cartoons: shows,
             helpers:{
                 // Function to do basic mathematical operation in handlebar
                 math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
@@ -199,6 +210,15 @@ const controller = {
                     }[operator];
                 }
             }
+        });
+    },
+
+    getProfile: function(req, res){
+        res.render('profile', {
+            layout: 'main',
+            style: 'settings-style.css',
+            headerStyle: 'header-style1.css',
+            users: sample
         });
     },
 

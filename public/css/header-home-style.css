@@ -138,7 +138,7 @@ form:hover input{
 
 #list-menu {
     position: absolute;
-    top: 70%;
+    top: 50%;
     right: 80%;
     display: none;
     width: 155px;

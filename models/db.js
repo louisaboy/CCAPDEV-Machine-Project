@@ -15,7 +15,7 @@ createDatabase: function() {
         if (err) throw err;
         console.log('Database created.');
         db.close();
-    });
+    });DB
 },
 
 insertOne: function(collection, doc) {
@@ -58,27 +58,26 @@ insertMany : function(collection, docs) {
 },
 
 findOne: function(collection, query, callback){
-    client.connect(url, options, function(err, db){ 
-        if (err) throw err;
-        var database = db.db(dbName);  
-        database.collection(collection) 
-        .findOne(query, function(err, result){  
-            if (err) throw err;
-            return callback(result);
-        });
-    });
-},
-
-findMany: function(collection, query, sort=null, projection=null){
     client.connect(url, options, function(err, db){
-        if (err) throw err;
+        if (err) throw err; 
+        var database = db.db(dbName); 
+        database.collection(collection).findOne(query, function(err, result){
+            if (err) throw err; 
+            res = result; 
+            db.close(); 
+            return callback(result); 
+        }); 
+    }); 
+}, 
+
+findMany: function(collection, query, sort=null, projection=null, callback) {
+    client.connect(url, options, function (err, db) {
+        if(err) throw err;
         var database = db.db(dbName);
-        database.collection(collection)
-        .find(query, {projection: projection})
-        .sort(sort).toArray(function (err, result){
-            if (err) throw err;
-            console.log(result);
+        database.collection(collection).find(query, {projection: projection}).sort(sort).toArray(function (err, result) {
+            if(err) throw err;
             db.close();
+            return callback(result);
         });
     });
 },

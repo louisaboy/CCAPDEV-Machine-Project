@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const dotenv = require('dotenv');
+require('dotenv').config();
 const routes = require('./route/routes.js');
 const session = require('express-session');
 const app = express();
@@ -28,7 +28,6 @@ app.engine('hbs', handlebars({
     helpers: require('./public/js/handlebars-helpers.js')
 }));
 
-dotenv.config();
 
 //images, css, js files to be used by the server
 app.use(express.static('public'))
