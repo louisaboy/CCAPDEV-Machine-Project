@@ -7,10 +7,15 @@ body{
     box-sizing: border-box;
 }
 
+.profile-name {
+    color: #25aae7;
+    padding-left: 10px;
+}
+
 .left-column{
     width: 17%;
     float: left;
-    padding:20px;
+    
     border-style: solid;
     border-width: 1.5px;
     border-left-color: #e4e6eb;
@@ -30,11 +35,8 @@ body{
     border-bottom-color: #e4e6eb;
 }
 
-.header-right {
-    float: right;
-    font-size: 16px;
-    margin:14px;
-    text-decoration: none;
+.full-content {
+    position: absolute;
 }
 
 .profile-picture{
@@ -115,6 +117,7 @@ h4{
 .favorites{
     height: auto;
     position: relative;
+    bottom: 40px;
 }
 
 .user-favorites{
@@ -152,7 +155,7 @@ h4{
 }
 
 .comments{
-    background-color: #d3d3d3;
+    background-color: #d3d3d391;
     margin-bottom: 20px;
 }
 
@@ -171,10 +174,12 @@ h4{
 .comment-pic{
     width: 80%;
     margin-left: 20px;
+    border-radius: 0px;
+    padding-right: 16px;
 }
 
 .username-text{
-    color: blue; 
+    color: #25aae7; 
     text-decoration: none; 
     font-size: 16px;
 }
