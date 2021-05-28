@@ -1,5 +1,5 @@
 const db = require('../models/db.js');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mongodb = require('mongodb');
 
