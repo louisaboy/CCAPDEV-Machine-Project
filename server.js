@@ -14,7 +14,19 @@ app.engine('hbs', handlebars({
     extname: 'hbs',
     defaultLayout: 'main',
     partialsDir: __dirname + '/views/partials/',
-    helpers: require('./public/js/handlebars-helpers.js')
+    helpers:{
+        // Function to do basic mathematical operation in handlebar
+        math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
+            rvalue = parseFloat(rvalue);
+            return {
+                "+": lvalue + rvalue,
+                "-": lvalue - rvalue,
+                "*": lvalue * rvalue,
+                "/": lvalue / rvalue,
+                "%": lvalue % rvalue
+            }[operator];
+        }
+    }
 }));
 
 //images, css, js files to be used by the server
@@ -144,10 +156,7 @@ app.get('/all-cartoons', (req, res) => {
     });
 });
 
-// $(document).ready(function(){
-//     cartoons.shows = cartoons.shows.sort(() => Math.random() - 0.5)
-// });
-
 app.listen(port, () => {
     console.log(`App listening to port ${port}`)
+    shows = shows.sort(() => Math.random() - 0.5);
 });

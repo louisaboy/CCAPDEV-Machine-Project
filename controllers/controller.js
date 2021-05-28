@@ -4,7 +4,7 @@ const saltRounds = 10;
 const mongodb = require('mongodb');
 
 // data for the featured show
-var shows = [ // transfer to mongodb(?)
+var shows = [
     {
         photo: "images/CartoonPic/steven-featured.jpg",
         name: "Steven Universe",

@@ -34,7 +34,7 @@ h2 {
 }
 
 .email-field {
-    padding-top: 10px;
+    padding-top: 50px;
     grid-row-start: 3;
     grid-column: span 2;
 }
@@ -43,11 +43,11 @@ h2 {
     grid-row-start: 4;
     grid-column: span 2;
 }
-/* 
+ 
 .pass-field1 {
     grid-row-start: 5;
     grid-column: span 2;
-} */
+} 
 
 .bio-field {
     grid-row-start: 6;
@@ -136,8 +136,8 @@ h2 {
     text-align:center;
     cursor: pointer;
     width: 110px;
-    top: 360px;
-    right: 540px;
+    top: 420px;
+    right: 599px;
 }
 
 .pass{
