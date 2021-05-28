@@ -3,24 +3,15 @@
 <div id="content">
     <h3> Cartoons 
         <span>
-            <a href="#" class="link">Popularity</a>
-            <a href="#" class="link">Release Date</a>
-            <a href="#" class="link">Alphabetical</a>
+            <a href="/all-cartoons" class="link">Popularity</a>
+            <a href="/all-cartoons" class="link">Release Date</a>
+            <a href="/all-cartoons" class="link">Alphabetical</a>
         </span> 
     </h3>
 
     <div class = "inner">
         {{#each cartoons}}
-                <img src="images/CartoonPic/{{photo1}}" class="cartoonpic">
-                <img src="images/CartoonPic/{{photo1}}" class="cartoonpic">
-        {{/each}}
-        {{#each cartoons}}
-                <img src="images/CartoonPic/{{photo1}}" class="cartoonpic">
-                <img src="images/CartoonPic/{{photo1}}" class="cartoonpic">
-        {{/each}}
-        {{#each cartoons}}
-                <img src="images/CartoonPic/{{photo1}}" class="cartoonpic">
-                <img src="images/CartoonPic/{{photo1}}" class="cartoonpic">
+                <a href="{{file}}"><img src="images/CartoonPic/{{photo1}}" class="cartoonpic" style="cursor:pointer;"></a> 
         {{/each}}
     </div>
     <label class="view-all1" for="view-all"><input type="checkbox" class="view-all"/>View </label>

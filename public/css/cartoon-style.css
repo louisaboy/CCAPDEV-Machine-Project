@@ -188,3 +188,7 @@ h3{
 .footer-block{
     background-color: #d8d8d8;
 }
+
+.submit-button:active + .first-comment {
+    display:block;
+}

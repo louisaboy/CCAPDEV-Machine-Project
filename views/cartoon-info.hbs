@@ -4,10 +4,10 @@
     <!-- CARTOON INFORMATION (LEFT)-->
 
     <div class="left-column">
-         <h2> Adventure Time </h2>
+         <h2> {{title}} </h2>
         <div class="box">
             <img class="cartoon-picture" alt="Adventure Time" src="images/CartoonPic/adventure-time.jpg"> 
-            <a href="http:www.youtube.com" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> Add Cartoon </a>
+            <a href="#" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> Add Cartoon </a>
         </div>
 
         <div class="info">
@@ -18,15 +18,15 @@
                 </tr>
                 <tr>
                     <td>Episodes</td>
-                    <td style="text-align: right;">274</td>
+                    <td style="text-align: right;"> 274 </td>
                 </tr>
                 <tr style="background-color: #ECECEC;">
                     <td>Release Date</td>
-                    <td style="text-align: right;">April 5, 2010</td>
+                    <td style="text-align: right;"> April 5 2010 </td>
                 </tr>
                 <tr>
                     <td>Date Posted</td>
-                    <td style="text-align: right;">April 13, 2021</td>
+                    <td style="text-align: right;"> September 3 2018 </td>
                 </tr>
             </table>
         </div>
@@ -64,8 +64,7 @@
     <div class="right-column">
         <h3> Synopsis </h3>
         <div style="padding-left: 20px">
-            A 12-year-old boy and his best friend, wise 28-year-old dog with magical powers, 
-            go on a series of surreal adventures with each other in a remote future.
+            Adventure Time follows the adventures of a boy named Finn the Human , and his best friend and adoptive brother Jake the Dog, who has magical powers to change shape and size at will.
         </div>
 
         <h3>Cartoon Stats</h3>
@@ -75,11 +74,11 @@
                     <table style="width: 100%;">
                         <tr>
                             <td>Score</td>
-                            <td style="font-size: 20px"><b>8.90</b></td>                                    
+                            <td style="font-size: 20px"><b>9</b></td>                                    
                         </tr>
                         <tr>
                             <td>Ranking</td>
-                            <td style="font-size: 20px"><b>#1</b></td>
+                            <td style="font-size: 20px"><b>1</b></td>
                         </tr>
                         <tr>
                             <td>Popularity</td>
@@ -95,9 +94,12 @@
         </div>
  
         <h3> Notable Quotes </h3>
-        <div style="padding: 0px 0px 15px 20px">
-            “People get built different. We don’t need to figure it out, we just need to respect it.” - Princess Bubblegum
-        </div>
+
+        
+            {{!-- each <div style="padding: 0px 0px 15px 20px">
+                this
+            </div> --}}
+        
         <div style="padding: 0px 0px 15px 20px">
             “You don’t need a mirror to look good. You’re beautiful on the inside.” - Finn the Human
         </div>
@@ -116,25 +118,26 @@
 
         <div class="comments">
             <table style="width: 100%;">
+                {{!--
+                    <tr>
+                        <td style="width: 7.5%;"><img src="images/ProfilePic/mikuuu.jpg" class="comment-pic"></td>
+                        <td> 
+                            <p class="right-text" style="font-size: 12px;"> {{date}} </p>
+                            <p><a href="/profile" class="username-text">{{username}} </a></p> 
+                            {{!-- <a class="right-text" href="./profile.html">Delete</a> --}}
+                            <p style="font-size: 14px;"> {{comment}} </p>
+                            <p style="font-size: 14px;"> Rating: <b>{{score}}</b></p>
+                            <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
+                        </td>
+                    </tr>
+                 --}}
                 
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/mikuuu.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 12, 2021 9:12 PM </p>
-                        <p><a href="/profile" class="username-text">mikuuuu </a></p> 
-                        <a class="right-text" href="./profile.html">Delete</a>
-                        <p style="font-size: 14px;"> Highly Recommended! </p>
-                        <p style="font-size: 14px;"> Rating: <b>9</b></p>
-                        <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
-
-                    </td>
-                </tr>
                 <tr>
                     <td style="width: 7.5%;"><img src="images/ProfilePic/Ichika-chan.jpg" class="comment-pic"></td>
                     <td> 
                         <p class="right-text" style="font-size: 12px;"> April 12, 2021 7:12 PM </p>
                         <p><a href="http://www.twitter.com" class="username-text">Ichika-chan</a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
+                        
                         <p style="font-size: 14px;"> I wasn't able to finish the cartoon but it was worth watching! </p>
                         <p style="font-size: 14px;"> Rating: <b>8.9</b></p>
                         <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
@@ -145,7 +148,7 @@
                     <td> 
                         <p class="right-text" style="font-size: 12px;"> April 12, 2021 12:00 PM </p>
                         <p><a href="http://www.twitter.com" class="username-text"> Nakano_Itsuki </a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
+                        
                         <p style="font-size: 14px;"> I really like Adventure Time 💘 </p>
                         <p style="font-size: 14px;"> Rating: <b>8.9</b></p>
                         <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
@@ -156,7 +159,7 @@
                     <td> 
                         <p class="right-text" style="font-size: 12px;"> April 11, 2021 11:30 PM </p>
                         <p><a href="http://www.twitter.com" class="username-text">NakanoNino </a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
+                        
                         <p style="font-size: 14px;"> I hope they have another sequel soon! </p>
                         <p style="font-size: 14px;"> Rating: <b>8.9</b></p>
                         <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
@@ -173,6 +176,16 @@
                         <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
                     </td>
                 </tr>
+                {{!-- <tr class="first-comment" style="display:none;">
+                    <td style="width: 7.5%;"><img src="images/ProfilePic/{{username}}.jpg" class="comment-pic"></td>
+                    <td> 
+                        <p class="right-text" style="font-size: 12px;"> May 28, 2021 </p>
+                        <p><a href="/profile" class="username-text">{{username}}</a></p> 
+                        <a class="right-text" href="#">Delete</a>
+                        <p style="font-size: 14px;"> Hello </p>
+                        <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
+                    </td>
+                </tr> --}}
             </table>
         </div>
     </div>

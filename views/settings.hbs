@@ -4,15 +4,26 @@
 
 <div id="content">
     <div class="prof-pic"> <img src="{{photo}}" class="profile-picture">  </div>
-    <div class="name-field"> <textarea class="txtarea" placeholder="Display Name - {{name}}" style="width: 160%;"></textarea></div>
-    <div class="user-field"> <textarea class="txtarea" placeholder="Username - {{user}}" style="width: 160%;"></textarea></div>
+    <input type="file" id="my_file" style="display: block; left:520px; top:140px;" /> 
+    <div class="name-field"> <textarea class="txtarea" placeholder="Display Name - {{username}}" style="width: 160%;"></textarea></div>
+    <div class="user-field"> <textarea class="txtarea" placeholder="Username - {{username}}" style="width: 160%;"></textarea></div>
     <div class="email-field"> <textarea class="txtarea" placeholder="Email - {{email}}" style="width: 120%;"></textarea></div>
-    <div class="pass-field"> <textarea class="txtarea" placeholder="New Password" style="width: 120%;"></textarea></div>
+    <div class="pass-field"> <textarea class="txtarea" placeholder="Current Password" style="width: 120%;"></textarea></div>
+    <div class="pass-field1"> <textarea class="txtarea" placeholder="New Password" style="width: 120%;"></textarea></div>
     {{!-- <div class="pass-field"> <input type="password" placeholder="Current Password" autocomplete="off" class="txtarea"/> </div>
     <div class="pass-field1"> <input type="password" placeholder="New Password" autocomplete="off" class="txtarea" style="width: 120%;"/> </div> --}}
     <div class="bio-field"> <textarea class="txtarea" cols="60" rows="4" placeholder="Write a Message" style="width: 120%;"></textarea> </div>
 
     <div class="buttoon"><input type="submit" value="Submit" class="submit-btn"></div>
+    <div class="buttoon"><input type="submit" value="Delete" class="delete-btn"></div>
 </div>
 
-<script src="js/settings-script.js"></script>
+<script type=text/javascript>
+    $('buttoon').click(function(){
+        $("txtarea").val("");
+    })
+
+    $("input[type='image']").click(function() {
+        $("input[id='my_file']").click();
+    });
+</script>
