@@ -39,7 +39,7 @@ span, p {
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   text-shadow: 2px 2px 14px rgb(0, 0, 0, 12.0);
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 
 #featured-image {
@@ -79,50 +79,6 @@ span, p {
   padding-right: 5%;
 }
 
-#general-categories {
-  margin-top:95vh;
-  display: absolute;
-  margin-left: 0;
-  margin-right: 2.7%;
-}
-
-.show-categories {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  margin: 0;
-}
-
-.show-categories li {
-  font-family: "Poppins", sans-serif;
-  font-size: 40px;
-
-}
-
-.show-categories a:link {
-  color: black;
-}
-
-.show-categories a:hover {
-  color: #0d99da;
-}
-
-#cartoon-show {
-  display: absolute;
-  margin-top: 10vh;
-  margin-left: 10vh;
-  height: 191px;
-  width: 321px;
-  background-size: contain;
-  border-radius: 20px;
-}
-
 .fa-caret-right {
   padding-left: 10px;
-}
-
-.drop-down-menu {
-  font-family: 'Work Sans';
- background: white;
- cursor:pointer;
 }

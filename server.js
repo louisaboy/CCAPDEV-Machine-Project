@@ -69,7 +69,7 @@ var shows = [ // transfer to mongodb(?)
 // user
 var sample = [
     {
-        "user": false,
+        "user": true,
         "photo": "images/ProfilePic/mikuuu.jpg"
     }
 ]
@@ -115,7 +115,7 @@ app.get('/settings', (req, res) => {
 app.get('/profile', (req, res) => {
     res.render('profile', {
         layout: 'main',
-        style: 'settings-style.css',
+        style: 'profile-style.css',
         headerStyle: 'header-style1.css',
         users: sample
     });
