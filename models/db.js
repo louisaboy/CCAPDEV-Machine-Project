@@ -10,13 +10,13 @@ const dbName = 'ToonList';
 
 const database = {
 
-createDatabase: function() {
-    client.connect(url, options, function(err, db){
-        if (err) throw err;
-        console.log('Database created.');
-        db.close();
-    });DB
-},
+// createDatabase: function() {
+//     client.connect(url, options, function(err, db){
+//         if (err) throw err;
+//         console.log('Database created.');
+//         db.close();
+//     });
+// },
 
 insertOne: function(collection, doc) {
     client.connect(url, options, function (err, db) {
