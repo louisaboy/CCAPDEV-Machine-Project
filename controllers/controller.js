@@ -98,51 +98,51 @@ const controller = {
         
     },
 
-    postRegister: function(req, res){
-        var username = req.query.username;
-        db.findOne('users', {username: username}, function(result) {
-            if(result == null){
-                res.send('');
-            }else{
-                res.send(result);
-            }    
-        });
-    },
+    // postRegister: function(req, res){
+    //     var username = req.query.username;
+    //     db.findOne('users', {username: username}, function(result) {
+    //         if(result == null){
+    //             res.send('');
+    //         }else{
+    //             res.send(result);
+    //         }    
+    //     });
+    // },
 
-    loginUser: function(req, res){ 
-        console.log("went here");
-        var person ={
-            username: req.query.email,
-            password: req.query.password
-        }
-        console.log(person);
+    // loginUser: function(req, res){ 
+    //     console.log("went here");
+    //     var person ={
+    //         username: req.query.email,
+    //         password: req.query.password
+    //     }
+    //     console.log(person);
 
-        db.findOne('users', {username: person.username}, function(result){
-            if(result != null){
-                bcrypt.compare(person.password, result.password, function (error, isVerify){
-                    if (isVerify){
-                        console.log(result);
-                        isLogin = true;
-                        console.log('You have successfully logged in ' + result.username);
-                        user = result;
-                    } else {
-                        console.log("Wrong Password!");
-                    }
-                });
-            } else {    
-                console.log('Invalid credentials'); 
-                console.log(result);
-            }
-            res.send(result);
-        });
+    //     db.findOne('users', {username: person.username}, function(result){
+    //         if(result != null){
+    //             bcrypt.compare(person.password, result.password, function (error, isVerify){
+    //                 if (isVerify){
+    //                     console.log(result);
+    //                     isLogin = true;
+    //                     console.log('You have successfully logged in ' + result.username);
+    //                     user = result;
+    //                 } else {
+    //                     console.log("Wrong Password!");
+    //                 }
+    //             });
+    //         } else {    
+    //             console.log('Invalid credentials'); 
+    //             console.log(result);
+    //         }
+    //         res.send(result);
+    //     });
 
-        if(isLogin){
-            req.session.username = person.username;
-            console.log(req.session.username);
-            isSession = req.session.username;
-            console.log(isSession);
-        }
-    },
+    //     if(isLogin){
+    //         req.session.username = person.username;
+    //         console.log(req.session.username);
+    //         isSession = req.session.username;
+    //         console.log(isSession);
+    //     }
+    // },
 
     getCartoonInfo: function (req, res) {
         console.log(user[0]);
@@ -180,16 +180,15 @@ const controller = {
         //         file: ""
         //     }
         // ];
-        
-        db.findMany('ToonList.cartoons', {}, null, {}, function(result){
-            if (result != null){
-                console.log('Cartoons successfully acquired');
-                cartoons = result;
-                console.log(cartoons);
-            }
-            else   
-                console.log('Cartoons were not successfully acquired');
-        });
+        // db.findMany('ToonList.cartoons', {}, null, {}, function(result){
+        //     if (result != null){
+        //         console.log('Cartoons successfully acquired');
+        //         // var cartoons = result.title;
+        //         console.log(result);
+        //     }
+        //     else   
+        //         console.log('Cartoons were not successfully acquired');
+        // });
 
         res.render('all-cartoons', {
             layout: 'main',
@@ -221,24 +220,6 @@ const controller = {
             users: sample
         });
     },
-
-    editProfile: function(req, res){
-        if(isSession) {
-            db.updateOne('users', {username: user.username}, {$set: user = {
-                username: user.username,
-                fName: req.body.editfirstname,
-                lName: req.body.editlastname,
-                password: req.body.editpass,
-                email: req.body.editemail,
-                bday: req.body.editbday,
-                gender: req.body.gender,
-                profilepic: user.profilepic}});
-            console.log(user.gender);
-            res.redirect('/userprofile/'+ user.username);
-        } else {
-            res.redirect('/');
-        }
-    },   
 }
 
 module.exports = controller; 

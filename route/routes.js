@@ -9,8 +9,8 @@ route.get('/', controller.getIndex);
 route.get('/signup', controller.getSignup);
 route.get('/cartoon-info', controller.getCartoonInfo);
 route.get('/all-cartoons', controller.getAllCartoons);
-// route.get('/profile', controller.getProfile);
+route.get('/profile', controller.getProfile);
 route.get('/settings', controller.getSettings);
-route.get('/Login', controller.loginUser);
+// route.get('/Login', controller.loginUser);
 
 module.exports = route;

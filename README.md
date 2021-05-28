@@ -24,7 +24,7 @@ Files are properly placed and labeled on folders based on the MVC Framework.
 
 2. Run the command 'npm install' to install all corresponding node package manager modules used in the project
 
-3. After the installation, run the command 'node server.js'. the command is successful if it prompted 'App listening to port 3000'  in the command line
+3. After the installation, run the command 'node index.js'. the command is successful if it prompted 'The server is now running on Port 3000'  in the command line
 
 4. Open up any browser and type 'localhost:3000'
 

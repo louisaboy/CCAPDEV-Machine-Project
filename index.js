@@ -3,6 +3,8 @@ const path = require('path');
 require('dotenv').config();
 const routes = require('./route/routes.js');
 const session = require('express-session');
+// const mongoose = require('mongoose');
+// const MongoStore = require('connect-mongo')(session);
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true}));
