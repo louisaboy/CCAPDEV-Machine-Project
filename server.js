@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // load handlebars module
 const handlebars = require('express-handlebars');
@@ -139,4 +139,6 @@ app.get('/all-cartoons', (req, res) => {
 //     cartoons.shows = cartoons.shows.sort(() => Math.random() - 0.5)
 // });
 
-app.listen(port, () => console.log(`App listening to port ${port}`));
+app.listen(port, () => {
+    console.log(`App listening to port ${port}`)
+});

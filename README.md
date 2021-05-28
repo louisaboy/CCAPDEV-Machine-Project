@@ -28,4 +28,4 @@ Files are properly placed and labeled on folders based on the MVC Framework.
 
 4. Open up any browser and type 'localhost:3000'
 
-5. The browser would open ToonList's homepage containing a random featured cartoon, alongside it's synopsis and cartoon image. 
+5. The browser should first navigate to ToonList's homepage containing a random featured cartoon, alongside it's synopsis and cartoon image. 
