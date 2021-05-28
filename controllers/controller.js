@@ -109,35 +109,40 @@ const controller = {
         });
     },
 
-    // addUser: function(req, res){ //add user
-    //     var avatar;
-    //     if(req.query.gender == 'Male' || req.query.gender == 'Other'){
-    //         avatar = 'mavatar.jpg';
-    //     }else{
-    //         avatar = 'favatar.jpg';
-    //     }
+    loginUser: function(req, res){ 
+        console.log("went here");
+        var person ={
+            username: req.query.email,
+            password: req.query.password
+        }
+        console.log(person);
 
-    //     bcrypt.hash(req.query.password, 10, function (error, hash){
-    //         var person ={
-    //             email: req.qurt.email,
-    //             username: req.query.username,
-    //             birthday: req.query.birthday
-    //             fName: req.query.fName,
-    //             lName: req.query.lName,
-    //             password: hash,
-    //             email: req.query.email,
-    //             bday: req.query.bday,
-    //             gender: req.query.gender,
-    //             profilepic: avatar,
-    //             nw: " "
-    //         }
-    
-    //         db.insertOne('users', person);
-    
-    //         res.send(true);
-    //         console.log('You have been registered, ' + person.username + ' pw: ' + person.password);  
-    //     });
-    // },
+        db.findOne('users', {username: person.username}, function(result){
+            if(result != null){
+                bcrypt.compare(person.password, result.password, function (error, isVerify){
+                    if (isVerify){
+                        console.log(result);
+                        isLogin = true;
+                        console.log('You have successfully logged in ' + result.username);
+                        user = result;
+                    } else {
+                        console.log("Wrong Password!");
+                    }
+                });
+            } else {    
+                console.log('Invalid credentials'); 
+                console.log(result);
+            }
+            res.send(result);
+        });
+
+        if(isLogin){
+            req.session.username = person.username;
+            console.log(req.session.username);
+            isSession = req.session.username;
+            console.log(isSession);
+        }
+    },
 
     getCartoonInfo: function (req, res) {
         console.log(user[0]);
@@ -160,12 +165,27 @@ const controller = {
     },
     
     getAllCartoons: function (req, res) {
+        var cartoondb = 
+            {
+                photo: "",
+                name: "",
+                year: "",
+                genre: "",
+                star1: "fa fa-star",
+                star2: "fa fa-star",
+                star3: "fa fa-star",
+                star4: "fa fa-star",
+                star5: "fa fa-star",
+                synopsis: "",
+                file: ""
+            };
+        
         res.render('all-cartoons', {
             layout: 'main',
             style: 'all-cartoons-style.css',
             headerStyle: 'header-style1.css',
             users: user,
-            cartoons: shows,
+            cartoons: cartoons,
             helpers:{
                 // Function to do basic mathematical operation in handlebar
                 math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
