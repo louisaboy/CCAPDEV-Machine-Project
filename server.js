@@ -112,6 +112,15 @@ app.get('/settings', (req, res) => {
     });
 });
 
+app.get('/profile', (req, res) => {
+    res.render('profile', {
+        layout: 'main',
+        style: 'settings-style.css',
+        headerStyle: 'header-style1.css',
+        users: sample
+    });
+});
+
 app.get('/all-cartoons', (req, res) => {
     res.render('all-cartoons', {
         layout: 'main',

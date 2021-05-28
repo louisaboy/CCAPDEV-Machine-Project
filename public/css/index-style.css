@@ -39,7 +39,7 @@ span, p {
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   text-shadow: 2px 2px 14px rgb(0, 0, 0, 12.0);
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 #featured-image {
@@ -74,13 +74,13 @@ span, p {
 .fa-plus {
   color: white;
   position: relative;
-  top: 100%;
-  padding-top: 4%;
+  top: 105%;
+  padding-top: 9%;
   padding-right: 5%;
 }
 
 #general-categories {
-  margin-top: 95vh;
+  margin-top:95vh;
   display: absolute;
   margin-left: 0;
   margin-right: 2.7%;
@@ -119,4 +119,10 @@ span, p {
 
 .fa-caret-right {
   padding-left: 10px;
+}
+
+.drop-down-menu {
+  font-family: 'Work Sans';
+ background: white;
+ cursor:pointer;
 }

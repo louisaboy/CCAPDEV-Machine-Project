@@ -13,3 +13,10 @@ $("#login-box-link").click(function(){
   $("#login-box-link").addClass("active");
   $("#signup-box-link").removeClass("active");
 });
+
+$('submit-buttn').click(function(){
+  $("input:username").val("");
+  $("input:date").val("");
+  $("input:email").val("");
+  $("input:password").val("");
+})
