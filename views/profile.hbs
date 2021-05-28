@@ -1,14 +1,13 @@
-{{> header}}
+{{> header}} 
 
-<div class="profile-name">
-    <span> <p><b>mikuuu's Profile</b></p> </span>
-</div>  
-
-<div>
+<div class="full-content">
     <div class="left-column">
+        <div class="profile-name">
+            <span> <p><b>{{username}}'s Profile</b></p> </span>
+        </div> 
         <div class="box">
             <img class="profile-picture" src="images/ProfilePic/mikuuu.jpg"/> 
-            <a href="list.hbs" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> mikuuu's List </a>
+            <a href="/list" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> mikuuu's List </a>
         </div>
         <div class="info">
             <table class="information">
@@ -21,7 +20,7 @@
                     <td style="text-align: right;">Male</td>
                 </tr>
                 <tr>
-                    <td>Birtday</td>
+                    <td>Birthday</td>
                     <td style="text-align: right;">May 13, 2001</td>
                 </tr>
                 <tr style="background-color: #ECECEC;">
@@ -127,7 +126,7 @@
         <div class="favorites">
             <div class="user-favorites">
                 <div class="tablecell">
-                    <h4>Cartoon</h4>
+                    <h4>Favorite Cartoon</h4>
                     <table>
                         <tr>
                             <td>
@@ -150,24 +149,25 @@
                 <textarea class="txtarea" cols="60" rows="7" placeholder="Write a new comment" style="width: 60%; margin-bottom: 10px;"> </textarea>
                 <input type="button" value="Submit Comment" class="submit-btn">
             </form>
-
         </div>
 
         <div class="comments">
             <table style="width: 100%;">
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/Yotsubarashii.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 12, 2021 8:12 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text">Yotsubarashii </a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
-                        <p style="font-size: 14px;"> Nice list you got there 😍😍😍 </p>
-                        <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
+                {{#each users}}
+                    <tr>
+                        <td style="width: 7.5%;"><img src="images/ProfilePic/{{username}}.jpg" class="comment-pic"></td>
+                        <td> 
+                            <p class="right-text" style="font-size: 12px;"> {{date}} </p>
+                            <p><a href="http://www.twitter.com" class="username-text"> {{username}} </a></p> 
+                            {{!-- <a class="right-text" href="http://www.facebook.com">Delete</a> --}}
+                            <p style="font-size: 14px;"> {{comment}} </p>
+                            <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7.5%;"><img src="./ProfilePic/Ichika-chan.jpg" class="comment-pic"></td>
+                        </td>
+                    </tr>
+                {{/each}}
+                {{!-- <tr>
+                    <td style="width: 7.5%;"><img src="images/ProfilePic/Ichika-chan.jpg" class="comment-pic"></td>
                     <td> 
                         <p class="right-text" style="font-size: 12px;"> April 12, 2021 6:12 PM </p>
                         <p><a href="http://www.twitter.com" class="username-text">Ichika-chan</a></p> 
@@ -205,7 +205,7 @@
                         <p style="font-size: 14px;"> Hi! Do you want to be friends? </p>
                         <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
                     </td>
-                </tr>
+                </tr> --}}
             </table>
         </div>
     </div>
