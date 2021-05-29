@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
-const routes = require('./route/routes.js');
+const routes = require('./routes/routes.js');
 const session = require('express-session');
 // const mongoose = require('mongoose');
 // const MongoStore = require('connect-mongo')(session);

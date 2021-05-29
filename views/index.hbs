@@ -25,7 +25,7 @@
                             <li>Plan to Watch</li>
                         </ul>
                     </div>
-                    <a href="/cartoon-info">
+                    <a href="{{file}}">
                         <button class="medium-button">MORE INFO</button>
                     </a>
                 </div>
@@ -33,3 +33,94 @@
         </div>
     {{/if}}
 {{/each}}
+
+<!-- <script id="shows-template" type="text/x-handlebars-template">
+    <a href="{{file}}">
+        <div id="cartoon-show" style='background-image: url({{photo}})'>
+            <div id="show-info">
+                <h3>{{name}}</h3>
+                <span class="{{star1}}"></span>
+                <span class="{{star2}}"></span>
+                <span class="{{star3}}"></span>
+                <span class="{{star4}}"></span>
+                <span class="{{star5}}"></span>
+                <span class="{{star5}}"></span>
+            </div>
+            <i class="fa fa-caret-right"></i>
+        </div>
+    </a>
+</script> -->
+
+<!-- <footer class="footer">
+    <p>Questions?</p>
+    <div class="footer-cols">
+        <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Ways To Watch</a></li>
+            <li><a href="#">Corporate Information</a></li>
+            <li><a href="#">Originals</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Terms Of Use</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Redeem Gift Cards</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Speed Test</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Media Center</a></li>
+            <li><a href="#">Buy Gift Cards</a></li>
+            <li><a href="#">Cookie Preferences</a></li>
+            <li><a href="#">Legal Notices</a></li>
+        </ul>
+    </div>
+</footer> -->
+
+<!-- <ul id="general-categories" class="show-categories">
+    <li><a href="#">Latest</a></li>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Adventure</a></li>
+    <li><a href="#">Comedy</a></li>
+    <li><a href="#">Drama</a></li>
+</ul>
+
+<div id="show-carousel"></div> -->
+
+{{!-- <script id="header-template" type="text/x-handlebars-template">
+    <header>
+        <div class="header-left">
+            <a href="index.html"><img src="../Pics/TLLogo.png" class="TLLogo" alt="ToonList"/></a>
+            <a href="viewall-popularity.html" id="all-cartoons">All Cartoons</a>
+        </div>
+        <div class="header-right">
+            <form action=""> <!-- controller -->
+                <input type="search" placeholder="Shows, users...">
+                <a href="viewall-popularity.html"><i class="fa fa-search"></i></a>
+            </form>
+            {{#if user}}
+                <a href="{{link1}}.html"><img class="dp" src="{{photo}}"/></a>
+                <div id="drop-down">
+                    <span id="down"><i class="fa fa-caret-down"></i></span>
+                    <div class="drop-down-menu">
+                        <ul>
+                            <li><a href="profile-list.html">My List</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="settings.html">Settings</a></li>
+                            <li><a href="help-center.html">Help Center</a></li>
+                            <li><a href="index.html">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {{else}}
+                <a href="signup.html"><button id="sign-up-button">SIGN UP</button></a>
+                <a href="signin.html"><button id="sign-in-button">SIGN IN</button></a>
+            {{/if}}
+        </div> 
+    </header>    
+</script> --}}
