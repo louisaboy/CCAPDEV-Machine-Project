@@ -18,6 +18,9 @@ const user = mongoose.Schema({
         type: Date,
         required: true
     },
+    pfp:{
+        type: String
+    },
     favCartoon: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Cartoon'
