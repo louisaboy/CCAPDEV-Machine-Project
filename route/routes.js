@@ -1,5 +1,6 @@
 const express = require('express');
-
+const cloudinary = require("../util/cloud");
+const upload = require("../utils/multer");
 const controller = require('../controllers/controller.js');
 
 const route = express();
