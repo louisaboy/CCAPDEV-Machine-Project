@@ -1,4 +1,6 @@
-const db = require('../models/db.js');
+const db = require('../models/db1.js');
+const cartoons = require('../models/cartoons.js');
+const users = require('../models/user.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mongodb = require('mongodb');
@@ -76,6 +78,8 @@ const controller = {
             headerStyle: 'header-home-style.css',
             users: sample
         });
+        // let cartoon = 'agadsf';
+        
     },
 
     // addToList: function(req, res) {
@@ -95,7 +99,11 @@ const controller = {
             users: user
         });
 
-        
+        // var email = req.body.login-email;
+        // console.log(email);
+        db.findMany(users, {}, '', function (result) {
+            console.log(result.genre);
+        });
     },
 
     postRegister: function(req, res){

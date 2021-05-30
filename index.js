@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
+const cloud = require('cloudinary');
+const multer = require('multer');
 const routes = require('./routes/routes.js');
 const session = require('express-session');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const db = require('./models/db1.js');
 // const MongoStore = require('connect-mongo')(session);
 const app = express();
 const port = process.env.PORT || 3000;
@@ -68,6 +71,8 @@ app.use('/', routes);
 //     // render `../views/error.hbs`
     
 // });
+
+db.connect();
 
 app.listen(port, () => {
     console.log('The server is now running on Port ' + port);

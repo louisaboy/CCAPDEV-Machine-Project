@@ -12,7 +12,7 @@ const cartoons = mongoose.Schema({
         ref: 'Profile'
     },
     episodes: {
-        type: Int32,
+        type: Number,
         required: true
     },
     dateofrelease: {
@@ -24,7 +24,7 @@ const cartoons = mongoose.Schema({
         required: true
     },
     score: {
-        type: Date,
+        type: Number,
         required: true
     },
     Genre: [{
@@ -32,7 +32,7 @@ const cartoons = mongoose.Schema({
         required: true
     }],
     ranking: {
-        type: Int32,
+        type: Number,
         required: true
     },
     summary: {
