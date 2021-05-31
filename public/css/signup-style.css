@@ -7,11 +7,12 @@ body{
 .login-box{
 	position:relative;
 	margin: 10px auto;
-	margin-top: 20px;
+	margin-top: 10px;
 	width: 600px;
 	height: 380px;
 	background-color: white;
 	padding: 10px;
+	top: 20px;
 }
 
 .lb-header{
@@ -47,7 +48,7 @@ body{
 	justify-content: center;
 	width: 100%;
 	height:auto;
-	padding: 10px 0 2px 0;
+	padding: 0px;
 }
 
 .social-login a{
@@ -64,6 +65,7 @@ body{
 	margin: 0 3%;
 	text-align:center;
 }
+
 .social-login a i{
 	position: relative;
 	float: left;
@@ -92,10 +94,52 @@ body{
 	text-align:center;
 }
 
+.form-top {
+	position: relative;
+	left: 130px;
+	top: 10px;
+	display: grid;
+	justify-content: left;
+	width: 700px;
+	grid-auto-rows: 75px;
+	grid-auto-columns: 40px;
+}
+
+#profileImage {
+	position: relative;
+	top: 4px;
+	max-width: 100px;
+	max-height: 100px;
+	min-width: 120px;
+	min-height: 120px;
+	cursor: pointer;
+}
+
+#imageUpload{
+	display: none;
+}
+
+#grid-1 {
+	grid-row: span 2;
+	padding: 0px;
+}
+
+#grid-2 {
+	grid-row-start: 1;
+    grid-column-start: 2;
+	width: 400px;
+}
+
+#grid-3 {
+	grid-row-start: 2;
+    grid-column-start: 2;
+	width: 400px;
+}
+
 .u-form-group{
 	width:100%;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 13px;
+	grid-column: span 2;
 }
 
 .u-form-group input[type="email"],
@@ -103,7 +147,7 @@ body{
 .u-form-group input[type="date"],
 .u-form-group input[type="password"]{
 	width: calc(50% - 22px);
-	height:45px;
+	height: 45px;
 	outline: none;
 	border: 1px solid #ddd;
 	padding: 0 10px;
@@ -121,7 +165,6 @@ body{
 
 .u-form-group submit{
 	width:50%;
-	background-color: #25aae7;
 	border: none;
 	outline: none;
 	color: #fff;
@@ -132,12 +175,48 @@ body{
 	text-transform: uppercase;
 }
 
-.
+input:focus:invalid {
+	border:1px solid red;
+}
 
 .forgot-password {
 	width:50%;
 	text-align: left;
 	text-decoration: underline;
 	color: #888;
+	font-size: 0.75rem;
+}
+
+.submit-buttn {
+	background:#25aae7;
+    border: 0;
+    border-radius: 5px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          19px/1 "Work Sans", sans-serif;
+    font-weight: 300;
+    text-align:center;
+    cursor: pointer;
+    width: 170px;
+	height: 40px;
+}
+
+.submit-buttn1 {
+	background:#25aae7;
+    border: 0;
+    border-radius: 5px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          19px/1 "Work Sans", sans-serif;
+    font-weight: 300;
+    text-align:center;
+    cursor: pointer;
+    width: 170px;
+	height: 40px;
+}
+
+label {
+	width:50%;
+	text-align: left;
 	font-size: 0.75rem;
 }

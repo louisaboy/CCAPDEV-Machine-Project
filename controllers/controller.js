@@ -6,7 +6,7 @@ const saltRounds = 10;
 const mongodb = require('mongodb');
 
 // data for the featured show
-var shows = [ // transfer to mongodb(?)
+var shows = [
     {
         photo: "images/CartoonPic/steven-featured.jpg",
         name: "Steven Universe",
@@ -56,7 +56,7 @@ var user = [
         password: "",
         birthday: "",
         email: "",
-        photo: "images/ProfilePic/default.jpg",
+        photo: "images/ProfilePic/DefaultPic.jpg",
         favcartoon: []
     }
 ]
@@ -78,8 +78,8 @@ const controller = {
             headerStyle: 'header-home-style.css',
             users: sample
         });
-        // let cartoon = 'agadsf';
-        
+        // let cartoon = 'agadsf';       
+        shows = shows.sort(() => Math.random() - 0.5)
     },
 
     // addToList: function(req, res) {
@@ -247,6 +247,15 @@ const controller = {
             res.redirect('/');
         }
     },   
+
+    getList: function(req, res){
+        res.render('list', {
+            layout: 'main',
+            style: 'settings-style.css',
+            headerStyle: 'header-style1.css',
+            users: sample
+        });
+    },
 }
 
 module.exports = controller; 

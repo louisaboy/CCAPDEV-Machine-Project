@@ -15,7 +15,6 @@ body{
 .left-column{
     width: 17%;
     float: left;
-    
     border-style: solid;
     border-width: 1.5px;
     border-left-color: #e4e6eb;
