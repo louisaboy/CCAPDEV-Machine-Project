@@ -14,9 +14,32 @@ $("#login-box-link").click(function(){
   $("#signup-box-link").removeClass("active");
 });
 
-$('submit-buttn').click(function(){
-  $("input:username").val("");
-  $("input:date").val("");
-  $("input:email").val("");
-  $("input:password").val("");
-})
+// $('submit-buttn').click(function(){
+//   $("input:username").val("");
+//   $("input:date").val("");
+//   $("input:email").val("");
+//   $("input:password").val("");
+// })
+
+function picPreview(uploader) {
+  if ( uploader.files && uploader.files[0] ){
+        $('#profileImage').attr('src', 
+           window.URL.createObjectURL(uploader.files[0]) );
+  }
+}
+
+$("#imageUpload").change(function(){
+  picPreview( this );
+});
+
+$("#profileImage").click(function(e) {
+  $("#imageUpload").click();
+});
+
+// $("#email-signup").validate({
+//   rules: {
+//       password_confirm: { 
+//            equalTo: "#password"
+//       }
+//   }
+// });

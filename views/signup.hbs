@@ -24,49 +24,69 @@
 
   <form class="email-login">
     <div class="u-form-group">
+<<<<<<< Updated upstream
       <input type="email" name="login-email" placeholder="Email"/>
     </div>
 
     <div class="u-form-group">
       <input type="password" name="login-password" placeholder="Password"/>
+=======
+      <input type="email" placeholder="Email" required=""/>
     </div>
 
     <div class="u-form-group">
-      <input class="submit-buttn" type="submit" value="Log In">
+      <input type="password" placeholder="Password" required=""/>
+>>>>>>> Stashed changes
     </div>
 
     <div class="u-form-group">
       <a href="#" class="forgot-password">Forgot password?</a>
     </div>
 
+    <div class="u-form-group">
+      <input class="submit-buttn" type="submit" value="Log In">
+    </div>
   </form>
 
-  <form class="email-signup">
-    <div class="u-form-group">
-      <input type="email" placeholder="Email"/>
+  <form class="email-signup" id="email-signup">
+    <div class="form-top">
+      <image id="profileImage" src="images/Pics/DefaultPic.png"/>
+      <input id="imageUpload" type="file"
+         name="profile_photo" placeholder="Photo" optional="" accept="image/*">
+      <div class="u-form-group" id="grid-2">
+        <input type="email" placeholder="Email" optional=""/>
+      </div>
+      <div class="u-form-group" id="grid-3">
+        <input type="username" placeholder="Username" required=""/>
+      </div>
     </div>
 
     <div class="u-form-group">
-      <input type="username" placeholder="Username"/>
+      <input type="date" placeholder="Birthday" required=""/>
     </div>
 
     <div class="u-form-group">
-      <input type="date" placeholder="Birthday"/>
+      <input id = "password" type="password" placeholder="Password" required="" minlength="7"/>
+    </div>
+
+    {{!-- <div class="u-form-group">
+      <input id = "password_confirm" type="password" placeholder="Confirm Password" required="" minlength="7"/>
+    </div> --}}
+
+    <div class="u-form-group">
+      <input id="checkbox" type="checkbox" required=""/>
+      <label for="checkbox"> I agree to ToonList's <a href="#">Terms and Conditions</a>.</label>
     </div>
 
     <div class="u-form-group">
-      <input type="password" placeholder="Password"/>
+      <input class="submit-buttn1" type="submit" value="Submit">
     </div>
-
-    <div class="u-form-group">
-      <input type="password" placeholder="Confirm Password"/>
-    </div>
-
-    <div class="u-form-group">
-      <input class="submit-buttn" type="submit" value="Submit">
-    </div>
-
   </form>
 </div>
+<<<<<<< Updated upstream
 </body>
 <script src="../js/signup-script.js"></script>
+=======
+
+<script src="js/signup-script.js"></script>
+>>>>>>> Stashed changes
