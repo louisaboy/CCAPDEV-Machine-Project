@@ -80,6 +80,23 @@ const controller = {
         });
         // let cartoon = 'agadsf';
         
+        var user1 = {
+            username: 'asdfasd',
+            email: 'asdfas@gmail.com',
+            password: 'asdfa',
+            birthday: 'asdfa',
+            pfp: 'asdfa',
+            favCartoon: ''
+        }
+
+        db.insertOne(users, user1, function(flag) {
+            
+                console.log(flag);
+            
+        });
+        db.findMany(users, {}, '', function (result) {
+            console.log(result.genre);
+        });
     },
 
     // addToList: function(req, res) {
@@ -229,7 +246,15 @@ const controller = {
             users: sample
         });
     },
-
+    
+    getSignup: function(req, res){
+        res.render('signup', {
+            layout: 'main',
+            style: 'signup-style.css',
+            headerStyle: 'header-signup-style.css',
+            users: sample
+        });
+    },
     editProfile: function(req, res){
         if(isSession) {
             db.updateOne('users', {username: user.username}, {$set: user = {
