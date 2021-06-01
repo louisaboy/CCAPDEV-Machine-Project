@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
-<<<<<<< HEAD
-const url = 'mongodb+srv://CCAPDEV_group10:easypeasy@group10.oigyx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-=======
 const url = process.env.DB_URL;
->>>>>>> 721474c9833b97df5022fa4cb20a12dc6aa81c0d
 const cartoons = require('./cartoons.js');
 const user = require('./user.js');
 const options ={
