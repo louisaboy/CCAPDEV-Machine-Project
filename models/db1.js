@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://CCAPDEV_group10:easypeasy@group10-shard-00-00.oigyx.mongodb.net:27017,group10-shard-00-01.oigyx.mongodb.net:27017,group10-shard-00-02.oigyx.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-9ol7d5-shard-0&authSource=admin&retryWrites=true&w=majority';
+const url = 'mongodb+srv://CCAPDEV_group10:easypeasy@group10.oigyx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const cartoons = require('./cartoons.js');
 const user = require('./user.js');
 const options ={

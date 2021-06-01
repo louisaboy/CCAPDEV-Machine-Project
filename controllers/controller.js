@@ -78,7 +78,6 @@ const controller = {
             headerStyle: 'header-home-style.css',
             users: sample
         });
-<<<<<<< HEAD
         // let cartoon = 'agadsf';
         
         var user1 = {
@@ -89,19 +88,20 @@ const controller = {
             pfp: 'asdfa',
             favCartoon: ''
         }
-
+        console.log("hello");
+        db.findOne(users, {}, '', function(person){
+            console.log("HIII" + person);
+        });
         db.insertOne(users, user1, function(flag) {
             
-                console.log(flag);
+                console.log('asdf' + flag);
             
         });
         db.findMany(users, {}, '', function (result) {
             console.log(result.genre);
         });
-=======
         // let cartoon = 'agadsf';       
         shows = shows.sort(() => Math.random() - 0.5)
->>>>>>> f61ab3ee535628137be98b139a5d68531c175c00
     },
 
     // addToList: function(req, res) {
@@ -114,13 +114,14 @@ const controller = {
     //     const {term} = req.query;
     // }
     getSignup: function(req, res){
+        console.log("hello");
         res.render('signup', {
             layout: 'main',
             style: 'signup-style.css',
             headerStyle: 'header-signup-style.css',
             users: user
         });
-
+        
         // var email = req.body.login-email;
         // console.log(email);
         db.findMany(users, {}, '', function (result) {
