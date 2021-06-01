@@ -1,31 +1,48 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose")
 
-const cartoonReview = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
-    username: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Profile'
-    },
-    title: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Cartoon'
-    },
-    score: {
-        type: Int32Array,
-        required: true
-    },
-    review: {
-        type: String,
-        required: true
-    },
-    status: {
-        type: String,
-        default: Watching
-    },
-    date: {
-        type: Date,
-        default: Date.now,
-    },
+var reviewSchema = mongoose.Schema({
+    title: String,
+    username: String,
+    review: String,
+    score: Number,
+    status: String,
+    date: Date
 })
 
-module.exports = mongoose.model('Review', cartoonReview);
+var Review = mongoose.model("review", reviewSchema)
+
+exports.create = function(review){
+    return new Promise(function(resolve,reject){
+        console.log(review)
+        var r = new Review(review)
+
+        r.save().then((newReview)=>{
+            console.log(newReview)
+            resolve(newReview)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.getAll = function(){
+    return new Promise(function(resolve, reject){
+        Review.find().then((reviews)=>{
+            console.log(reviews)
+            resolve(reviews)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.getPostingReviews = function(title){
+    return new Promise(function(resolve, reject){
+        Review.find({postID:postingID}).then((reviews)=>{
+            console.log(reviews)
+            resolve(reviews)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
