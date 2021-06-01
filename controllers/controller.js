@@ -78,7 +78,6 @@ const controller = {
             headerStyle: 'header-home-style.css',
             users: sample
         });
-<<<<<<< HEAD
         // let cartoon = 'agadsf';
         
         var user1 = {
@@ -98,10 +97,8 @@ const controller = {
         db.findMany(users, {}, '', function (result) {
             console.log(result.genre);
         });
-=======
         // let cartoon = 'agadsf';       
         shows = shows.sort(() => Math.random() - 0.5)
->>>>>>> f61ab3ee535628137be98b139a5d68531c175c00
     },
 
     // addToList: function(req, res) {

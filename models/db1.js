@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://CCAPDEV_group10:easypeasy@group10-shard-00-00.oigyx.mongodb.net:27017,group10-shard-00-01.oigyx.mongodb.net:27017,group10-shard-00-02.oigyx.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-9ol7d5-shard-0&authSource=admin&retryWrites=true&w=majority';
+const url = process.env.DB_URL;
 const cartoons = require('./cartoons.js');
 const user = require('./user.js');
 const options ={
@@ -16,67 +16,61 @@ const database = {
         });
     },
 
-    insertOne: function(model, doc, callback) {
+    insertOne: function(model, doc) {
         model.create(doc, function(error, result) {
-            if(error) return callback(false);
-            console.log('Added ' + result);
-            return callback(true);
+          if(error) throw error;
         });
-    },
-
-    insertMany: function(model, docs, callback) {
+      },
+      insertOneCallback: function(model, doc, callback) {
+        model.create(doc, function(error, result) {
+          if(error) return callback(false);
+          return callback(result);
+        });
+      },
+      insertMany: function(model, docs) {
         model.insertMany(docs, function(error, result) {
-            if(error) return callback(false);
-            console.log('Added ' + result);
-            return callback(true);
+          if(error) return callback(false);
+          return callback(true);
         });
-    },
-
-    findOne: function(model, query, projection, callback) {
-        model.findOne(query, projection, function(error, result) {
-            if(error) return callback(false);
-            return callback(result);
+      },
+      findOne: function(model, query, callback) {
+        model.findOne(query, '', function(error, result) {
+          if(error) return callback(false);
+          return callback(result);
         });
-    },
-
-    findMany: function(model, query, projection, callback) {
-        model.find(query, projection).lean().exec(function(error, result) {
-            if(error) return callback(false);
-            return callback(result);
+      },
+      findMany: function(model, query, callback) {
+        model.find(query, '', function(error, result) {
+          if(error) return callback(false);
+          return callback(result);
         });
-    },
-
-    updateOne: function(model, filter, update, callback) {
+      },
+      deleteOne: function(model, filter) {
+        model.deleteOne(filter, function(error, result) {
+          if(error) throw error;
+        });
+      },
+      deleteMany: function(model, filter) {
+        model.deleteMany(filter, function(error, result) {
+          if(error) throw error;
+        });
+      },
+      findOneAndUpdate: function(model, filter, update, callback) {
+        model.findOneAndUpdate(filter, update, {returnOriginal:false}, function (error, result) {
+          if(error) throw err;
+          return callback(result);
+        });
+      },
+      updateOne: function(model, filter, update) {
         model.updateOne(filter, update, function(error, result) {
-            if(error) return callback(false);
-            console.log('Document modified: ' + result.nModified);
-            return callback(true);
+          if(error) throw error;
         });
-    },
-
-    updateMany: function(model, filter, update, callback) {
+      },
+      updateMany: function(model, filter, update) {
         model.updateMany(filter, update, function(error, result) {
-            if(error) return callback(false);
-            console.log('Documents modified: ' + result.nModified);
-            return callback(true);
+          if(error) throw error;
         });
-    },
-
-    deleteOne: function(model, conditions, callback) {
-        model.deleteOne(conditions, function (error, result) {
-            if(error) return callback(false);
-            console.log('Document deleted: ' + result.deletedCount);
-            return callback(true);
-        });
-    },
-
-    deleteMany: function(model, conditions, callback) {
-        model.deleteMany(conditions, function(error, result) {
-            if(error) return callback(false);
-            console.log('Document deleted: ' + result.deletedCount);
-            return callback(true);
-        });
-    }
+      }
 }
 
 module.exports = database;

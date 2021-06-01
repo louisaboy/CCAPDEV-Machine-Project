@@ -1,52 +1,69 @@
-const { Int32 } = require('bson');
-const mongoose = require('mongoose');
+const mongoose = require("mongoose")
 
-const cartoons = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
-    title: {
-        type: String,
-        required: true
-    },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Profile'
-    },
-    episodes: {
-        type: Number,
-        required: true
-    },
-    dateofrelease: {
-        type: Date,
-        required: true
-    },
-    dateoflastrelease: {
-        type: Date,
-        required: true
-    },
-    score: {
-        type: Number,
-        required: true
-    },
-    Genre: [{
-        type: String,
-        required: true
-    }],
-    ranking: {
-        type: Number,
-        required: true
-    },
-    summary: {
-        type: String,
-        required: true
-    },
-    shortsummary: {
-        type: String,
-        required: true
-    },
-    notablequotes: [{
-        type: String,
-        required: true
-    }]
-});
+var cartoonSchema = mongoose.Schema({
+    title: String,
+    episodes: Number,
+    dateofrelease: Date,
+    dateoflastrelease: Date,
+    score: Number,
+    ranking: Number,
+    summary: String,
+    shortsummary: String,
+    path: String
+}) 
 
-module.exports = mongoose.model('Cartoon', cartoons);
+var Cartoon = mongoose.model("cartoon", cartoonSchema)
+
+exports.create = function(cartoon){
+    return new Promise(function(resolve, reject){
+        console.log(cartoon)
+        var g = new Game(cartoon)
+
+        g.save().then((newCartoon)=>{
+            console.log(newCartoon)
+            resolve(newCartoon)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.get = function(id){
+    return new Promise(function(resolve, reject){
+        Cartoon.findOne({_id:id}).then((cartoon)=>{
+            resolve(cartoon)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.getTitle = function(title){
+    return new Promise(function(resolve, reject){
+        Cartoon.findOne({title:title}).then((cartoon)=>{
+            resolve(cartoon)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.getAll = function(){
+    return new Promise(function(resolve, reject){
+      Cartoon.find().then((cartoons)=>{
+        resolve(cartoons)
+      }, (err)=>{
+        reject(err)
+      })
+    })
+  }
+
+  exports.edit = function(id, cartoon){
+    return new Promise(function(resolve, reject){
+        Cartoon.findOneAndUpdate({_id:id}, cartoon).then((cartoon)=>{
+            resolve(cartoon)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
