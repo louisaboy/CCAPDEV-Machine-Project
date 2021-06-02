@@ -11,7 +11,8 @@ body {
 .left-column{
     width: 17%;
     float: left;
-    padding:20px;
+    padding-left:20px;
+    padding-right:20px;
     border-style: solid;
     border-width: 1.5px;
     border-left-color: #e4e6eb;
@@ -23,12 +24,13 @@ body {
 .right-column{
     float:right;
     width:83%;
-    border-style: solid;
-    border-width: 1.5px;
+    border-left: solid 1.5px;
+    border-top: solid 1.5px;
+    border-right: solid 1.5px;
     border-left-color: #e4e6eb;
     border-right-color: #e4e6eb;
     border-top-color: #fafafa;
-    border-bottom-color: #e4e6eb;
+    height: 580px;
 }
 
 .cartoon-name{
@@ -89,8 +91,8 @@ body {
 
 h2 {
     bottom: 10px;
-    padding-left: 30px;
-    font-size: 16px;
+    padding-left: 41px;
+    font-size: 14px;
 }
 
 h3{
@@ -129,27 +131,6 @@ h3{
     border-color: #d8d8d8;
     border-style: solid;
     border-width: 1px;
-}
-
-.submission-box{
-    padding-left: 20px;
-    padding-top: 6px;
-    height: 200px;
-}
-
-.submit-button{
-    background-color: #d3d3d3;
-    border: 1px solid;
-    border-radius: 1.5px;
-    border-color: #d8d8d8;
-    color: black;
-    display: block;
-    padding: 8px 0;
-    text-align: center;
-    text-decoration: none;
-    width: 12%;
-    margin-bottom: 20px;
-    font-family: Nexa;
 }
 
 .comments{
@@ -191,4 +172,91 @@ h3{
 
 .submit-button:active + .first-comment {
     display:block;
+}
+
+.clearfix {
+	clear: both;
+}
+
+section h1, p, textarea, li, button {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 1em;
+	font-weight: 400;
+	font-family: 'Open Sans', sans-serif;
+}
+
+section { 
+	width: 400px;
+	margin: 0 auto;
+    position: absolute;
+    left: 249px;
+}
+
+section textarea {
+	width: 100%;
+	height: 70px;
+	padding: 5px;
+	outline: none;
+	font-size: 80%;
+	resize: vertical;
+	margin-bottom: 20px;
+	border: 1px solid #0EBFE9;
+	border-bottom: 4px solid #63D1F4;
+}
+
+section p {
+	float: left;
+	line-height: 30px;
+}
+
+section span {
+	font-weight: bold;
+}
+
+section button {
+	border: 0;
+	width:	30%;
+	color: #fff;
+	height: 35px;
+	float: right;
+	outline: none;
+	cursor: pointer;
+	font-weight: 700;
+	background-color: #0EBFE9;
+	border-bottom: 3px solid #63D1F4;
+}
+
+section button:hover {
+	background-color: #0099CC;
+	border-bottom: 3px solid #00688B;
+}
+
+section button:disabled {
+	background-color: #d3d3d3 ;
+	border-bottom: 3px solid #d3d3d3;
+}
+
+section ul {
+	margin-top: 60px;
+	list-style: none;
+	padding-left: 0px;
+}
+
+section ul li {
+	padding: 10px 10px;
+  word-wrap: break-word;
+	border-bottom: 3px solid #25aae7;
+    width: 1100px;
+}
+
+section ul li:hover {
+	border-bottom: 3px solid #00688B;
+}
+
+.share-fb {
+    position: relative;
+    left: 30px;
+    top: 6px;
 }

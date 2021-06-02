@@ -9,15 +9,15 @@
 <div class="login-box">
     <form class="email-signup" id="email-signup">
         <div class="form-top">
-        <image id="profileImage" src="images/ProfilePic/{{username}}.jpg"/>
-        <input id="imageUpload" type="file"
-            name="profile_photo" placeholder="Photo" optional="" accept="image/*">
-        <div class="u-form-group" id="grid-2">
-            <input type="email" placeholder="Email ({{email}})" optional=""/>
-        </div>
-        <div class="u-form-group" id="grid-3">
-            <input type="username" placeholder="Username ({{username}})" optional=""/>
-        </div>
+            <image id="profileImage" src="images/ProfilePic/DefaultPic.png"/>
+            <input id="imageUpload" type="file"
+                name="profile_photo" placeholder="Photo" optional="" accept="image/*">
+            <div class="u-form-group" id="grid-2">
+                <input type="email" placeholder="Email ({{email}})" optional=""/>
+            </div>
+            <div class="u-form-group" id="grid-3">
+                <input type="username" placeholder="Username ({{username}})" optional=""/>
+            </div>
         </div>
 
         <div class="u-form-group">
@@ -37,17 +37,17 @@
 
 <script>
     function picPreview(uploader) {
-  if ( uploader.files && uploader.files[0] ){
-        $('#profileImage').attr('src', 
-           window.URL.createObjectURL(uploader.files[0]) );
+        if ( uploader.files && uploader.files[0] ){
+            $('#profileImage').attr('src', 
+            window.URL.createObjectURL(uploader.files[0]) );
+            }
         }
-    }
 
-    $("#imageUpload").change(function(){
-        picPreview( this );
-    });
+        $("#imageUpload").change(function(){
+            picPreview( this );
+        });
 
-    $("#profileImage").click(function(e) {
-        $("#imageUpload").click();
+        $("#profileImage").click(function(e) {
+            $("#imageUpload").click();
     });
 </script>

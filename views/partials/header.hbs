@@ -9,8 +9,8 @@
             <input type="search" placeholder="Shows, users...">
             <a href="/all-cartoons"><i class="fa fa-search"></i></a>
         </form>
-        {{#each users}}
-            {{#if user}} <!-- mongodb -->
+        {{#with users}}
+            {{#if user}}
                 <a href="/profile"><img class="dp" src="{{photo}}"/></a>
                 <div id="drop-down">
                     <span id="down"><i class="fa fa-caret-down"></i></span>
@@ -27,6 +27,6 @@
             {{else}}
                 <a href="/signup"><button id="sign-in-button">SIGN IN</button></a>
             {{/if}}
-        {{/each}}
+        {{/with}}
     </div> 
 </header>  

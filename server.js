@@ -109,7 +109,7 @@ app.get('/settings', (req, res) => {
     res.render('settings', {
         layout: 'main',
         style: 'settings-style.css',
-        headerStyle: 'header-style1.css',
+        headerStyle: 'header-signup-style.css',
         users: sample
     });
 });
