@@ -67,14 +67,14 @@ var shows = [
     }
 ]
 
-function durationValidation(cart){
-    if(cart.duration > 0){
-        return true
-    }
-    else{
-        return false
-    }
-}
+// function durationValidation(cart){
+//     if(cart.duration > 0){
+//         return true
+//     }
+//     else{
+//         return false
+//     }
+// }
 
 router.use(urlencoder)
 
@@ -111,6 +111,7 @@ router.use(urlencoder)
 // })
 
 router.get("/", function(req, res){
+    console.log("Homepage running...")
     res.render('index', {
         layout: 'main', 
         cartoons: shows,
@@ -118,8 +119,11 @@ router.get("/", function(req, res){
         headerStyle: 'header-home-style.css',
         users: cur_user
     });
+    Cartoon.getTitle("SpongeBob SquarePants").then((exists)=>{
+        console.log(exists);
+    })
     // cur_user.user = true;
-    console.log(cur_user.user);
+    
     // cartowner = req.session.email
     // Cart.getAll().then((tempitems)=>{
     //     let items = []
