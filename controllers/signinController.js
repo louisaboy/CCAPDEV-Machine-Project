@@ -1,8 +1,9 @@
 const express = require("express")
 const router = express.Router()
 const User = require("../models/user")
-const cartoonReview = require("../models/cartoonReview")
-const profileComment = require("../models/profileComment")
+const Cartoon = require("../models/cartoons")
+const Review = require("../models/cartoonReview")
+const Comment = require("../models/profileComment")
 const bodyparser = require("body-parser")
 
 const app = express()
@@ -45,6 +46,16 @@ function validation(user){
         return false
     }
 }
+
+router.get("/", function(req, res){
+    console.log("Sign-up running...");
+    res.render('signup', {
+        layout: 'main',
+        style: 'signup-style.css',
+        headerStyle: 'header-signup-style.css',
+        // users: sample
+    });
+})
 
 router.post("/register", function(req, res){
     var user = {
