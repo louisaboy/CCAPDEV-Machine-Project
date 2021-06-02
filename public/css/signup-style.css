@@ -220,3 +220,7 @@ label {
 	text-align: left;
 	font-size: 0.75rem;
 }
+
+.buttonss {
+	display: flex;
+}

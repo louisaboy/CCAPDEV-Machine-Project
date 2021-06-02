@@ -4,7 +4,8 @@
     <!-- CARTOON INFORMATION (LEFT)-->
 
     <div class="left-column">
-         <h2> {{title}} </h2>
+         <h2> Adventure Time </h2>
+         
         <div class="box">
             <img class="cartoon-picture" alt="Adventure Time" src="images/CartoonPic/adventure-time.jpg"> 
             <a href="#" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> Add Cartoon </a>
@@ -31,8 +32,11 @@
             </table>
         </div>
 
+        <a href="https://www.facebook.com/sharer/sharer.php?u=toon-list.herokuapp.com/cartoon-info" class="share-fb">Share To Facebook</a>
+
         <h3> List of Sites </h3>
-        <a style="padding-left: 30%" 
+        
+        <a style="padding-left: 40%" 
             href="https://www.netflix.com/search?q=adventure%20time&jbv=70241425" target="_blank"><img alt="Netflix" 
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAyVBMVEX///+wHyTmHiWqAACcHB/
             kAACvGyDpHiWzKi+0LTKzKC2vFx2aHB+vFhy1Mze2Njr+9vemHSGWAACoHiLlABC3PD/KHSPlDRi+VFbmFx/
@@ -55,7 +59,7 @@
             YMNHjavXcgfnuIabjasXSmDgGm41rrQOxjV80jw7lWda2DFUOvgA1XC42zzTOhjKME2Ho6ur8/Pzfr/
             fMoyukyQZjxeT2az69B8AGO6OhkGr/GsjV1vTj/99+vzly83R4fvW3fbh0d7xyeW7i9P57R8xWdnOvj7AS/
             5JNtPpx0+fb27aTjor27NXH67nyW97YYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEII+TX8D7rcbtCnK+1DAAAAAElFTkSuQmCC" 
-            height="30%" width="30%"></a>
+            height="15%" width="15%"></a>
         <div style="padding-left: 30px">Netflix (Philippines)</div>
     </div>
 
@@ -68,6 +72,7 @@
         </div>
 
         <h3>Cartoon Stats</h3>
+
         <div class="statistics">
             <div class="tablecell">
                 <div style="font-size: 13px;">
@@ -108,85 +113,16 @@
         </div>
 
         <h3> Reviews </h3>
-        
-        <div>
-            <form style="padding-left: 8px;"> 
-                <textarea class="txtarea" cols="60" rows="7" placeholder="Write a new comment" style="width: 60%; margin-bottom: 10px;"> </textarea>
-                <input type="button" value="Submit Comment" class="submit-btn">
-            </form>
-        </div>
 
-        <div class="comments">
-            <table style="width: 100%;">
-                {{!--
-                    <tr>
-                        <td style="width: 7.5%;"><img src="images/ProfilePic/mikuuu.jpg" class="comment-pic"></td>
-                        <td> 
-                            <p class="right-text" style="font-size: 12px;"> {{date}} </p>
-                            <p><a href="/profile" class="username-text">{{username}} </a></p> 
-                            {{!-- <a class="right-text" href="./profile.html">Delete</a> --}}
-                            <p style="font-size: 14px;"> {{comment}} </p>
-                            <p style="font-size: 14px;"> Rating: <b>{{score}}</b></p>
-                            <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
-                        </td>
-                    </tr>
-                 --}}
-                
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/Ichika-chan.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 12, 2021 7:12 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text">Ichika-chan</a></p> 
-                        
-                        <p style="font-size: 14px;"> I wasn't able to finish the cartoon but it was worth watching! </p>
-                        <p style="font-size: 14px;"> Rating: <b>8.9</b></p>
-                        <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/Nakano_Itsuki.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 12, 2021 12:00 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text"> Nakano_Itsuki </a></p> 
-                        
-                        <p style="font-size: 14px;"> I really like Adventure Time 💘 </p>
-                        <p style="font-size: 14px;"> Rating: <b>8.9</b></p>
-                        <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/NakanoNino.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 11, 2021 11:30 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text">NakanoNino </a></p> 
-                        
-                        <p style="font-size: 14px;"> I hope they have another sequel soon! </p>
-                        <p style="font-size: 14px;"> Rating: <b>8.9</b></p>
-                        <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/Yotsubarashii.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 11, 2021 2:12 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text">Yotsubarashii </a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
-                        <p style="font-size: 14px;"> I really recommend this cartoon to other people </p>
-                        <p style="font-size: 14px;"> Rating: <b>8.9</b></p>
-                        <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr>
-                {{!-- <tr class="first-comment" style="display:none;">
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/{{username}}.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> May 28, 2021 </p>
-                        <p><a href="/profile" class="username-text">{{username}}</a></p> 
-                        <a class="right-text" href="#">Delete</a>
-                        <p style="font-size: 14px;"> Hello </p>
-                        <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr> --}}
-            </table>
+        <section>
+			<textarea class="commentBox" placeholder="..." type="textarea"></textarea>
+			<button>Post</button>
+			<ul class="clearfix comments">
+			</ul>
+		</section>
+
         </div>
     </div>
 </div>     
+
+<script src="js/cartoon-script.js"></script>
