@@ -9,7 +9,7 @@ const app = express();
 
 mongoose.Promise = global.Promise;
 
-MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/ToonList"
+MONGO_URI = process.env.MONGO_URI || "mongodb://CCAPDEV_group10:easypeasy@group10-shard-00-00.oigyx.mongodb.net:27017,group10-shard-00-01.oigyx.mongodb.net:27017,group10-shard-00-02.oigyx.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-9ol7d5-shard-0&authSource=admin&retryWrites=true&w=majority"
 const port = process.env.PORT || 3000;
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
@@ -48,4 +48,5 @@ app.use(require("./controllers"));
 
 app.listen(port , function(){
     console.log("The server is now running on " + port);
+    console.log("Connected Database: " + MONGO_URI);
 })
