@@ -87,6 +87,7 @@ header {
     font-weight: 400;
     text-align:    center;
     top: 20%;
+    cursor: pointer;
 }
 
 form {
