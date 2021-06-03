@@ -55,6 +55,8 @@ router.get("/", function(req, res){
         headerStyle: 'header-signup-style.css',
         // users: sample
     });
+
+    console.log(req.body.email);
 })
 
 router.post("/register", function(req, res){

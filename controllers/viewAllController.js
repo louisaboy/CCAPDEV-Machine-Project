@@ -20,7 +20,8 @@ router.get("/", function(req, res){
     console.log("All Cartoons running...");
     
     Cartoon.getAll().then((tempcartoons)=>{
-        console.log(tempcartoons)
+        console.log("1")
+        // console.log(tempcartoons)
         tempcartoons.sort(function(a, b){
             if(a.title < b.title)
                 return -1;
@@ -44,28 +45,30 @@ router.get("/", function(req, res){
             
             shows.push(temp)
         }
+        
+        console.log("2");
+        res.render('all-cartoons', {
+            layout: 'main',
+            style: 'all-cartoons-style.css',
+            headerStyle: 'header-style1.css',
+            // users: sample,
+            cartoons: shows,
+            helpers:{
+                // Function to do basic mathematical operation in handlebar
+                math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
+                    rvalue = parseFloat(rvalue);
+                    return {
+                        "+": lvalue + rvalue,
+                        "-": lvalue - rvalue,
+                        "*": lvalue * rvalue,
+                        "/": lvalue / rvalue,
+                        "%": lvalue % rvalue
+                    }[operator];
+                }
+            }
+        });
     })
     
-    res.render('all-cartoons', {
-        layout: 'main',
-        style: 'all-cartoons-style.css',
-        headerStyle: 'header-style1.css',
-        // users: sample,
-        cartoons: shows,
-        helpers:{
-            // Function to do basic mathematical operation in handlebar
-            math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
-                rvalue = parseFloat(rvalue);
-                return {
-                    "+": lvalue + rvalue,
-                    "-": lvalue - rvalue,
-                    "*": lvalue * rvalue,
-                    "/": lvalue / rvalue,
-                    "%": lvalue % rvalue
-                }[operator];
-            }
-        }
-    });
 })
 
 router.get('/by-popularity', function (req, res) {
