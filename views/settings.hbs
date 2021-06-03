@@ -9,23 +9,27 @@
 <div class="login-box">
     <form class="email-signup" id="email-signup">
         <div class="form-top">
-            <image id="profileImage" src="images/ProfilePic/DefaultPic.png"/>
-            <input id="imageUpload" type="file"
-                name="profile_photo" placeholder="Photo" optional="" accept="image/*">
+            <image id="profileImage" src="images/ProfilePic/{{username}}.png"/>
+            {{!-- <input id="imageUpload" type="file"
+                name="profile_photo" placeholder="Photo" optional="" accept="image/*"> --}}
             <div class="u-form-group" id="grid-2">
-                <input type="email" placeholder="Email ({{email}})" optional=""/>
+                <input type="email" name="settings-email" placeholder="Email ({{email}})" optional=""/>
             </div>
             <div class="u-form-group" id="grid-3">
-                <input type="username" placeholder="Username ({{username}})" optional=""/>
+                <input type="username" name="settings-user" placeholder="Username ({{username}})" optional=""/>
             </div>
         </div>
 
         <div class="u-form-group">
-            <textarea class="txtarea" cols="60" rows="7" placeholder="Bio" style="margin-top: 5px; resize:none;"></textarea> 
+            <input type="text" name="settings-pic" id="imgurl" placeholder="image URL" optional=""/>
         </div>
 
         <div class="u-form-group">
-            <input id = "password" type="password" placeholder="Password" optional="" minlength="7"/>
+            <textarea class="txtarea" name="settings-bio" cols="60" rows="7" placeholder="Bio" style="margin-top: 5px; resize:none;"></textarea> 
+        </div>
+
+        <div class="u-form-group">
+            <input id = "password" name="settings-pass" type="password" placeholder="Password" optional="" minlength="7"/>
         </div>
 
         <div class="u-form-group" id="buttonss">
@@ -36,6 +40,15 @@
 </div>
 
 <script>
+    $(document).ready(function(){
+        $("#imgurl").keyup(function(){
+            var inputVal = $(this).val();
+            $("#profileImage").attr("src", inputVal);
+        });
+    }); 
+</script>
+
+{{!-- <script>
     function picPreview(uploader) {
         if ( uploader.files && uploader.files[0] ){
             $('#profileImage').attr('src', 
@@ -50,4 +63,4 @@
         $("#profileImage").click(function(e) {
             $("#imageUpload").click();
     });
-</script>
+</script> --}}

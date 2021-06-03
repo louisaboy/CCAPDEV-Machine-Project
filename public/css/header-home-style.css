@@ -160,10 +160,12 @@ form:hover input{
 
 #add-list:hover + #list-menu {
     display: block;
+    cursor: pointer;
 }
 
 #list-menu:hover{
     display: block;
+    cursor: pointer;
 }
 
 .drop-down-menu {

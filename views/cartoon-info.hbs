@@ -4,11 +4,21 @@
     <!-- CARTOON INFORMATION (LEFT)-->
 
     <div class="left-column">
-         <h2> Adventure Time </h2>
+         <h2> {{title}} </h2>
          
         <div class="box">
-            <img class="cartoon-picture" alt="Adventure Time" src="images/CartoonPic/adventure-time.jpg"> 
-            <a href="#" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> Add Cartoon </a>
+            <img class="cartoon-picture" src="images/CartoonPic/{{title}}.jpg"> 
+            <a href="#" class="button"> 
+                <img src="https://static.thenounproject.com/png/576517-200.png" 
+                style="width: 12px; height: 12px;"> Add Cartoon </a>
+            <div id="list-menu" class="drop-down-menu">
+                <ul>
+                    <li>Watching</li>
+                    <li>On Hold</li>
+                    <li>Dropped</li>
+                    <li>Plan to Watch</li>
+                </ul>
+            </div>
         </div>
 
         <div class="info">
@@ -19,15 +29,15 @@
                 </tr>
                 <tr>
                     <td>Episodes</td>
-                    <td style="text-align: right;"> 274 </td>
+                    <td style="text-align: right;"> {{episodes}} </td>
                 </tr>
                 <tr style="background-color: #ECECEC;">
                     <td>Release Date</td>
-                    <td style="text-align: right;"> April 5 2010 </td>
+                    <td style="text-align: right;"> {{dateofrelease}} </td>
                 </tr>
                 <tr>
                     <td>Date Posted</td>
-                    <td style="text-align: right;"> September 3 2018 </td>
+                    <td style="text-align: right;"> {{dateoflastrelease}} </td>
                 </tr>
             </table>
         </div>
@@ -68,7 +78,7 @@
     <div class="right-column">
         <h3> Synopsis </h3>
         <div style="padding-left: 20px">
-            Adventure Time follows the adventures of a boy named Finn the Human , and his best friend and adoptive brother Jake the Dog, who has magical powers to change shape and size at will.
+            {{summary}}
         </div>
 
         <h3>Cartoon Stats</h3>
@@ -79,16 +89,16 @@
                     <table style="width: 100%;">
                         <tr>
                             <td>Score</td>
-                            <td style="font-size: 20px"><b>9</b></td>                                    
+                            <td style="font-size: 20px"><b>{{score}}</b></td>                                    
                         </tr>
                         <tr>
                             <td>Ranking</td>
-                            <td style="font-size: 20px"><b>1</b></td>
+                            <td style="font-size: 20px"><b>{{ranking}}</b></td>
                         </tr>
-                        <tr>
+                        {{!-- <tr>
                             <td>Popularity</td>
                             <td style="font-size: 20px"><b>#1</b></td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <td>Members</td>
                             <td style="font-size: 20px">10</td>
@@ -100,24 +110,60 @@
  
         <h3> Notable Quotes </h3>
 
-        
-            {{!-- each <div style="padding: 0px 0px 15px 20px">
-                this
-            </div> --}}
-        
-        <div style="padding: 0px 0px 15px 20px">
+        {{#each cartoons}}
+            <div style="padding: 0px 0px 15px 20px">
+                {{this.notablequotes}}
+            </div> 
+        {{/each}}
+
+        {{!-- <div style="padding: 0px 0px 15px 20px">
             “You don’t need a mirror to look good. You’re beautiful on the inside.” - Finn the Human
         </div>
         <div style="padding: 0px 0px 15px 20px">
             “Sometimes life is scary and dark. That is why we must find the light.” - BMO
-        </div>
+        </div> --}}
 
         <h3> Reviews </h3>
 
         <section>
-			<textarea class="commentBox" placeholder="..." type="textarea"></textarea>
-			<button>Post</button>
+            <form>
+                <textarea name="cartoon-comment" class="commentBox" placeholder="..." type="textarea"></textarea>
+                <label for="rate" style="font-family: 'Work Sans'; color: #25aae7;">Rating:</label>
+                <select name="cartoon-rate" id="ratings">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select> 
+                <button type="submit">Post</button>
+            </form>
 			<ul class="clearfix comments">
+                {{#each cartoonReview}}
+                    {{#if @first}} 
+                        <li class="item">
+                            <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
+                                <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
+                            <p class="username-text">{{username}} ({{score}}):</p>
+                            <p>{{review}}</p>
+                            {{!-- <p class="edt-bt right-text">Edit</p>
+                            <p class="dlt-bt right-text">Delete</p> --}}
+                        </li>
+                    {{/if}}
+                {{/each}}
+                <li class="item" style="display: none;"> {{!-- sample lang weak --}}
+                    <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
+                        <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
+                    <p class="username-text"> <h4 class="username-text"> Yes (</h4> <h4 class="rate1 username-text"> 10 </h4> <h4 class="username-text lasttext">):</h4></p>
+                    <textarea class="cmnt" readonly>Galing mo talaga Allen</textarea>
+                    <p class="edt-bt right-text">Edit</p>
+                    <p class="dlt-bt right-text">Delete</p>
+                </li>
 			</ul>
 		</section>
 

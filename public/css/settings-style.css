@@ -21,6 +21,7 @@ h2 {
 .u-form-group input[type="username"],
 .u-form-group input[type="date"],
 .u-form-group input[type="password"],
+.u-form-group input[type="text"],
 .u-form-group textarea{
 	width: calc(50% - 22px);
 	height: 45px;

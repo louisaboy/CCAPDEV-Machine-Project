@@ -24,11 +24,11 @@
 
   <form class="email-login" action="signup/register">
     <div class="u-form-group">
-      <input type="email" placeholder="Email" required=""/>
+      <input type="email" name="login-email" placeholder="Email" required=""/>
     </div>
 
     <div class="u-form-group">
-      <input type="password" placeholder="Password" required=""/>
+      <input type="password" name="login-pass" placeholder="Password" required=""/>
     </div>
 
     <div class="u-form-group">
@@ -43,22 +43,26 @@
   <form class="email-signup" id="email-signup">
     <div class="form-top">
       <image id="profileImage" src="images/Pics/DefaultPic.png"/>
-      <input id="imageUpload" type="file"
-         name="profile_photo" placeholder="Photo" optional="" accept="image/*">
+      {{!-- <input id="imageUpload" type="file"
+         name="profile_photo" placeholder="Photo" optional="" accept="image/*"> --}}
       <div class="u-form-group" id="grid-2">
-        <input type="email" placeholder="Email" optional=""/>
+        <input type="email" name="signup-email" placeholder="Email" optional=""/>
       </div>
       <div class="u-form-group" id="grid-3">
-        <input type="username" placeholder="Username" required=""/>
+        <input type="username" name="signup-user" placeholder="Username" required=""/>
       </div>
     </div>
 
     <div class="u-form-group">
-      <input type="date" placeholder="Birthday" required=""/>
+      <input type="text" name="signup-pic" id="imgurl" placeholder="image URL" optional=""/>
     </div>
 
     <div class="u-form-group">
-      <input id = "password" type="password" placeholder="Password" required="" minlength="7"/>
+      <input type="date" name="signup-bday" placeholder="Birthday" required=""/>
+    </div>
+
+    <div class="u-form-group">
+      <input id = "password" name="signup-pass" type="password" placeholder="Password" required="" minlength="7"/>
     </div>
 
     {{!-- <div class="u-form-group">
@@ -66,7 +70,7 @@
     </div> --}}
 
     <div class="u-form-group">
-      <input id="checkbox" type="checkbox" required=""/>
+      <input id="checkbox" name="signup-box" type="checkbox" required=""/>
       <label for="checkbox"> I agree to ToonList's <a href="#">Terms and Conditions</a>.</label>
     </div>
 
