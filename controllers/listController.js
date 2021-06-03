@@ -43,7 +43,7 @@ router.get("/", function(req, res){
         }
     })
 
-    res.render('cartoon-info.hbs', {
+    res.render('all-cartoons.hbs', {
         layout: 'main',
         style: 'cartoon-style.css',
         headerStyle: 'header-style.css',

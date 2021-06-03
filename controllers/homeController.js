@@ -119,9 +119,7 @@ router.get("/", function(req, res){
         headerStyle: 'header-home-style.css',
         users: cur_user
     });
-    Cartoon.getTitle("SpongeBob SquarePants").then((exists)=>{
-        console.log(exists);
-    })
+    
     // cur_user.user = true;
     
     // cartowner = req.session.email

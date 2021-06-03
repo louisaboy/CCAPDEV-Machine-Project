@@ -14,57 +14,20 @@ const urlencoder = bodyparser.urlencoded({
 
 router.use(urlencoder)
 
-var showsample = [
-    {
-        "photo": "images/CartoonPic/steven-featured.jpg",
-        "photo1": "Steven Universe.jpg",
-        "name": "Steven Universe",
-        "year": "2013",
-        "genre": "Adventure",
-        "star1": "fa fa-star",
-        "star2": "fa fa-star",
-        "star3": "fa fa-star",
-        "star4": "fa fa-star",
-        "star5": "fa fa-star",
-        "synopsis": "Steven, a young boy, inherits a magical gemstone from his mother. He tries to figure out the secrets and spends his days in Beach City with the other Crystal Gems.",
-        "file": "/cartoon-info"
-    },
-    {
-        "photo": "images/CartoonPic/adventure-time-featured.jpg",
-        "photo1": "Adventure Time.jpg",
-        "name": "Adventure Time",
-        "year": "2010",
-        "genre": "Action",
-        "star1": "fa fa-star",
-        "star2": "fa fa-star",
-        "star3": "fa fa-star",
-        "star4": "fa fa-star",
-        "star5": "fa fa-star",
-        "synopsis": "A 12-year-old boy and his best friend, wise 28-year-old dog with magical powers, go on a series of surreal adventures with each other in a remote future.",
-        "file": "/cartoons/steven-universe"
-    },
-    {
-        "photo": "images/CartoonPic/fairly-featured.jpg",
-        "photo1": "fairly-oddparents.jpg",
-        "name": "Fairly OddParents",
-        "year": "2001",
-        "genre": "Comedy",
-        "star1": "fa fa-star",
-        "star2": "fa fa-star",
-        "star3": "fa fa-star",
-        "star4": "fa fa-star",
-        "star5": "fa fa-star",
-        "synopsis": "Timmy Turner, a young boy, is neglected by his parents and bullied by his babysitter. However, his life takes an adventurous turn when he is granted two fairy godparents who fulfil his wishes.",
-        "file": "/cartoons/steven-universe"
-    }
-]
-
+var shows = [];
 
 router.get("/", function(req, res){
     console.log("All Cartoons running...");
-    let shows = []
+    
     Cartoon.getAll().then((tempcartoons)=>{
         console.log(tempcartoons)
+        tempcartoons.sort(function(a, b){
+            if(a.title < b.title)
+                return -1;
+            if (a.title > b.title)
+                return 1;
+            return 0;
+        })
         for(i in tempcartoons){
             var temp ={
                 _id: tempcartoons[i]._id,
@@ -105,4 +68,35 @@ router.get("/", function(req, res){
     });
 })
 
+router.get('/by-popularity', function (req, res) {
+    
+    shows.sort(function(a, b){
+        if(a.ranking < b.ranking)
+            return -1;
+        if (a.ranking > b.ranking)
+            return 1;
+        return 0;
+    })
+
+    res.render('all-cartoons', {
+        layout: 'main',
+        style: 'all-cartoons-style.css',
+        headerStyle: 'header-style1.css',
+        // users: sample,
+        cartoons: shows,
+        helpers:{
+            // Function to do basic mathematical operation in handlebar
+            math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
+                rvalue = parseFloat(rvalue);
+                return {
+                    "+": lvalue + rvalue,
+                    "-": lvalue - rvalue,
+                    "*": lvalue * rvalue,
+                    "/": lvalue / rvalue,
+                    "%": lvalue % rvalue
+                }[operator];
+            }
+        }
+    });
+})
 module.exports = router
