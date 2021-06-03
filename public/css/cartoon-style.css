@@ -194,7 +194,7 @@ section {
     left: 249px;
 }
 
-section textarea {
+section .commentBox {
 	width: 100%;
 	height: 70px;
 	padding: 5px;
@@ -251,6 +251,32 @@ section ul li {
     width: 1100px;
 }
 
+section .item {
+    display: flex;
+    align-items: center;
+}
+
+.lasttext {
+    padding-right: 5px;
+}
+
+section .cmnt {
+    flex: 37%;
+    border: none;
+    resize: none;
+    font-family: 'Work Sans';
+    padding-top: 1.5%;
+}
+
+section .toggleimg {
+    flex-shrink: 40%;
+}
+
+section .dlt-bt, .edt-bt {
+    cursor: pointer;
+    color: #25aae7;
+}
+
 section ul li:hover {
 	border-bottom: 3px solid #00688B;
 }
@@ -259,4 +285,70 @@ section ul li:hover {
     position: relative;
     left: 30px;
     top: 6px;
+}
+
+#list-menu {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    display: none;
+    width: 155px;
+    background-color: white;
+}
+
+#list-menu ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 2px;
+    padding: 10px;
+}
+
+#list-menu li {
+    font-size: 14px;
+    padding: 5px;
+}   
+
+.button:hover + #list-menu {
+    display: block;
+    cursor: pointer;
+}
+
+#list-menu:hover{
+    display: block;
+    cursor: pointer;
+}
+
+.drop-down-menu {
+    font-family: 'Work Sans';
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    display: none;
+    width: 155px;
+    background-color: white;
+}
+
+.drop-down-menu ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 2px;
+    padding: 10px;
+}
+
+.drop-down-menu a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 130px;
+    padding: 10px;
+}
+
+.drop-down-menu a:hover, .drop-down-menu li:hover{background-color: rgba(238, 238, 238, 0.199);}
+
+#down:hover + .drop-down-menu {
+    display: block;
+}
+
+.drop-down-menu:hover{
+    display: block;
 }

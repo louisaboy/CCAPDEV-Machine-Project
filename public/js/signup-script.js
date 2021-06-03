@@ -14,6 +14,13 @@ $("#login-box-link").click(function(){
   $("#signup-box-link").removeClass("active");
 });
 
+$(document).ready(function(){
+  $("#imgurl").keyup(function(){
+      var inputVal = $(this).val();
+      $("#profileImage").attr("src", inputVal);
+  });
+});
+
 // $('submit-buttn').click(function(){
 //   $("input:username").val("");
 //   $("input:date").val("");
@@ -21,20 +28,20 @@ $("#login-box-link").click(function(){
 //   $("input:password").val("");
 // })
 
-function picPreview(uploader) {
-  if ( uploader.files && uploader.files[0] ){
-        $('#profileImage').attr('src', 
-           window.URL.createObjectURL(uploader.files[0]) );
-  }
-}
+// function picPreview(uploader) {
+//   if ( uploader.files && uploader.files[0] ){
+//         $('#profileImage').attr('src', 
+//            window.URL.createObjectURL(uploader.files[0]) );
+//   }
+// }
 
-$("#imageUpload").change(function(){
-  picPreview( this );
-});
+// $("#imageUpload").change(function(){
+//   picPreview( this );
+// });
 
-$("#profileImage").click(function(e) {
-  $("#imageUpload").click();
-});
+// $("#profileImage").click(function(e) {
+//   $("#imageUpload").click();
+// });
 
 // $("#email-signup").validate({
 //   rules: {
