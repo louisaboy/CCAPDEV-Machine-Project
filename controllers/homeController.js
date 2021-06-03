@@ -110,38 +110,23 @@ router.use(urlencoder)
 //     })
 // })
 
-router.get("/", function(req, res){
-    console.log("Homepage running...")
-    res.render('index', {
-        layout: 'main', 
-        cartoons: shows,
-        style: 'index-style.css',
-        headerStyle: 'header-home-style.css',
-        users: cur_user
-    });
-    
-    // cur_user.user = true;
-    
-    // cartowner = req.session.email
-    // Cart.getAll().then((tempitems)=>{
-    //     let items = []
-    //     for(i in tempitems){
-    //         var temp = {
-    //             title: tempitems[i].title,
-    //             price: tempitems[i].price, //change to duration
-    //             link: tempitems[i].link,
-    //             user: tempitems[i].user,
-    //             borrower: tempitems[i].borrower,
-    //             release: moment(tempitems[i].release).format("MMMM D, YYYY"),
-    //             duration: tempitems[i].duration,
-    //             ID: tempitems[i].ID
-    //         }
-    //         items.push(temp)
-    //     }
-    //     res.render("cart.hbs", {
-    //         items, cartowner
-    //     })
-    // })
-})
+const homeController = {
+    getIndex: function(req, res){
+        console.log("Homepage running...")
+        res.render('index', {
+            layout: 'main', 
+            cartoons: shows,
+            style: 'index-style.css',
+            headerStyle: 'header-home-style.css',
+            users: cur_user
+            
+        });
+        // const sel = document.getElementById("list-menu")
+        // console.log(sel.value);
+    },
+    // postIndex: function(req, res){
+        
+    // }
+}
 
-module.exports = router
+module.exports = homeController;

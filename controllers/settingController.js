@@ -14,14 +14,16 @@ const urlencoder = bodyparser.urlencoded({
 
 router.use(urlencoder)
 
-router.get("/", function(req, res){
-    console.log("Settings running...");
-    res.render('settings', {
-        layout: 'main',
-        style: 'settings-style.css',
-        headerStyle: 'header-style1.css',
-        // users: sample
-    });
-})
+const settingController = {
+    getSetting: function(req, res){
+        console.log("Settings running...");
+        res.render('settings', {
+            layout: 'main',
+            style: 'settings-style.css',
+            headerStyle: 'header-style1.css',
+            // users: sample
+        });
+    }
+}
 
-module.exports = router
+module.exports = settingController;

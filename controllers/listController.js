@@ -22,33 +22,36 @@ function validation(cartoon){
         return false
     }
 }
-router.get("/", function(req, res){
-    console.log("List running...");
-    
-    let reviews = []
-    cartoonReview.getAll().then((tempreviews)=>{
-        console.log(tempreviews)
-        for(i in tempreviews){
-            var temp ={
-                _id: tempreviews[i]._id,
-                title: tempreviews[i].title,
-                username: tempreviews[i].username,
-                score: tempreviews[i].score,
-                review: tempreviews[i].review,
-                date: tempreviews[i].date,
-                status: tempreviews[i].status
+
+const listController = {
+    getList: function(req, res){
+        console.log("List running...");
+        
+        let reviews = []
+        cartoonReview.getAll().then((tempreviews)=>{
+            console.log(tempreviews)
+            for(i in tempreviews){
+                var temp ={
+                    _id: tempreviews[i]._id,
+                    title: tempreviews[i].title,
+                    username: tempreviews[i].username,
+                    score: tempreviews[i].score,
+                    review: tempreviews[i].review,
+                    date: tempreviews[i].date,
+                    status: tempreviews[i].status
+                }
+                
+                shows.push(temp)
             }
-            
-            shows.push(temp)
-        }
-    })
+        })
+    
+        res.render('all-cartoons.hbs', {
+            layout: 'main',
+            style: 'cartoon-style.css',
+            headerStyle: 'header-style.css',
+            // users: sample
+        });
+    }
+}
 
-    res.render('all-cartoons.hbs', {
-        layout: 'main',
-        style: 'cartoon-style.css',
-        headerStyle: 'header-style.css',
-        // users: sample
-    });
-})
-
-module.exports = router
+module.exports = listController;

@@ -22,38 +22,41 @@ function validation(cartoon){
         return false
     }
 }
-router.get("/", function(req, res){
-    console.log("Cartoon running...");
-    res.render('cartoon-info.hbs', {
-        layout: 'main',
-        style: 'cartoon-style.css',
-        headerStyle: 'header-style.css',
-        // users: sample
-    });
-    // Cartoon.getAll().then((tempcartoon)=>{
-    //     let cartoons = []
-    //     for(i in tempcartoon){
-    //         var temp ={
-    //             _id: tempcartoon[i]._id,
-    //             title: tempcartoon[i].title,
-    //             episodes: tempcartoon[i].episodes,
-    //             dateofrelease: moment(tempcartoon[i].dateofrelease).format("MMMM D, YYYY"),
-    //             dateoflastrelease: moment(tempcartoon[i].dateoflastrelease).format("MMMM D, YYYY"),
-    //             score: tempcartoon[i].score,
-    //             ranking: tempcartoon[i].ranking,
-    //             summary: tempcartoon[i].summary,
-    //             shortsummary: tempcartoon[i].shortsummary,
-    //             path: tempcartoon[i].path,
-    //         }
-    //         cartoons.push(temp)
-    //     }
-    //     User.getAll().then((users)=>{
-    //         res.render("cartoon-info.hbs", {
-    //             cartoons, users
-    //         })
-    //     }) 
-    // })
-});
+
+const cartoonController = {
+    getCartoon: function(req, res){
+        console.log("Cartoon running...");
+        res.render('cartoon-info.hbs', {
+            layout: 'main',
+            style: 'cartoon-style.css',
+            headerStyle: 'header-style.css',
+            // users: sample
+        });
+        // Cartoon.getAll().then((tempcartoon)=>{
+        //     let cartoons = []
+        //     for(i in tempcartoon){
+        //         var temp ={
+        //             _id: tempcartoon[i]._id,
+        //             title: tempcartoon[i].title,
+        //             episodes: tempcartoon[i].episodes,
+        //             dateofrelease: moment(tempcartoon[i].dateofrelease).format("MMMM D, YYYY"),
+        //             dateoflastrelease: moment(tempcartoon[i].dateoflastrelease).format("MMMM D, YYYY"),
+        //             score: tempcartoon[i].score,
+        //             ranking: tempcartoon[i].ranking,
+        //             summary: tempcartoon[i].summary,
+        //             shortsummary: tempcartoon[i].shortsummary,
+        //             path: tempcartoon[i].path,
+        //         }
+        //         cartoons.push(temp)
+        //     }
+        //     User.getAll().then((users)=>{
+        //         res.render("cartoon-info.hbs", {
+        //             cartoons, users
+        //         })
+        //     }) 
+        // })
+    }
+}
 
 // router.get("/cartoonlist", function(req,res){
 //     Cartoons.getAll().then((tempcartoon)=>{
@@ -79,4 +82,4 @@ router.get("/", function(req, res){
 //     })
 // })
 
-module.exports = router
+module.exports = cartoonController;

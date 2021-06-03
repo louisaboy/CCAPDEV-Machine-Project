@@ -14,14 +14,24 @@ const urlencoder = bodyparser.urlencoded({
 
 router.use(urlencoder)
 
-router.get("/", function(req, res){
-    console.log("Profile running...");
-    res.render('profile', {
-        layout: 'main',
-        style: 'profile-style.css',
-        headerStyle: 'header-style1.css',
-        // users: sample
-    });
-})
+const profileController = {
+    getProfile: function(req, res){
+        console.log("Profile running...");
+        currUser = req.session.email
+        User.getUser(currUser).then((newUser)=>{
+        //  console.log(newUser)
+            Post.getAll().then((posts)=>{
+                Game.getAll().then((games)=>{
+                    res.render('profile', {
+                        layout: 'main',
+                        style: 'profile-style.css',
+                        headerStyle: 'header-style1.css',
+                        users: newUser
+                    });
+                })
+            })
+        })
+    }
+}
 
-module.exports = router
+module.exports = profileController;

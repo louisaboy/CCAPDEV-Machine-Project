@@ -16,15 +16,8 @@
                 <p>{{synopsis}}</p>
 
                 <div id="featured-buttons">
-                    <span id="add-list"><i class="fa fa-plus fa-2x"></i></span>
-                    <div id="list-menu" class="drop-down-menu">
-                        <ul>
-                            <li>Watching</li>
-                            <li>On Hold</li>
-                            <li>Dropped</li>
-                            <li>Plan to Watch</li>
-                        </ul>
-                    </div>
+                    {{!-- <span id="add-list"><i class="fa fa-plus fa-2x"></i></span> --}}
+                    
                     <a href="/cartoon-info">
                         <button class="medium-button">MORE INFO</button>
                     </a>
@@ -33,3 +26,10 @@
         </div>
     {{/if}}
 {{/each}}
+<script>
+    function getSelectValue()
+    {
+        var selectedValue = document.getElementById("list").value;
+        console.log(selectedValue);
+    }
+</script>

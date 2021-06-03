@@ -47,143 +47,129 @@ function validation(user){
     }
 }
 
-router.get("/", function(req, res){
-    console.log("Sign-up running...");
-    res.render('signup', {
-        layout: 'main',
-        style: 'signup-style.css',
-        headerStyle: 'header-signup-style.css',
-        // users: sample
-    });
+const signinController = {
+    getSignin: function(req, res){
+        console.log("Sign-up running...");
+        
+        res.redirect('/login');
+    },
+    
+    postRegister: function(req, res){
+        var user = {
+            username : req.body.signup-user,
+            password: req.body.signup-pass,
+            birthday: req.body.signup-bday,
+            email: req.body.signup-email,
+            pfp : req.body.signup-pic
+        }
+    },
 
-    console.log(req.body.email);
-})
-
-router.post("/register", function(req, res){
-    var user = {
-        firstName : req.body.firstName,
-        lastName: req.body.lastName,
-        region: req.body.region,
-        email: req.body.email,
-        password : req.body.password
-    }
-    var confirmPass = req.body.confirmPass
-
-    if(regValidation(user, confirmPass)){
-        User.create(user).then((user)=>{
-            console.log(user)
-            req.session.username = user.username
-            res.render("loginscreen.hbs")
-        }, (error)=>{
-            res.sendFile(error)
-        })
-    }
-    else{
-        req.session.errors = []
-        if(!/[a-zA-Z]+/.test(user.firstName))
-            req.session.errors.push({"container-id": "firstName","message": "First name must only contain letters"})
-        if(!/[a-zA-Z]+/.test(user.lastName))
-            req.session.errors.push({"container-id": "lastName","message": "Last name must only contain letters"})
-        if(!/[a-zA-Z0-9]+/.test(user.region))
-            req.session.errors.push({"container-id": "region","message": "Region must only contain letters and numbers"}) 
-        if(user.password == "")
-            req.session.errors.push({"container-id": "password","message": "Password cannot be blank"})
-        if(user.password != confirmPass)
-            req.session.errors.push({"container-id": "confirmPass","message": "Passwords did not match"})
-        if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email))
-            req.session.errors.push({"container-id": "email","message": "Invalid email address"})
+    postLogin: function(req, res){
+        res.render('signup', {
+            layout: 'main',
+            style: 'signup-style.css',
+            headerStyle: 'header-signup-style.css',
+            // users: sample
+        });
+        // let user = {
+        //     email: req.body.email,
+        //     password: req.body.password
+        // }
+        // console.log("1");
+        // console.log(user.email);
+        // if(validation(user)){
+        //     User.authenticate(user).then((newUser)=>{
+        //         if(newUser){
+        //             req.session.email = user.email
+        //             console.log(req.session.email)
+        //             res.redirect("/game/games")
+        //             res.render("index.hbs")
+        //         }
+        //         else{
+        //             User.getUser(user.email).then((newUser)=>{
+        //                 req.session.errors = []
+        //                 if(!newUser)
+        //                     req.session.errors.push({"container-id": "email","message": "Invalid email address"})
+        //                 else
+        //                     req.session.errors.push({"container-id": "password","message": "Password is incorrect"})
             
-        req.session.savedinput = [{"container-id": "firstName", "content": user.firstName}, 
-                                  {"container-id": "lastName", "content": user.lastName}, 
-                                  {"container-id": "region", "content": user.region}, 
-                                  {"container-id": "email", "content": user.email}]
-        res.redirect("/")
-    }
-})
-
-router.post("/login", function(req, res){
-    let user = {
-        email: req.body.email,
-        password: req.body.password
-    }
-    if(validation(user)){
-        User.authenticate(user).then((newUser)=>{
-            if(newUser){
-                req.session.email = user.email
-                console.log(req.session.email)
-                res.redirect("/game/games")
-                // res.render("dashboard.hbs")
-            }
-            else{
-                User.getUser(user.email).then((newUser)=>{
-                    req.session.errors = []
-                    if(!newUser)
-                        req.session.errors.push({"container-id": "email","message": "Invalid email address"})
-                    else
-                        req.session.errors.push({"container-id": "password","message": "Password is incorrect"})
+        //                 req.session.savedinput = [{"container-id": "email", "content": user.email}]
+        //                 res.redirect("/register")
+        //             })
+        //         }
+        //     }, (error)=>{
+        //         res.sendFile(error)
+        //     })
+        // }
         
-                    req.session.savedinput = [{"container-id": "email", "content": user.email}]
-                    res.redirect("/user/loginpage")
-                })
-            }
-        }, (error)=>{
-            res.sendFile(error)
-        })
+        // else{
+        //     User.getUser(user.email).then((newUser)=>{
+        //         req.session.errors = []
+        //         if(!newUser)
+        //             req.session.errors.push({"container-id": "email","message": "Invalid email address"})
+        //         else
+        //             req.session.errors.push({"container-id": "password","message": "Password is incorrect"})
+    
+        //         req.session.savedinput = [{"container-id": "email", "content": user.email}]
+        //         res.redirect("/user/loginpage")
+        //     })
+        // }
+        // db.findOne(`users`, {idnum: idnum}, function (result) {
+        //     if (result) {
+        //         // password checking
+        //         bcrypt.compare(password, result.password, function (err, equal) {
+        //             if (equal) {
+        //                 req.session.idnum = result.idnum;
+        //                 req.session.username = result.username;
+        //                 req.session.password = result.password;
+
+        //                 console.log(`You have successfully logged in ` + result.username);
+        //                 res.redirect(`/Home`);
+        //             }
+        //             else {
+        //                 console.log(`Invalid credentials`);
+        //                 res.render(`Login`);
+        //             }
+        //         });
+        //     }
+        //     else {
+        //         console.log(`Invalid credentials`);
+        //         var content =
+        //         {
+        //             error:"Invalid Credentials"
+        //         }
+        //         res.render(`Login`,content);
+        //     }
+        // });
+    },
+    
+    getLogin: function(req,res){
+        var errors = req.session.errors
+        var savedinput = req.session.savedinput
+        req.session.errors = null
+        req.session.savedinput = null
+        res.render('signup', {
+            layout: 'main',
+            style: 'signup-style.css',
+            headerStyle: 'header-signup-style.css',
+            users: sample
+        });
+        // res.render("signup.hbs", {errors, savedinput})
     }
-    else{
-        User.getUser(user.email).then((newUser)=>{
-            req.session.errors = []
-            if(!newUser)
-                req.session.errors.push({"container-id": "email","message": "Invalid email address"})
-            else
-                req.session.errors.push({"container-id": "password","message": "Password is incorrect"})
+    
+    // ano to????
+    // router.get("/pf/:email", function(req,res){
+    //     User.getUser(req.params.email).then((newUser)=>{
+    //         Post.getAll().then((posts)=>{
+    //             Game.getAll().then((games)=>{
+    //                 res.render("viewProfile.hbs", {
+    //                     newUser, posts, games
+    //                 })
+    //             })
+    //         })
+            
+    //     })
+    // })
+}
 
-            req.session.savedinput = [{"container-id": "email", "content": user.email}]
-            res.redirect("/user/loginpage")
-        })
-    }
-})
-
-router.get("/loginpage", function(req,res){
-    var errors = req.session.errors
-    var savedinput = req.session.savedinput
-    req.session.errors = null
-    req.session.savedinput = null
-    res.render('signup', {
-        layout: 'main',
-        style: 'signup-style.css',
-        headerStyle: 'header-signup-style.css',
-        users: sample
-    });
-    res.render("signup.hbs", {errors, savedinput})
-})
-
-router.get("/profile", function(req,res){
-    currUser = req.session.email
-    User.getUser(currUser).then((newUser)=>{
-//        console.log(newUser)
-        Post.getAll().then((posts)=>{
-            Game.getAll().then((games)=>{
-                res.render("profile.hbs", {
-                    newUser, posts, games
-                })
-            })
-        })
-        
-    })
-})
-
-router.get("/pf/:email", function(req,res){
-    User.getUser(req.params.email).then((newUser)=>{
-        Post.getAll().then((posts)=>{
-            Game.getAll().then((games)=>{
-                res.render("viewProfile.hbs", {
-                    newUser, posts, games
-                })
-            })
-        })
-        
-    })
-})
-
-module.exports = router
+module.exports = signinController;

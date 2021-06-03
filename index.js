@@ -20,8 +20,6 @@ const urlencoder = bodyparser.urlencoded({
     extended: false
 });
 
-
-
 app.set("view engine", "hbs");
 
 app.engine('hbs', handlebars({
@@ -32,6 +30,8 @@ app.engine('hbs', handlebars({
     helpers: require('./public/js/handlebars-helpers.js')
 }));
 
+var route = require('./routes/route')
+
 app.use(express.static("public"));
 
 app.use(session({
@@ -41,7 +41,7 @@ app.use(session({
     name: "ToonList"
 }));
 
-app.use(require("./controllers"));
+app.use("/", route);
 
 app.listen(port , function(){
     console.log("The server is now running on " + port);
