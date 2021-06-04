@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/louisaboy/CCAPDEV-Machine-Project#readme",
   "dependencies": {
+    "alert": "^5.0.10",
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.25.1",
     "cloudinary-core": "^2.11.4",

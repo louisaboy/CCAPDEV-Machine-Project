@@ -13,13 +13,8 @@ const urlencoder = bodyparser.urlencoded({
     extended: true
 })
 
-var cur_user = {
-    user: false,
-    username: "",
-    password: "",
-    birthday: "",
-    email: "",
-    pfp: "",
+var sample = {
+    user: false
 }
 
 var shows = [
@@ -67,63 +62,34 @@ var shows = [
     }
 ]
 
-// function durationValidation(cart){
-//     if(cart.duration > 0){
-//         return true
-//     }
-//     else{
-//         return false
-//     }
-// }
-
 router.use(urlencoder)
 
-// router.post("/add-to-cart", function(req, res){
-//     let postID = req.body.postingID
-
-//     Post.get(postID).then((post)=>{
-//         Game.getTitle(post.title).then((game)=>{
-//             var cart = {
-//                 title : post.title,
-//                 price : post.price, 
-//                 link : game.link,
-//                 user : post.user,
-//                 borrower: req.session.email,
-//                 release : moment(game.release).format("MMMM D, YYYY"),
-//                 duration : req.body.duration,
-//                 ID: post._id
-//             }
-            
-//             if(durationValidation(cart)){
-//                 Cart.add(cart).then((cart)=>{
-//                     console.log(cart)
-//                     res.redirect("/game/vg/" + game._id)
-//                 }, (error)=>{
-//                     res.sendFile(error)
-//                 })
-//             }
-//             else{
-//                 //insert error message here
-//                 res.redirect("/game/vg/" + game._id)
-//             }
-//         })
-//     })
-// })
-
 const homeController = {
+    
     getIndex: function(req, res){
+        // console.log(req.session.user)
         console.log("Homepage running...")
+            console.log("No user yet")
+            res.render('index', {
+                layout: 'main', 
+                cartoons: shows,
+                style: 'index-style.css',
+                headerStyle: 'header-home-style.css',
+                users: sample
+            });
+        
+    },
+    getHome: function(req, res){
+        console.log("Homepage running...")
+        console.log("User logged In " + req.session.user.username)
         res.render('index', {
             layout: 'main', 
             cartoons: shows,
             style: 'index-style.css',
             headerStyle: 'header-home-style.css',
-            users: cur_user
-            
+            users: req.session.user
         });
-        // const sel = document.getElementById("list-menu")
-        // console.log(sel.value);
-    },
+    }
     // postIndex: function(req, res){
         
     // }

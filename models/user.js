@@ -66,7 +66,17 @@ exports.getAll = function(){
   }
 
 
-exports.getUser = function(email){
+exports.getUser = function(username){
+    return new Promise(function(resolve, reject){
+      User.findOne({username:username}).then((result)=>{
+        resolve(result)
+      }, (err)=>{
+        reject(err)
+      })
+    })
+  }
+
+  exports.getEmail = function(email){
     return new Promise(function(resolve, reject){
       User.findOne({email:email}).then((user)=>{
         resolve(user)

@@ -7,7 +7,6 @@ const express = require("express")
 
 const app =  express()
 
-
 const homeController = require("../controllers/homeController")
 const cartoonController = require("../controllers/cartoonController")
 const listController = require("../controllers/listController")
@@ -18,55 +17,58 @@ const settingController = require("../controllers/settingController")
 
 // Index Page 
 app.get("/", homeController.getIndex);
-app.get("/home", homeController.getIndex);
+app.get("/home", homeController.getHome);
 app.get("/index", homeController.getIndex);
 
 // Sign In Page
 app.get("/signup", signinController.getSignin);
+app.get("/login", signinController.getLogin)
 app.post("/login", signinController.postLogin)
-app.post("/register", signinController.postRegister)
+app.post("/signup", signinController.postRegister)
 
 // Cartoon Info Page
-app.get("/cartoon-info/:cartoon", cartoonController.getCartoon);
+app.get("/cartoon-info/:id", cartoonController.getCartoon);
 
 // Cartoon List Page
-app.get("/list/", listController.getList);
+app.get("/list", listController.getList);
 
 // View All Cartoons Page
 app.get("/all-cartoons", viewAllController.getAllCartoons);
+app.get("/all-cartoons/by-release-date", viewAllController.getByReleaseDate);
+app.get("/all-cartoons/by-popularity", viewAllController.getByPopularity);
 
 // Settings Page
-app.get("/settings/", settingController.getSetting);
+app.get("/settings", settingController.getSetting);
 
 // Profile Page
 app.get("/profile/:user", profileController.getProfile);
 
-// route.get(`/cartoon-info`, cartoonController.get);
-// route.get("/cartoon-info", function(req, res) {
-//     console.log("cartoon-info");
-// });
-// route.get('/cartoon-info', function(req,res){
-//     res.render('cartoon-info.hbs', {
-//         layout: 'main',
-//         style: 'cartoon-style.css',
-//         headerStyle: 'header-style.css'
-//         // users: sample
-//     });
-// });
-
-// route.get("/", function(req,res){
-//     var errors = req.session.errors
-//     var savedinput = req.session.savedinput
-//     req.session.errors = null
-//     req.session.savedinput = null
-//     console.log("GET /")
-//     Cartoon.getTitle("SpongeBob SquarePants").then((exists)=>{
-//     console.log(exists);
-// })
-//     // console.log(cur_user.user);
-// })
+// var cur_user = {
+//     user: false,
+//     username: "",
+//     password: "",
+//     birthday: "",
+//     email: "",
+//     pfp: "",
+// }
 
 app.get("/logout", function(req,res){
+    
+    req.session.destroy(function(err) {
+        if(err) throw err;
+        user = {
+            user: false,
+            username : "",
+            password: "",
+            birthday: "",
+            email: "",
+            pfp : ""
+        }
+
+        res.redirect('/');
+
+    });
+    
     res.redirect("/")
 })
 

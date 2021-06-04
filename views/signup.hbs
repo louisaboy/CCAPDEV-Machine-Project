@@ -6,8 +6,10 @@
 <body>
 <div class="login-box">
   <div class="lb-header">
-    <a href="#" class="active" id="login-box-link">Login</a>
-    <a href="#" id="signup-box-link">Sign Up</a>
+    <a href="/login" id="login-box-link">Login</a>
+    <a href="#" class="active" id="signup-box-link">Sign Up</a>
+    
+    
   </div>
 
   <div class="social-login">
@@ -22,13 +24,13 @@
     </a>
   </div>
 
-  <form class="email-login" action="signup/register">
-    <div class="u-form-group">
-      <input type="email" name="login-email" placeholder="Email" required=""/>
+  {{!-- <form class="email-login" id="email-login" method="post"> --}}
+    {{!-- <div class="u-form-group">
+      <input type="email" name="logemail" placeholder="Email" required=""/>
     </div>
 
     <div class="u-form-group">
-      <input type="password" name="login-pass" placeholder="Password" required=""/>
+      <input type="password" name="logpass" placeholder="Password" required=""/>
     </div>
 
     <div class="u-form-group">
@@ -37,32 +39,31 @@
 
     <div class="u-form-group">
       <input class="submit-buttn" type="submit" value="Log In">
-    </div>
-  </form>
+    </div> --}}
 
-  <form class="email-signup" id="email-signup">
+  <form class="email-login" id="email-signup" method="post">
     <div class="form-top">
       <image id="profileImage" src="images/Pics/DefaultPic.png"/>
       {{!-- <input id="imageUpload" type="file"
          name="profile_photo" placeholder="Photo" optional="" accept="image/*"> --}}
       <div class="u-form-group" id="grid-2">
-        <input type="email" name="signup-email" placeholder="Email" optional=""/>
+        <input type="email" name="signemail" placeholder="Email" optional=""/>
       </div>
       <div class="u-form-group" id="grid-3">
-        <input type="username" name="signup-user" placeholder="Username" required=""/>
+        <input type="username" name="signuser" placeholder="Username" required=""/>
       </div>
     </div>
 
     <div class="u-form-group">
-      <input type="text" name="signup-pic" id="imgurl" placeholder="image URL" optional=""/>
+      <input type="text" name="signpic" id="imgurl" placeholder="image URL" optional=""/>
     </div>
 
     <div class="u-form-group">
-      <input type="date" name="signup-bday" placeholder="Birthday" required=""/>
+      <input type="date" name="signbday" placeholder="Birthday" required=""/>
     </div>
 
     <div class="u-form-group">
-      <input id = "password" name="signup-pass" type="password" placeholder="Password" required="" minlength="7"/>
+      <input id = "password" name="signpass" type="password" placeholder="Password" required="" minlength="7"/>
     </div>
 
     {{!-- <div class="u-form-group">

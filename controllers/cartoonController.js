@@ -25,61 +25,59 @@ function validation(cartoon){
 
 const cartoonController = {
     getCartoon: function(req, res){
-        console.log("Cartoon running...");
-        res.render('cartoon-info.hbs', {
-            layout: 'main',
-            style: 'cartoon-style.css',
-            headerStyle: 'header-style.css',
-            // users: sample
-        });
-        // Cartoon.getAll().then((tempcartoon)=>{
-        //     let cartoons = []
-        //     for(i in tempcartoon){
-        //         var temp ={
-        //             _id: tempcartoon[i]._id,
-        //             title: tempcartoon[i].title,
-        //             episodes: tempcartoon[i].episodes,
-        //             dateofrelease: moment(tempcartoon[i].dateofrelease).format("MMMM D, YYYY"),
-        //             dateoflastrelease: moment(tempcartoon[i].dateoflastrelease).format("MMMM D, YYYY"),
-        //             score: tempcartoon[i].score,
-        //             ranking: tempcartoon[i].ranking,
-        //             summary: tempcartoon[i].summary,
-        //             shortsummary: tempcartoon[i].shortsummary,
-        //             path: tempcartoon[i].path,
-        //         }
-        //         cartoons.push(temp)
-        //     }
-        //     User.getAll().then((users)=>{
-        //         res.render("cartoon-info.hbs", {
-        //             cartoons, users
-        //         })
-        //     }) 
-        // })
+        cartoon = req.params.id;
+        console.log(cartoon);
+        var show = {
+            title: "",
+            episodes: "",
+            dateofrelease: "",
+            dateoflastrelease: "",
+            score: "",
+            ranking: "",
+            summary: "",
+            notablequotes: [],
+            path: ""
+        }
+        Cartoon.getTitle(cartoon).then((result)=>{
+            console.log(result);
+            show.title = result.title,
+            show.episodes = result.episodes,
+            show.dateofrelease = result.dateofrelease;
+            show.dateoflastrelease = result.dateoflastrelease;
+            show.score = result.score;
+            show.ranking = result.ranking;
+            show.summary = result.summary;
+            show.path = result.path;
+            // console.log(result.notablequotes[0])
+            // console.log(result.notablequotes[1])
+            console.log("asdfasdf" + result.notablequotes)
+            // console.log(result.notablequotes[3])
+            // for(i in result.notablequotes.){
+            //     var temp = result.notablequotes[0];
+            //     console.log(temp);
+            //     show.notablequotes.push(temp);
+            // }
+
+            console.log(show);
+            console.log("Cartoon running...");
+            console.log(req.session.user);
+            res.render('cartoon-info.hbs', {
+                layout: 'main',
+                style: 'cartoon-style.css',
+                headerStyle: 'header-style.css',
+                users: req.session.user,
+                title: show.title,
+                path: show.path,
+                episodes: show.episodes,
+                dateofrelease: show.dateofrelease,
+                dateoflastrelease: show.dateoflastrelease,
+                summary: show.summary,
+                score: show.score,
+                ranking: show.ranking,
+                cartoons: show
+            });
+        })
     }
 }
-
-// router.get("/cartoonlist", function(req,res){
-//     Cartoons.getAll().then((tempcartoon)=>{
-//         let cartoons = []
-//         for(i in tempcartoon){
-//             var temp ={
-//                 _id: tempcartoon[i]._id,
-//                 title: tempcartoon[i].title,
-//                 episodes: tempcartoon[i].episodes,
-//                 dateofrelease: moment(tempcartoon[i].dateofrelease).format("MMMM D, YYYY"),
-//                 dateoflastrelease: moment(tempcartoon[i].dateoflastrelease).format("MMMM D, YYYY"),
-//                 score: tempcartoon[i].score,
-//                 ranking: tempcartoon[i].ranking,
-//                 summary: tempcartoon[i].summary,
-//                 shortsummary: tempcartoon[i].shortsummary,
-//                 path: tempcartoon[i].path,
-//             }
-//             cartoons.push(temp)
-//         }
-//         res.render("all-cartoons.hbs", {
-//             cartoons
-//         })
-//     })
-// })
 
 module.exports = cartoonController;

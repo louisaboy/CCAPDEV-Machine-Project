@@ -101,7 +101,38 @@ const viewAllController = {
                 }
             }
         });
-   }
+   },
+
+   getByReleaseDate: function (req, res) {
+    shows.sort(function(a, b){
+        if(a.dateofrelease < b.dateofrelease)
+            return -1;
+        if (a.dateofrelease > b.dateofrelease)
+            return 1;
+        return 0;
+    })
+
+    res.render('all-cartoons', {
+        layout: 'main',
+        style: 'all-cartoons-style.css',
+        headerStyle: 'header-style1.css',
+        // users: sample,
+        cartoons: shows,
+        helpers:{
+            // Function to do basic mathematical operation in handlebar
+            math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
+                rvalue = parseFloat(rvalue);
+                return {
+                    "+": lvalue + rvalue,
+                    "-": lvalue - rvalue,
+                    "*": lvalue * rvalue,
+                    "/": lvalue / rvalue,
+                    "%": lvalue % rvalue
+                }[operator];
+            }
+        }
+    });
+}
 }
 
 module.exports = viewAllController;

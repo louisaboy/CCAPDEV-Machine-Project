@@ -7,7 +7,7 @@
          <h2> {{title}} </h2>
          
         <div class="box">
-            <img class="cartoon-picture" src="images/CartoonPic/{{title}}.jpg"> 
+            <img class="cartoon-picture" src="images/CartoonPic/{{path}}"> 
             <a href="#" class="button"> 
                 <img src="https://static.thenounproject.com/png/576517-200.png" 
                 style="width: 12px; height: 12px;"> Add Cartoon </a>
@@ -112,7 +112,7 @@
 
         {{#each cartoons}}
             <div style="padding: 0px 0px 15px 20px">
-                {{this.notablequotes}}
+                {{notablequotes}}
             </div> 
         {{/each}}
 
