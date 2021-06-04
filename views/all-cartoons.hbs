@@ -1,25 +1,49 @@
-{{> header}}
+<!DOCTYPE html>
 
-<div id="content">
-    <h3> Cartoons 
-        <span>
-            <a href="/all-cartoons/by-popularity" class="link">Popularity</a>
-            <a href="/all-cartoons/by-release-date" class="link">Release Date</a>
-            <a href="/all-cartoons" class="link">Alphabetical</a>
-        </span> 
-    </h3>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title> ToonList </title>
+    
+        <link href="css/all-cartoons-style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header-style1.css" rel="stylesheet" type="text/css"/>
 
-    <div class = "inner">
-        {{#each cartoons}}
-                <a href="/cartoon-info/{{title}}"><img src="images/CartoonPic/{{path}}" class="cartoonpic" style="cursor:pointer;"></a> 
-        {{/each}}
-    </div>
-    <p class="view-all1">View More</p>
-</div>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">     
 
-<script>
-    $('.view-all1').on('click', function () {
-        $('.inner').css("max-height","10000px");
-        $('.view-all1').css("display","none");
-    }); 
-</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
+            integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+       
+        {{> header}}
+
+        <div id="content">
+            <h3> Cartoons 
+                <span>
+                    <a href="/all-cartoons/by-popularity" class="link">Popularity</a>
+                    <a href="/all-cartoons/by-release-date" class="link">Release Date</a>
+                    <a href="/all-cartoons" class="link">Alphabetical</a>
+                </span> 
+            </h3>
+
+            <div class = "inner">
+                {{#each cartoons}}
+                        <a href="/cartoon-info/{{title}}"><img src="images/CartoonPic/{{path}}" class="cartoonpic" style="cursor:pointer;"></a> 
+                {{/each}}
+            </div>
+            <p class="view-all1">View More</p>
+        </div>
+
+        <script>
+            $('.view-all1').on('click', function () {
+                $('.inner').css("max-height","10000px");
+                $('.view-all1').css("display","none");
+            }); 
+        </script>
+    </body>
+</html>

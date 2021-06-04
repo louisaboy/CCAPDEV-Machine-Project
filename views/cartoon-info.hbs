@@ -1,170 +1,195 @@
-{{> header}} 
+<!DOCTYPE html>
 
-<div>
-    <!-- CARTOON INFORMATION (LEFT)-->
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title> ToonList </title>
+    
+        <link href="css/cartoon-style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header-style.css" rel="stylesheet" type="text/css"/>
 
-    <div class="left-column">
-         <h2> {{title}} </h2>
-         
-        <div class="box">
-            <img class="cartoon-picture" src="images/CartoonPic/{{path}}"> 
-            <a href="#" class="button"> 
-                <img src="https://static.thenounproject.com/png/576517-200.png" 
-                style="width: 12px; height: 12px;"> Add Cartoon </a>
-            <div id="list-menu" class="drop-down-menu">
-                <ul>
-                    <li>Watching</li>
-                    <li>On Hold</li>
-                    <li>Dropped</li>
-                    <li>Plan to Watch</li>
-                </ul>
-            </div>
-        </div>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">     
 
-        <div class="info">
-            <table class="information">
-                <tr style="background-color: #ECECEC;">
-                    <td>Type</td>
-                    <td style="text-align: right;">Series</td>
-                </tr>
-                <tr>
-                    <td>Episodes</td>
-                    <td style="text-align: right;"> {{episodes}} </td>
-                </tr>
-                <tr style="background-color: #ECECEC;">
-                    <td>Release Date</td>
-                    <td style="text-align: right;"> {{dateofrelease}} </td>
-                </tr>
-                <tr>
-                    <td>Date Posted</td>
-                    <td style="text-align: right;"> {{dateoflastrelease}} </td>
-                </tr>
-            </table>
-        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
+            integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
 
-        <a href="https://www.facebook.com/sharer/sharer.php?u=toon-list.herokuapp.com/cartoon-info" class="share-fb">Share To Facebook</a>
+        {{> header}} 
 
-        <h3> List of Sites </h3>
-        
-        <a style="padding-left: 40%" 
-            href="https://www.netflix.com/search?q=adventure%20time&jbv=70241425" target="_blank"><img alt="Netflix" 
-            src="data:image/png;base64,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" 
-            height="15%" width="15%"></a>
-        <div style="padding-left: 30px">Netflix (Philippines)</div>
-    </div>
+        <div>
+            <!-- CARTOON INFORMATION (LEFT)-->
 
-    {{!-- right --}}
+            <div class="left-column">
+                <h2> {{title}} </h2>
+                
+                <div class="box">
+                    <img class="cartoon-picture" src="images/CartoonPic/{{path}}"> 
+                    <a href="#" class="button"> 
+                        <img src="https://static.thenounproject.com/png/576517-200.png" 
+                        style="width: 12px; height: 12px;"> Add Cartoon </a>
+                    <div id="list-menu" class="drop-down-menu">
+                        <ul>
+                            <li>Watching</li>
+                            <li>On Hold</li>
+                            <li>Dropped</li>
+                            <li>Plan to Watch</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <div class="right-column">
-        <h3> Synopsis </h3>
-        <div style="padding-left: 20px">
-            {{summary}}
-        </div>
-
-        <h3>Cartoon Stats</h3>
-
-        <div class="statistics">
-            <div class="tablecell">
-                <div style="font-size: 13px;">
-                    <table style="width: 100%;">
-                        <tr>
-                            <td>Score</td>
-                            <td style="font-size: 20px"><b>{{score}}</b></td>                                    
+                <div class="info">
+                    <table class="information">
+                        <tr style="background-color: #ECECEC;">
+                            <td>Type</td>
+                            <td style="text-align: right;">Series</td>
                         </tr>
                         <tr>
-                            <td>Ranking</td>
-                            <td style="font-size: 20px"><b>{{ranking}}</b></td>
+                            <td>Episodes</td>
+                            <td style="text-align: right;"> {{episodes}} </td>
                         </tr>
-                        {{!-- <tr>
-                            <td>Popularity</td>
-                            <td style="font-size: 20px"><b>#1</b></td>
-                        </tr> --}}
+                        <tr style="background-color: #ECECEC;">
+                            <td>Release Date</td>
+                            <td style="text-align: right;"> {{dateofrelease}} </td>
+                        </tr>
                         <tr>
-                            <td>Members</td>
-                            <td style="font-size: 20px">10</td>
+                            <td>Date Posted</td>
+                            <td style="text-align: right;"> {{dateoflastrelease}} </td>
                         </tr>
                     </table>
                 </div>
+
+                <a href="https://www.facebook.com/sharer/sharer.php?u=toon-list.herokuapp.com/cartoon-info" class="share-fb">Share To Facebook</a>
+
+                <h3> List of Sites </h3>
+                
+                <a style="padding-left: 40%" 
+                    href="https://www.netflix.com/search?q=adventure%20time&jbv=70241425" target="_blank"><img alt="Netflix" 
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAyVBMVEX///+wHyTmHiWqAACcHB/
+                    kAACvGyDpHiWzKi+0LTKzKC2vFx2aHB+vFhy1Mze2Njr+9vemHSGWAACoHiLlABC3PD/KHSPlDRi+VFbmFx/
+                    hHiW7Sk2gHCDlCRX4z9D3w8Tsa27YHiTPHSPAHSKoQUP85ufxmpzAW17629vufX/
+                    1trfzqKrpRUnnMTfxlJatAAvEKC3qWFyxQ0WoSkzudXjvhIebAADoO0D97e3rYmauDBXqT1PDZ2nLfoDQjY/Xn6Hdrq/
+                    pysvEAADyc9I9AAAEhklEQVR4nO2da1MTWRRFu5PbHTQdoOloHtzICEEREMSRGQVHxf//o+Y2UenHOR2s0sJ9aq+
+                    vnA9ZlQ2dhWURRYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEII+aPZlnnol/ULmSQih63DaV/kAV7yT/
+                    Jm1hMYv2gdvhzFAgCGGwPJcPa6dYhruC8qJkfNQ1jDxwei4eKseYhrWEiCvcGkeYhrGD+VZ/qscYhrmKai4eRV4xDY0M/
+                    FmY4bh8CGhfyzJtmrH05xDeNCnulf9UNkQ3mmvaT+4RTZUJvpce0Q2TD28ie3i9rhdIhs+
+                    PweM4U2VGY6PqkeQhvGTp7pafUQ3FCZabWDsQ3zoTzTagdjG8bZ+g6GNdxYGa7vYHBDLwfG4vLuENywyMQfNdUOBjeMs7UdjG7o43U
+                    djG5YZOs6eBfcUJ3pjw6GN/T5mg6GN8zlmd4FBrxhnCmB8b2D8Q3dmg7GN/RZdwfjGxbaTL91ML5h7Lo72IBhmKn8SFx1sAHDIuvs
+                    YAOGsevsYAuGvrODLRjmTung238PhjV8dGdYuK4OfpviG4ZvxI4OXhp4D2PvOjp4aeE9DDPVO9iEoT7T0MHL3IKhd3oHL70Fw1yZa
+                    RkYNgzDTNV/D156aaZ4hnoHL730JsIZhpkqHRwMnQXDwjnt1zV/e1cYMAwzVTr4IhgKM8Uz9E7p4Fl4e4WZ4hkGD7mDB08zJ8wUzz
+                    DMVO7g3jwYtp8XmIZyBw9SJ3wjAhrmTung25laMAzfiHIH93rSNyKgYTlTOTDEmSIaeqd08GBfmCmiYTlTOTAGrj1TRMOOmY7azwt
+                    IwzBTuYN7z9szhTTM9Zl6G4blTOXAGBxkzZmiGjov/p+9cqbegmHYYnYtKrZnimkYnhc7x2NtpoUBwzDTnW3RsAyM3IKhdzvRu4n4
+                    JhaNmQIYbgqGeXgPnyWiYQgMC4ZxMIzG4gOjOVNkw8uF+Cam9ecFqmEeDI/uNVNUwyIYRnP5w2n9eYFqGJeGZ/
+                    eZKazhP8FQmel+babQhtG/8ic3Z8KwXxqeyJ/cRlluwbD80ntxpiEwvBXDSA0MM4ZqYBRIhlsdhtvrZwpuGH2QA6MyU1jD89UX9+
+                    RHYmWm6IaRPNP53fMC3lDtYDOGagebMVQ7uDBjqHWwN2OodjC64dWPr8/l335/n6kBQ62DvRnDQ62DzRhqHQxumFYMlQ4e5mYMt
+                    Q522IajyoXSwYYMtQ7OzRhqHeygDYfVE62DoQ3T6onWwQWG4RPRMK7dKB3s7RhqHWzHUOvgAtjwcf1oIXewt2OodTCw4Ub9SOtg
+                    YMNHjavXcgfnuIabjasXSmDgGm41rrQOxjV80jw7lWda2DFUOvgA1XC42zzTOhjKME2Ho6ur8/Pzfr/
+                    fMoyukyQZjxeT2az69B8AGO6OhkGr/GsjV1vTj/99+vzly83R4fvW3fbh0d7xyeW7i9P57R8xWdnOvj7AS/
+                    5JNtPpx0+fb27aTjor27NXH67nyW97YYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEII+TX8D7rcbtCnK+1DAAAAAElFTkSuQmCC" 
+                    height="15%" width="15%"></a>
+                <div style="padding-left: 30px">Netflix (Philippines)</div>
             </div>
-        </div>
- 
-        <h3> Notable Quotes </h3>
 
-        {{#each cartoons.notablequotes}}
-            <div style="padding: 0px 0px 15px 20px">
-                {{this}}
-            </div> 
-        {{/each}}
+            {{!-- right --}}
 
-        {{!-- <div style="padding: 0px 0px 15px 20px">
-            “You don’t need a mirror to look good. You’re beautiful on the inside.” - Finn the Human
-        </div>
-        <div style="padding: 0px 0px 15px 20px">
-            “Sometimes life is scary and dark. That is why we must find the light.” - BMO
-        </div> --}}
+            <div class="right-column">
+                <h3> Synopsis </h3>
+                <div style="padding-left: 20px">
+                    {{summary}}
+                </div>
 
-        <h3> Reviews </h3>
+                <h3>Cartoon Stats</h3>
 
-        <section>
-            <form>
-                <textarea name="cartoon-comment" class="commentBox" placeholder="..." type="textarea"></textarea>
-                <label for="rate" style="font-family: 'Work Sans'; color: #25aae7;">Rating:</label>
-                <select name="cartoon-rate" id="ratings">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select> 
-                <button type="submit">Post</button>
-            </form>
-			<ul class="clearfix comments">
-                <li class="item" style="display: none;"> {{!-- sample lang weak --}}
-                    <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
-                        <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                    <p class="username-text"> <h4 class="username-text"> Yes (</h4> <h4 class="rate1 username-text"> 10 </h4> <h4 class="username-text lasttext">):</h4></p>
-                    <textarea class="cmnt" readonly>Galing mo talaga Allen</textarea>
-                    <p class="edt-bt right-text">Edit</p>
-                    <p class="dlt-bt right-text">Delete</p>
-                </li>
-                {{#each cartoonReview}} 
-                    <li class="item">
-                        <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
-                            <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                        <p class="username-text"> <h4 class="username-text"> {{username}} (</h4> <h4 class="rate1 username-text"> {{score}} </h4> <h4 class="username-text lasttext">):</h4></p>
-                        <textarea class="cmnt" readonly>{{review}}</textarea>
-                    </li>
+                <div class="statistics">
+                    <div class="tablecell">
+                        <div style="font-size: 13px;">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>Score</td>
+                                    <td style="font-size: 20px"><b>{{score}}</b></td>                                    
+                                </tr>
+                                <tr>
+                                    <td>Ranking</td>
+                                    <td style="font-size: 20px"><b>{{ranking}}</b></td>
+                                </tr>
+                                {{!-- <tr>
+                                    <td>Popularity</td>
+                                    <td style="font-size: 20px"><b>#1</b></td>
+                                </tr> --}}
+                                <tr>
+                                    <td>Members</td>
+                                    <td style="font-size: 20px">10</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        
+                <h3> Notable Quotes </h3>
+
+                {{#each cartoons.notablequotes}}
+                    <div style="padding: 0px 0px 15px 20px">
+                        {{this}}
+                    </div> 
                 {{/each}}
-			</ul>
-		</section>
 
-        </div>
-    </div>
-</div>     
+                {{!-- <div style="padding: 0px 0px 15px 20px">
+                    “You don’t need a mirror to look good. You’re beautiful on the inside.” - Finn the Human
+                </div>
+                <div style="padding: 0px 0px 15px 20px">
+                    “Sometimes life is scary and dark. That is why we must find the light.” - BMO
+                </div> --}}
 
-<script src="js/cartoon-script.js"></script>
+                <h3> Reviews </h3>
+
+                <section>
+                    <form>
+                        <textarea name="cartoon-comment" class="commentBox" placeholder="..." type="textarea"></textarea>
+                        <label for="rate" style="font-family: 'Work Sans'; color: #25aae7;">Rating:</label>
+                        <select name="cartoon-rate" id="ratings">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select> 
+                        <button type="submit">Post</button>
+                    </form>
+                    <ul class="clearfix comments">
+                        <li class="item" style="display: none;"> {{!-- sample lang weak --}}
+                            <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
+                                <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
+                            <p class="username-text"> <h4 class="username-text"> Yes (</h4> <h4 class="rate1 username-text"> 10 </h4> <h4 class="username-text lasttext">):</h4></p>
+                            <textarea class="cmnt" readonly>Galing mo talaga Allen</textarea>
+                            <p class="edt-bt right-text">Edit</p>
+                            <p class="dlt-bt right-text">Delete</p>
+                        </li>
+                        {{#each cartoonReview}} 
+                            <li class="item">
+                                <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
+                                    <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
+                                <p class="username-text"> <h4 class="username-text"> {{username}} (</h4> <h4 class="rate1 username-text"> {{score}} </h4> <h4 class="username-text lasttext">):</h4></p>
+                                <textarea class="cmnt" readonly>{{review}}</textarea>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </section>
+
+                </div>
+            </div>
+        </div>     
+
+        <script src="js/cartoon-script.js"></script>
+
+    </body>
+</html>
