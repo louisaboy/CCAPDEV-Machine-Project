@@ -91,6 +91,11 @@ label {
   cursor: pointer;
   display: inline-block;
 } */
+.fa-times, #add-list {
+    cursor: pointer;
+    color: #25aae7;
+}
+
 
 .inner {
     padding-left: 40px;

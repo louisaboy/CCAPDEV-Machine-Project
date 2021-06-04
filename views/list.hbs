@@ -13,6 +13,16 @@
     <div class = "inner">
         {{#each cartoons}}
                 <a href="/cartoon-info"><img src="images/CartoonPic/{{path}}" class="cartoonpic" style="cursor:pointer;"></a> 
+                {{!-- <span id="add-list"><i class="fa fa-plus fa-2x" name="list-plus"></i></span> --}}
+                <i class="fa fa-times fa-2x" name="list-times" aria-hidden="true"></i>
+                {{!-- <div id="list-menu" class="drop-down-menu">
+                    <ul>
+                        <li>Watching</li>
+                        <li>On Hold</li>
+                        <li>Dropped</li>
+                        <li>Plan to Watch</li>
+                    </ul>
+                </div> --}}
         {{/each}}
     </div>
     <p class="view-all1">View More</p>

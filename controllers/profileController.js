@@ -19,7 +19,7 @@ router.get("/", function(req, res){
     res.render('profile', {
         layout: 'main',
         style: 'profile-style.css',
-        headerStyle: 'header-style1.css',
+        headerStyle: 'header-style.css',
         // users: sample
     });
 })
