@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const url = process.env.DB_URL;
 const cartoons = require('./cartoons.js');
 const user = require('./user.js');
+const review = require('./cartoonReview');
+const comment = require('./profileComment');
 const options ={
     useUnifiedTopology: true,
     useNewUrlParser: true

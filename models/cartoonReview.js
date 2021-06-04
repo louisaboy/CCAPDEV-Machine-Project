@@ -1,15 +1,15 @@
 const mongoose = require("mongoose")
 
 var reviewSchema = mongoose.Schema({
-    title: String,
     username: String,
-    review: String,
+    title: String,
     score: Number,
+    review: String,
     status: String,
     date: Date
 })
 
-var Review = mongoose.model("review", reviewSchema)
+var Reviews = mongoose.model("cartoonReview", reviewSchema)
 
 exports.create = function(review){
     return new Promise(function(resolve,reject){
@@ -27,7 +27,7 @@ exports.create = function(review){
 
 exports.getAll = function(){
     return new Promise(function(resolve, reject){
-        Review.find().then((reviews)=>{
+        Reviews.find().then((reviews)=>{
             console.log(reviews)
             resolve(reviews)
         }, (err)=>{
@@ -36,13 +36,14 @@ exports.getAll = function(){
     })
 }
 
-exports.getPostingReviews = function(title){
+exports.getTitle = function(title){
     return new Promise(function(resolve, reject){
-        Review.find({postID:postingID}).then((reviews)=>{
-            console.log(reviews)
-            resolve(reviews)
+        Reviews.findOne({title:title}).then((game)=>{
+            resolve(game)
         }, (err)=>{
             reject(err)
         })
     })
 }
+
+// module.exports = Reviews;

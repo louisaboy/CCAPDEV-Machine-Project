@@ -110,9 +110,9 @@
  
         <h3> Notable Quotes </h3>
 
-        {{#each cartoons}}
+        {{#each cartoons.notablequotes}}
             <div style="padding: 0px 0px 15px 20px">
-                {{notablequotes}}
+                {{this}}
             </div> 
         {{/each}}
 
@@ -144,18 +144,6 @@
                 <button type="submit">Post</button>
             </form>
 			<ul class="clearfix comments">
-                {{#each cartoonReview}}
-                    {{#if @first}} 
-                        <li class="item">
-                            <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
-                                <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                            <p class="username-text">{{username}} ({{score}}):</p>
-                            <p>{{review}}</p>
-                            {{!-- <p class="edt-bt right-text">Edit</p>
-                            <p class="dlt-bt right-text">Delete</p> --}}
-                        </li>
-                    {{/if}}
-                {{/each}}
                 <li class="item" style="display: none;"> {{!-- sample lang weak --}}
                     <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
                         <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
@@ -164,6 +152,14 @@
                     <p class="edt-bt right-text">Edit</p>
                     <p class="dlt-bt right-text">Delete</p>
                 </li>
+                {{#each cartoonReview}} 
+                    <li class="item">
+                        <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
+                            <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
+                        <p class="username-text"> <h4 class="username-text"> {{username}} (</h4> <h4 class="rate1 username-text"> {{score}} </h4> <h4 class="username-text lasttext">):</h4></p>
+                        <textarea class="cmnt" readonly>{{review}}</textarea>
+                    </li>
+                {{/each}}
 			</ul>
 		</section>
 

@@ -45,7 +45,7 @@ const listController = {
             }
         })
     
-        res.render('all-cartoons.hbs', {
+        res.render('list.hbs', {
             layout: 'main',
             style: 'cartoon-style.css',
             headerStyle: 'header-style.css',

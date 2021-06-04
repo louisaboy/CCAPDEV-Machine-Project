@@ -8,7 +8,7 @@ var commentSchema = mongoose.Schema({
     date: Date,
 })
 
-var Comment = mongoose.model("profilecomment", commentSchema)
+var Comments = mongoose.model("profileComments", commentSchema)
 
 exports.create = function(profilecomment){
     return new Promise(function(resolve, reject){
@@ -26,7 +26,7 @@ exports.create = function(profilecomment){
 
 exports.get = function(id){
     return new Promise(function(resolve, reject){
-        Comment.findOne({_id:id}).then((profilecomment)=>{
+        Comments.findOne({_id:id}).then((profilecomment)=>{
             resolve(profilecomment)
         }, (err)=>{
             reject(err)
@@ -36,7 +36,7 @@ exports.get = function(id){
 
 exports.getAll = function(){
     return new Promise(function(resolve, reject){
-        Comment.find().then((profilecomment)=>{
+        Comments.find().then((profilecomment)=>{
           resolve(profilecomment)
         }, (err)=>{
           reject(err)
@@ -46,7 +46,7 @@ exports.getAll = function(){
 
 exports.getAllPosting = function(username){
     return new Promise(function(resolve, reject){
-        Comment.find({title:title}).then((profilecomment)=>{
+        Comments.find({username:username}).then((profilecomment)=>{
             resolve(profilecomment)
         }, (err)=>{
             reject(err)
@@ -56,7 +56,7 @@ exports.getAllPosting = function(username){
 
 exports.delete = function (id){
     return new Promise(function(resolve, reject){
-        Comment.deleteOne({_id: id
+        Comments.deleteOne({_id: id
         }).then((profilecomment)=>{
             console.log("Deleted: ",  profilecomment)
         },(err)=>{
@@ -67,7 +67,7 @@ exports.delete = function (id){
 
 exports.edit = function(id, profilecomment){
     return new Promise(function(resolve, reject){
-        Comment.findOneAndUpdate({_id:id}, profilecomment).then((profilecomment)=>{
+        Comments.findOneAndUpdate({_id:id}, profilecomment).then((profilecomment)=>{
             resolve(profilecomment)
         }, (err)=>{
             reject(err)

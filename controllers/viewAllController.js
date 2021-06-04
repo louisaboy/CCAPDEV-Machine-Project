@@ -54,19 +54,6 @@ const viewAllController = {
                 headerStyle: 'header-style1.css',
                 // users: sample,
                 cartoons: shows,
-                helpers:{
-                    // Function to do basic mathematical operation in handlebar
-                    math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
-                        rvalue = parseFloat(rvalue);
-                        return {
-                            "+": lvalue + rvalue,
-                            "-": lvalue - rvalue,
-                            "*": lvalue * rvalue,
-                            "/": lvalue / rvalue,
-                            "%": lvalue % rvalue
-                        }[operator];
-                    }
-                }
             });
         })  
     },
@@ -85,21 +72,8 @@ const viewAllController = {
             layout: 'main',
             style: 'all-cartoons-style.css',
             headerStyle: 'header-style1.css',
-            // users: sample,
+            users: sample,
             cartoons: shows,
-            helpers:{
-                // Function to do basic mathematical operation in handlebar
-                math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
-                    rvalue = parseFloat(rvalue);
-                    return {
-                        "+": lvalue + rvalue,
-                        "-": lvalue - rvalue,
-                        "*": lvalue * rvalue,
-                        "/": lvalue / rvalue,
-                        "%": lvalue % rvalue
-                    }[operator];
-                }
-            }
         });
    },
 
@@ -118,19 +92,6 @@ const viewAllController = {
         headerStyle: 'header-style1.css',
         // users: sample,
         cartoons: shows,
-        helpers:{
-            // Function to do basic mathematical operation in handlebar
-            math: function(lvalue, operator, rvalue) {lvalue = parseFloat(lvalue);
-                rvalue = parseFloat(rvalue);
-                return {
-                    "+": lvalue + rvalue,
-                    "-": lvalue - rvalue,
-                    "*": lvalue * rvalue,
-                    "/": lvalue / rvalue,
-                    "%": lvalue % rvalue
-                }[operator];
-            }
-        }
     });
 }
 }

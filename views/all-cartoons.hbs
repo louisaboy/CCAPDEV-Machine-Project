@@ -14,5 +14,12 @@
                 <a href="/cartoon-info/{{title}}"><img src="images/CartoonPic/{{path}}" class="cartoonpic" style="cursor:pointer;"></a> 
         {{/each}}
     </div>
-    <label class="view-all1" for="view-all"><input type="checkbox" class="view-all"/>View </label>
+    <p class="view-all1">View More</p>
 </div>
+
+<script>
+    $('.view-all1').on('click', function () {
+        $('.inner').css("max-height","10000px");
+        $('.view-all1').css("display","none");
+    }); 
+</script>

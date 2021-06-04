@@ -1,4 +1,5 @@
 const express = require("express")
+const mongoose = require("mongoose")
 const router = express.Router()
 const User = require("../models/user")
 const Cartoon = require("../models/cartoons")
@@ -81,14 +82,24 @@ const homeController = {
     },
     getHome: function(req, res){
         console.log("Homepage running...")
-        console.log("User logged In " + req.session.user.username)
-        res.render('index', {
-            layout: 'main', 
-            cartoons: shows,
-            style: 'index-style.css',
-            headerStyle: 'header-home-style.css',
-            users: req.session.user
-        });
+        // console.log("User logged In " + req.session.user.username)
+        var user = {
+            title: "Adventure Time",
+            username: "mikuuu"
+        }
+
+        // var placeholder = [];
+        Review.getTitle("user.title").then((tempreviews)=>{
+            console.log(tempreviews);
+            res.render('index', {
+                layout: 'main', 
+                cartoons: shows,
+                style: 'index-style.css',
+                headerStyle: 'header-home-style.css',
+                // users: req.session.user
+            });
+        })
+        
     }
     // postIndex: function(req, res){
         

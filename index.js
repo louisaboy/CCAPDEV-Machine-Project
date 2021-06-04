@@ -30,13 +30,12 @@ app.engine('hbs', handlebars({
     layoutsDir: __dirname + '/views/layouts',
     extname: 'hbs',
     defaultLayout: 'main',
-    partialsDir: __dirname + '/views/partials/',
-    helpers: require('./public/js/handlebars-helpers.js')
+    partialsDir: __dirname + '/views/partials/'
 }));
 
 var route = require('./routes/route')
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 app.use(session({
     secret: "secret key",
@@ -46,6 +45,7 @@ app.use(session({
 }));
 
 app.use("/", route);
+// app.use(require("./controllers"))
 
 app.listen(port , function(){
     console.log("The server is now running on " + port);

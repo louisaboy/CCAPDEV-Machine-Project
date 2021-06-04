@@ -5,6 +5,7 @@ const cartoonReview = require("../models/cartoonReview")
 const Cartoon = require("../models/cartoons")
 const bodyparser = require("body-parser")
 const moment = require("moment")
+const sanitize = require('mongo-sanitize');
 
 const app = express()
 
@@ -38,6 +39,12 @@ const cartoonController = {
             notablequotes: [],
             path: ""
         }
+        var review = {
+            username: "",
+            review: "",
+            score: ""
+        }
+        
         Cartoon.getTitle(cartoon).then((result)=>{
             console.log(result);
             show.title = result.title,
@@ -48,34 +55,42 @@ const cartoonController = {
             show.ranking = result.ranking;
             show.summary = result.summary;
             show.path = result.path;
-            // console.log(result.notablequotes[0])
-            // console.log(result.notablequotes[1])
-            console.log("asdfasdf" + result.notablequotes)
+            show.notablequotes = result.notablequotes;
             // console.log(result.notablequotes[3])
             // for(i in result.notablequotes.){
             //     var temp = result.notablequotes[0];
             //     console.log(temp);
             //     show.notablequotes.push(temp);
             // }
-
-            console.log(show);
-            console.log("Cartoon running...");
-            console.log(req.session.user);
-            res.render('cartoon-info.hbs', {
-                layout: 'main',
-                style: 'cartoon-style.css',
-                headerStyle: 'header-style.css',
-                users: req.session.user,
-                title: show.title,
-                path: show.path,
-                episodes: show.episodes,
-                dateofrelease: show.dateofrelease,
-                dateoflastrelease: show.dateoflastrelease,
-                summary: show.summary,
-                score: show.score,
-                ranking: show.ranking,
-                cartoons: show
-            });
+            // console.log("asdfasdf" + result.notablequotes[0])
+                // console.log("1231231231 " + show.title)
+                // cartoonReview.getTitle(show.title).then((reviews)=>{
+                    // console.log("cartoon reviews " + reviews);
+                    // review.username = reviews.username
+                    // review.review = reviews.review
+                    // review.score = reviews.score
+                    // console.log("23452345 " + review.username);
+                    console.log("Cartoon running...");
+                    console.log(req.session.user);
+                    res.render('cartoon-info.hbs', {
+                        layout: 'main', 
+                        style: 'cartoon-style.css',
+                        headerStyle: 'header-style.css',
+                        users: req.session.user,
+                        title: show.title,
+                        path: show.path,
+                        episodes: show.episodes,
+                        dateofrelease: show.dateofrelease,
+                        dateoflastrelease: show.dateoflastrelease,
+                        summary: show.summary,
+                        score: show.score,
+                        ranking: show.ranking,
+                        cartoons: show,
+                        username: review.username,
+                        review: review.review,
+                        score: review.score
+                    });
+                // });            
         })
     }
 }

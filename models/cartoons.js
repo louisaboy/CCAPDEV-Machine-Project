@@ -9,15 +9,16 @@ var cartoonSchema = mongoose.Schema({
     ranking: Number,
     summary: String,
     shortsummary: String,
-    path: String
+    path: String,
+    notablequotes: Array
 }) 
 
-var Cartoon = mongoose.model("cartoon", cartoonSchema)
+var Cartoon = mongoose.model("cartoons", cartoonSchema)
 
 exports.create = function(cartoon){
     return new Promise(function(resolve, reject){
         console.log(cartoon)
-        var g = new Game(cartoon)
+        var g = new Cartoon(cartoon)
 
         g.save().then((newCartoon)=>{
             console.log(newCartoon)
