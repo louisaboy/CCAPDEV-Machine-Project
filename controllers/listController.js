@@ -43,10 +43,10 @@ router.get("/", function(req, res){
         }
     })
 
-    res.render('all-cartoons.hbs', {
+    res.render('list.hbs', {
         layout: 'main',
-        style: 'cartoon-style.css',
-        headerStyle: 'header-style.css',
+        style: 'cartoonlist-style.css',
+        headerStyle: 'header-style1.css',
         // users: sample
     });
 })
