@@ -39,9 +39,9 @@ exports.get = function(id){
     })
 }
 
-exports.getTitle = function(title){
+exports.getTitle = function(name){
     return new Promise(function(resolve, reject){
-        Cartoon.findOne({title:title}).then((cartoon)=>{
+        Cartoon.findOne({title:name}).then((cartoon)=>{
             resolve(cartoon)
         }, (err)=>{
             reject(err)

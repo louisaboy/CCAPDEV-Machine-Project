@@ -28,9 +28,10 @@ route.post("/signup", signinController.postRegister)
 
 // Cartoon Info Page
 route.get("/cartoon-info/:id", cartoonController.getCartoon);
+route.post("/cartoon-info/:id", cartoonController.postComment);
 
 // Cartoon List Page
-route.get("/list", listController.getList);
+route.get("/list/:id", listController.getList);
 
 // View All Cartoons Page
 route.get("/all-cartoons", viewAllController.getAllCartoons);
@@ -38,10 +39,13 @@ route.get("/all-cartoons/by-release-date", viewAllController.getByReleaseDate);
 route.get("/all-cartoons/by-popularity", viewAllController.getByPopularity);
 
 // Settings Page
-route.get("/settings", settingController.getSetting);
+route.get("/settings/:id", settingController.getSetting);
+route.post("/settings/:id", settingController.postSetting);
+route.get("/settings/delete/:id", settingController.getDelete);
 
 // Profile Page
-route.get("/profile/:user", profileController.getProfile);
+route.get("/profile/:id", profileController.getProfile);
+route.post("/profile/:id", profileController.postComment);
 
 // var cur_user = {
 //     user: false,
@@ -51,24 +55,11 @@ route.get("/profile/:user", profileController.getProfile);
 //     email: "",
 //     pfp: "",
 // }
+var isLoggedIn = false;
 
 route.get("/logout", function(req,res){
     
-    req.session.destroy(function(err) {
-        if(err) throw err;
-        user = {
-            user: false,
-            username : "",
-            password: "",
-            birthday: "",
-            email: "",
-            pfp : ""
-        }
-
-        res.redirect('/');
-
-    });
-    
+    req.session.destroy()
     res.redirect("/")
 })
 

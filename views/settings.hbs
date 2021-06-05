@@ -1,27 +1,29 @@
 <header>
     <div class="header-left">
-        <a href="/"><img src="images/Pics/TLLogo.png" class="TLLogo" alt="ToonList"/></a>
+        <a href="/"><img src="/images/Pics/TLLogo.png" class="TLLogo" alt="ToonList"/></a>
+        <a href="/all-cartoons" id="all-cartoons">All Cartoons</a>
     </div>
+    
 </header> 
-
 <h2> Edit Profile </h2>
 
+
 <div class="login-box">
-    <form class="email-signup" id="email-signup">
+    <form class="email-signup" id="email-signup" method="POST" >
         <div class="form-top">
-            <image id="profileImage" src="images/ProfilePic/{{username}}.png"/>
+            <image id="profileImage" src="{{pfp}}"/>
             {{!-- <input id="imageUpload" type="file"
                 name="profile_photo" placeholder="Photo" optional="" accept="image/*"> --}}
             <div class="u-form-group" id="grid-2">
-                <input type="email" name="settings-email" placeholder="Email ({{email}})" optional=""/>
+                <input id="email" name="email"type="email" name="settings-email" placeholder="{{email}}" optional=""/>
             </div>
             <div class="u-form-group" id="grid-3">
-                <input type="username" name="settings-user" placeholder="Username ({{username}})" optional=""/>
+                <input id="username" name="username" type="username" name="settings-user" placeholder="{{username}}" optional=""/>
             </div>
         </div>
 
         <div class="u-form-group">
-            <input type="text" name="settings-pic" id="imgurl" placeholder="image URL" optional=""/>
+            <input id = "pfp" name="pfp" type="text" name="settings-pic" id="imgurl" placeholder="{{pfp}}" optional=""/>
         </div>
 
         <div class="u-form-group">
@@ -29,12 +31,12 @@
         </div>
 
         <div class="u-form-group">
-            <input id = "password" name="settings-pass" type="password" placeholder="Password" optional="" minlength="7"/>
+            <input id = "password" name="password" type="password" placeholder="{{password}}" optional="" minlength="7"/>
         </div>
 
         <div class="u-form-group" id="buttonss">
-            <input class="delete-buttn" type="submit" value="Delete Account">
-            <input class="submit-buttn1" type="submit" value="Submit">
+            <input formaction="/settings/delete/{{username}}" class="delete-buttn" type="submit" value="Delete Account">
+            <input id="submit"class="submit-buttn1" type="submit" value="Submit">
         </div>
     </form>
 </div>
@@ -46,6 +48,7 @@
             $("#profileImage").attr("src", inputVal);
         });
     }); 
+
 </script>
 
 {{!-- <script>
@@ -64,3 +67,4 @@
             $("#imageUpload").click();
     });
 </script> --}}
+<script src="/js/settings.js"></script>

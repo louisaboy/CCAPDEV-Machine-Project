@@ -25,6 +25,7 @@ app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(express.urlencoded({extended: true}));
+app.use(bodyparser.urlencoded({extended: true}));
 
 app.engine('hbs', handlebars({
     layoutsDir: __dirname + '/views/layouts',

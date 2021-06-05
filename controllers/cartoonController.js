@@ -6,6 +6,7 @@ const Cartoon = require("../models/cartoons")
 const bodyparser = require("body-parser")
 const moment = require("moment")
 const sanitize = require('mongo-sanitize');
+const main = require("../routes/route.js");
 
 const app = express()
 
@@ -23,7 +24,9 @@ function validation(cartoon){
         return false
     }
 }
-
+var sample = {
+    user: false
+}
 const cartoonController = {
     getCartoon: function(req, res){
         cartoon = req.params.id;
@@ -39,14 +42,9 @@ const cartoonController = {
             notablequotes: [],
             path: ""
         }
-        var review = {
-            username: "",
-            review: "",
-            score: ""
-        }
         
         Cartoon.getTitle(cartoon).then((result)=>{
-            console.log(result);
+            // console.log(result);
             show.title = result.title,
             show.episodes = result.episodes,
             show.dateofrelease = result.dateofrelease;
@@ -64,33 +62,72 @@ const cartoonController = {
             // }
             // console.log("asdfasdf" + result.notablequotes[0])
                 // console.log("1231231231 " + show.title)
-                // cartoonReview.getTitle(show.title).then((reviews)=>{
-                    // console.log("cartoon reviews " + reviews);
-                    // review.username = reviews.username
-                    // review.review = reviews.review
-                    // review.score = reviews.score
-                    // console.log("23452345 " + review.username);
+                cartoonReview.getTitle(show.title).then((reviews)=>{
+                    console.log(show.title);
+                    console.log("cartoon reviews " + reviews);
                     console.log("Cartoon running...");
-                    console.log(req.session.user);
-                    res.render('cartoon-info.hbs', {
-                        layout: 'main', 
-                        style: 'cartoon-style.css',
-                        headerStyle: 'header-style.css',
-                        users: req.session.user,
-                        title: show.title,
-                        path: show.path,
-                        episodes: show.episodes,
-                        dateofrelease: show.dateofrelease,
-                        dateoflastrelease: show.dateoflastrelease,
-                        summary: show.summary,
-                        score: show.score,
-                        ranking: show.ranking,
-                        cartoons: show,
-                        username: review.username,
-                        review: review.review,
-                        score: review.score
-                    });
-                // });            
+                    if(typeof(req.session.user) != 'undefined')
+                    {
+                        res.render('cartoon-info.hbs', {
+                            layout: 'main', 
+                            style: 'cartoon-style.css',
+                            headerStyle: 'header-style.css',
+                            users: req.session.user,
+                            title: show.title,
+                            path: show.path,
+                            episodes: show.episodes,
+                            dateofrelease: show.dateofrelease,
+                            dateoflastrelease: show.dateoflastrelease,
+                            summary: show.summary,
+                            score: show.score,
+                            ranking: show.ranking,
+                            cartoons: show,
+                            cartoonReview: reviews
+                        });
+                    }
+                    else{
+                        res.render('cartoon-info.hbs', {
+                            layout: 'main', 
+                            style: 'cartoon-style.css',
+                            headerStyle: 'header-style.css',
+                            users: sample,
+                            title: show.title,
+                            path: show.path,
+                            episodes: show.episodes,
+                            dateofrelease: show.dateofrelease,
+                            dateoflastrelease: show.dateoflastrelease,
+                            summary: show.summary,
+                            score: show.score,
+                            ranking: show.ranking,
+                            cartoons: show,
+                            cartoonReview: reviews
+                        });
+                    }
+                    
+                });            
+        })
+    },
+    postComment: function(req, res){
+        let ts = Date.now();
+        let date_ob = new Date(ts);
+        let date = date_ob.getDate();
+        let month = date_ob.getMonth() + 1;
+        let year = date_ob.getFullYear();
+        console.log("1234123412341234" + req.session.user);
+        var review = {
+            username: req.session.user.username,
+            title: req.params.id,
+            score: req.body.ratings,
+            review: req.body.comment,
+            status: "complete",
+            date: year+"-"+month+"-"+date
+        }
+
+        
+        cartoonReview.create(review).then((result)=>{
+            console.log('asdfasdf');
+            console.log(result)
+            res.redirect("/cartoon-info/" + req.params.id);
         })
     }
 }

@@ -5,8 +5,8 @@
         <meta charset="utf-8">
         <title> ToonList </title>
     
-        <link href="css/cartoon-style.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header-style.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/cartoon-style.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/header-style.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -29,7 +29,7 @@
                 <h2> {{title}} </h2>
                 
                 <div class="box">
-                    <img class="cartoon-picture" src="images/CartoonPic/{{path}}"> 
+                    <img class="cartoon-picture" src="/images/CartoonPic/{{path}}"> 
                     <a href="#" class="button"> 
                         <img src="https://static.thenounproject.com/png/576517-200.png" 
                         style="width: 12px; height: 12px;"> Add Cartoon </a>
@@ -148,10 +148,10 @@
                 <h3> Reviews </h3>
 
                 <section>
-                    <form>
-                        <textarea name="cartoon-comment" class="commentBox" placeholder="..." type="textarea"></textarea>
+                    <form action="/cartoon-info/{{title}}" method="POST">
+                        <textarea id="comment" name="comment" class="commentBox" placeholder="..." type="textarea"></textarea>
                         <label for="rate" style="font-family: 'Work Sans'; color: #25aae7;">Rating:</label>
-                        <select name="cartoon-rate" id="ratings">
+                        <select name="cartoonrate" id="ratings">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -166,21 +166,22 @@
                         <button type="submit">Post</button>
                     </form>
                     <ul class="clearfix comments">
-                        <li class="item" style="display: none;"> {{!-- sample lang weak --}}
-                            <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
-                                <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
+                        
+                        {{#each cartoonReview}} 
+                            <li class="item">
+                                <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
+                                    <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
+                                <p class="username-text"> <h4 class="username-text"> {{cartoon.username}} (</h4> <h4 class="rate1 username-text"> {{score}} </h4> <h4 class="username-text lasttext">):</h4></p>
+                                <textarea id="comment" id="comment" class="cmnt" readonly placeholder="{{review}}"></textarea>
+                            </li>
+                            <li class="item" style="display: none;"> {{!-- sample lang weak --}}
+                            <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
+                                <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
                             <p class="username-text"> <h4 class="username-text"> Yes (</h4> <h4 class="rate1 username-text"> 10 </h4> <h4 class="username-text lasttext">):</h4></p>
                             <textarea class="cmnt" readonly>Galing mo talaga Allen</textarea>
                             <p class="edt-bt right-text">Edit</p>
                             <p class="dlt-bt right-text">Delete</p>
                         </li>
-                        {{#each cartoonReview}} 
-                            <li class="item">
-                                <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
-                                    <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                                <p class="username-text"> <h4 class="username-text"> {{username}} (</h4> <h4 class="rate1 username-text"> {{score}} </h4> <h4 class="username-text lasttext">):</h4></p>
-                                <textarea class="cmnt" readonly>{{review}}</textarea>
-                            </li>
                         {{/each}}
                     </ul>
                 </section>

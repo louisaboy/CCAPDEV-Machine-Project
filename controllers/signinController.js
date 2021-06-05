@@ -7,13 +7,16 @@ const Comment = require("../models/profileComment")
 const bodyparser = require("body-parser")
 const homeController = require("./homeController")
 const alert = require('alert');
+const main = require("../routes/route.js");
 
 const app = express()
 
 const urlencoder = bodyparser.urlencoded({
     extended: true
 })
-
+var sample = {
+    user: false
+}
 router.use(urlencoder)
 
 const signinController = {
@@ -45,6 +48,7 @@ const signinController = {
             pfp : req.body.signpic
         }
         console.log("2")
+        
         User.getUser(user.username).then((result)=>{
             console.log(result);
             if(result)
@@ -67,7 +71,8 @@ const signinController = {
                                 pfp: user.pfp
                             }
                             console.log(req.session.username + " Logged In Successfully")
-                            res.redirect("/home");
+                            main.isLoggedIn = true;
+                            res.redirect("/");
                             res.render("index.hbs")
                         })
                     }
@@ -99,7 +104,8 @@ const signinController = {
                     pfp: newUser.pfp
                 }
                 console.log(req.session.email + " Logged In Successfully")
-                res.redirect("/home");
+                main.isLoggedIn = true;
+                res.redirect("/");
                 res.render("index.hbs")
             }
             else{

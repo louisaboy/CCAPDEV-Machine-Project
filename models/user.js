@@ -7,6 +7,7 @@ var userSchema = mongoose.Schema({
     birthday: Date,
     email: String,
     pfp: String
+    // list: Array
 })
 
 userSchema.pre("save", function(next){
@@ -66,9 +67,9 @@ exports.getAll = function(){
   }
 
 
-exports.getUser = function(username){
+exports.getUser = function(name){
     return new Promise(function(resolve, reject){
-      User.findOne({username:username}).then((result)=>{
+      User.findOne({username:name}).then((result)=>{
         resolve(result)
       }, (err)=>{
         reject(err)
@@ -85,3 +86,24 @@ exports.getUser = function(username){
       })
     })
   }
+
+  exports.delete = function (name){
+    return new Promise(function(resolve, reject){
+      User.deleteOne({username: name
+        }).then((user)=>{
+            console.log("Deleted: ",  user)
+        },(err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.edit = function(id, user){
+  return new Promise(function(resolve, reject){
+      User.findOneAndUpdate({_id:id}, user).then((user)=>{
+          resolve(user)
+      }, (err)=>{
+          reject(err)
+      })
+  })
+}

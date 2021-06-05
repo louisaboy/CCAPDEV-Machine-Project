@@ -5,13 +5,16 @@ const cartoonReview = require("../models/cartoonReview")
 const Cartoon = require("../models/cartoons")
 const bodyparser = require("body-parser")
 const moment = require("moment")
+const main = require("../routes/route.js");
 
 const app = express()
 
 const urlencoder = bodyparser.urlencoded({
     extended: true
 })
-
+var sample = {
+    user: false
+}
 router.use(urlencoder)
 
 function validation(cartoon){
@@ -40,17 +43,25 @@ const listController = {
                     date: tempreviews[i].date,
                     status: tempreviews[i].status
                 }
-                
-                shows.push(temp)
+                if("mikuuu" === temp.username)
+                    reviews.push(temp)
+            }
+            console.log(reviews);
+        })
+        User.getUser(req.params.id).then((user)=>{
+            if(typeof(req.session.user) != 'undefined')
+            {
+                res.render('list.hbs', {
+                    layout: 'main',
+                    style: 'cartoon-style.css',
+                    headerStyle: 'header-style.css',
+                    users: user,
+                    cartoons: reviews
+                });
             }
         })
-    
-        res.render('list.hbs', {
-            layout: 'main',
-            style: 'cartoon-style.css',
-            headerStyle: 'header-style.css',
-            // users: sample
-        });
+        
+        
     }
 }
 

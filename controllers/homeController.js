@@ -7,6 +7,7 @@ const Review = require("../models/cartoonReview")
 const Comment = require("../models/profileComment")
 const bodyparser = require("body-parser")
 const moment = require("moment")
+const main = require("../routes/route.js");
 
 const app = express()
 
@@ -17,6 +18,8 @@ const urlencoder = bodyparser.urlencoded({
 var sample = {
     user: false
 }
+
+
 
 var shows = [
     {
@@ -69,7 +72,22 @@ const homeController = {
     
     getIndex: function(req, res){
         // console.log(req.session.user)
-        console.log("Homepage running...")
+        req.session.search = req.body.search;
+        console.log("serach " + req.session.search);
+        if (typeof(req.session.user) != 'undefined')
+        {
+            
+            console.log("user found")
+            res.render('index', {
+                layout: 'main', 
+                cartoons: shows,
+                style: 'index-style.css',
+                headerStyle: 'header-home-style.css',
+                users: req.session.user
+            });
+        }
+        else{
+            console.log("Homepage running...")
             console.log("No user yet")
             res.render('index', {
                 layout: 'main', 
@@ -78,27 +96,34 @@ const homeController = {
                 headerStyle: 'header-home-style.css',
                 users: sample
             });
+        }
         
     },
+
     getHome: function(req, res){
         console.log("Homepage running...")
         // console.log("User logged In " + req.session.user.username)
         var user = {
-            title: "Adventure Time",
-            username: "mikuuu"
+            // title: "Adventure Time",
+            // username: "mikuuu",   
+            // score: 9,
+            // review: "asdfasdf",
+            // status: "Completed",
+            // date: "2021-04-26T16:30:21.000+00:00"
+            profile: "mikuuu",
+            username: "Yotsubarashii",
+            comment: "asdfa",
+            likes: 0,
+            date: "2021-04-22T08:28:10.000+00:00"
         }
-
-        // var placeholder = [];
-        Review.getTitle("user.title").then((tempreviews)=>{
-            console.log(tempreviews);
+            
             res.render('index', {
                 layout: 'main', 
                 cartoons: shows,
                 style: 'index-style.css',
                 headerStyle: 'header-home-style.css',
-                // users: req.session.user
+                users: req.session.user
             });
-        })
         
     }
     // postIndex: function(req, res){

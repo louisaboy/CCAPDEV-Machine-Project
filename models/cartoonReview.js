@@ -9,15 +9,15 @@ var reviewSchema = mongoose.Schema({
     date: Date
 })
 
-var Reviews = mongoose.model("cartoonReview", reviewSchema)
+var Reviews = mongoose.model("cartoonreviews", reviewSchema)
 
 exports.create = function(review){
     return new Promise(function(resolve,reject){
-        console.log(review)
-        var r = new Review(review)
+        // console.log(review)
+        var r = new Reviews(review)
 
         r.save().then((newReview)=>{
-            console.log(newReview)
+            // console.log(newReview)
             resolve(newReview)
         }, (err)=>{
             reject(err)
@@ -28,7 +28,7 @@ exports.create = function(review){
 exports.getAll = function(){
     return new Promise(function(resolve, reject){
         Reviews.find().then((reviews)=>{
-            console.log(reviews)
+            // console.log(reviews)
             resolve(reviews)
         }, (err)=>{
             reject(err)
@@ -38,8 +38,19 @@ exports.getAll = function(){
 
 exports.getTitle = function(title){
     return new Promise(function(resolve, reject){
-        Reviews.findOne({title:title}).then((game)=>{
+        Reviews.find({title:title}).then((game)=>{
             resolve(game)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.getCartoonReview = function(cartoontitle){
+    return new Promise(function(resolve, reject){
+        Reviews.find({title:cartoontitle}).then((reviews)=>{
+            // console.log(reviews)
+            resolve(reviews)
         }, (err)=>{
             reject(err)
         })

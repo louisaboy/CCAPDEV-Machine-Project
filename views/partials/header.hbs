@@ -1,25 +1,25 @@
 <header>
     <div class="header-left">
-        <a href="/"><img src="images/Pics/TLLogo.png" class="TLLogo" alt="ToonList"/></a>
+        <a href="/"><img src="/images/Pics/TLLogo.png" class="TLLogo" alt="ToonList"/></a>
         <a href="/all-cartoons" id="all-cartoons">All Cartoons</a>
     </div>
     <div class="header-right">
         <form action="/all-cartoons">
-            <input name="index-search" type="search" placeholder="Shows, users...">
+            <input id="search" name="search" type="search" placeholder="Shows...">
             <a href="/all-cartoons"><i class="fa fa-search"></i></a>
         </form>
         {{#with users}}
             {{#if user}}
-                <a href="/profile"><img class="dp" src="{{pfp}}"/></a>
+                <a href="/profile/{{username}}"><img class="dp" src="{{pfp}}"/></a>
                 <div id="drop-down">
                     <span id="down"><i class="fa fa-caret-down"></i></span>
                     <div class="drop-down-menu">
                         <ul>
-                            <li><a href="/profile">My List</a></li>
-                            <li><a href="/profile">Profile</a></li>
-                            <li><a href="/settings">Settings</a></li>
-                            <li><a href="/error">Help Center</a></li>
-                            <li><a href="/">Log Out</a></li>
+                            <li><a href="/list/{{username}}">My List</a></li>
+                            <li><a href="/profile/{{username}}">Profile</a></li>
+                            <li><a href="/settings/{{username}}">Settings</a></li>
+                            <li><a href="/">Help Center</a></li>
+                            <li><a href="/logout">Log Out</a></li>
                         </ul>
                     </div>
                 </div>
