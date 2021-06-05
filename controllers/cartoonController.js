@@ -82,7 +82,7 @@ const cartoonController = {
                             score: show.score,
                             ranking: show.ranking,
                             cartoons: show,
-                            cartoonReview: reviews
+                            cartoonreviews: reviews
                         });
                     }
                     else{
@@ -101,9 +101,13 @@ const cartoonController = {
                             score: show.score,
                             ranking: show.ranking,
                             cartoons: show,
+<<<<<<< HEAD
                             username: reviews.username,
                             score: reviews.score,
                             review: reviews.review
+=======
+                            cartoonreviews: reviews
+>>>>>>> 6454dccfa7627f7776b8a41a950bacbf52caa339
                         });
                     }
                     
