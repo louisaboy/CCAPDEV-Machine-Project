@@ -321,8 +321,8 @@ section ul li:hover {
 .drop-down-menu {
     font-family: 'Work Sans';
     position: absolute;
-    top: 10%;
-    right: 10%;
+    top: 1%;
+    right:1%;
     display: none;
     width: 155px;
     background-color: white;

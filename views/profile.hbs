@@ -148,10 +148,14 @@
         <h3> Comments </h3>
 
         <section>
-            <form method="POST" action="/profile/{{username}}" >
-                <textarea id="comment" name="comment" class="commentBox" placeholder="..." type="textarea"></textarea>
-                <button type="submit">Post</button>
-            </form>
+            {{#with users}}
+                {{#if user}}
+                    <form method="POST" action="/profile/{{username}}" >
+                        <textarea id="comment" name="comment" class="commentBox" placeholder="..." type="textarea"></textarea>
+                        <button type="submit">Post</button>
+                    </form>
+                {{/if}}
+            {{/with}}
 			<ul class="clearfix comments">
                 <li class="item" style="display: none;"> {{!-- sample lang weak --}}
                     <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
@@ -167,6 +171,12 @@
                             <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
                         <p class="username-text"> <h4 class="username-text"> {{profileComments.username}}: </h4> </p>
                         <textarea id="comment"class="cmnt" readonly>{{profileComments.comment}}</textarea>
+                        {{#with users}}
+                            {{#if user}}
+                                <p class="edt-bt right-text">Edit</p>
+                                <p class="dlt-bt right-text">Delete</p>
+                            {{/if}}
+                        {{/with}}
                     </li>
                 {{/each}}
 			</ul>
