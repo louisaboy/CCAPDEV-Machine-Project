@@ -178,12 +178,12 @@
                             <p class="edt-bt right-text">Edit</p>
                             <p class="dlt-bt right-text">Delete</p>
                         </li>
-                        {{#each cartoonReview}} 
+                        {{#each cartoonreviews}} 
                             <li class="item">
                                 <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
                                     <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                                <p class="username-text"> <h4 class="username-text"> {{cartoon.username}} (</h4> <h4 class="rate1 username-text"> {{score}} </h4> <h4 class="username-text lasttext">):</h4></p>
-                                <textarea id="comment" id="comment" class="cmnt" readonly placeholder="{{review}}"></textarea>
+                                <p class="username-text"> <h4 class="username-text"> {{name}} (</h4> <h4 class="rate1 username-text"> {{number}} </h4> <h4 class="username-text lasttext">):</h4></p>
+                                <textarea id="comment" id="comment" class="cmnt" readonly placeholder="{{comment}}"></textarea>
                                 {{#with users}}
                                     {{#if user}}
                                         <p class="edt-bt right-text">Edit</p>

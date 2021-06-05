@@ -82,7 +82,7 @@ const cartoonController = {
                             score: show.score,
                             ranking: show.ranking,
                             cartoons: show,
-                            cartoonReview: reviews
+                            cartoonreviews: reviews
                         });
                     }
                     else{
@@ -100,7 +100,7 @@ const cartoonController = {
                             score: show.score,
                             ranking: show.ranking,
                             cartoons: show,
-                            cartoonReview: reviews
+                            cartoonreviews: reviews
                         });
                     }
                     
