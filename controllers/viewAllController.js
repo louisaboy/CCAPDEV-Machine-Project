@@ -134,6 +134,10 @@ const viewAllController = {
         })  
    },
 
+   getSearch: function (req, res) {
+    // var search = req.
+    },
+
    getByReleaseDate: function (req, res) {
     console.log("All Cartoons running...");
         var shows = [];
