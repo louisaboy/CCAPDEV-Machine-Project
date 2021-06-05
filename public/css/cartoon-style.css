@@ -289,8 +289,7 @@ section ul li:hover {
 
 #list-menu {
     position: absolute;
-    top: 1%;
-    right: 1%;
+
     display: none;
     width: 155px;
     background-color: white;
@@ -321,8 +320,7 @@ section ul li:hover {
 .drop-down-menu {
     font-family: 'Work Sans';
     position: absolute;
-    top: 1%;
-    right:1%;
+    
     display: none;
     width: 155px;
     background-color: white;

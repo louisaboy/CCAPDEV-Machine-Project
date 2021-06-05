@@ -145,7 +145,7 @@ header {
 
 #list-menu {
     position: absolute;
-    top: 85%;
+    top: 50%;
     right: 80%;
     display: none;
     width: 155px;
