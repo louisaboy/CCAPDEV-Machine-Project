@@ -86,6 +86,7 @@ const cartoonController = {
                         });
                     }
                     else{
+                        console.log("asdfasdfas" + reviews[0].username);
                         res.render('cartoon-info.hbs', {
                             layout: 'main', 
                             style: 'cartoon-style.css',
@@ -123,7 +124,6 @@ const cartoonController = {
             date: year+"-"+month+"-"+date
         }
 
-        
         cartoonReview.create(review).then((result)=>{
             console.log('asdfasdf');
             console.log(result)

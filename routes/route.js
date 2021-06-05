@@ -37,7 +37,7 @@ route.get("/list/:id", listController.getList);
 route.get("/all-cartoons", viewAllController.getAllCartoons);
 route.get("/all-cartoons/by-release-date", viewAllController.getByReleaseDate);
 route.get("/all-cartoons/by-popularity", viewAllController.getByPopularity);
-route.get("/all-cartoons/:search", viewAllController.getSearch);
+// route.get("/all-cartoons", viewAllController.getSearch);
 
 // Settings Page
 route.get("/settings/:id", settingController.getSetting);

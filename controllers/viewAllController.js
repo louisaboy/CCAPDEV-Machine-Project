@@ -75,6 +75,13 @@ const viewAllController = {
             }
             
         })  
+
+        if(typeof(req.query.search) != 'undefined')
+        {
+            console.log("searching for: " + req.query.search)
+            res.redirect("/all-cartoons/" + req.query.search)
+        }
+            
     },
     
     getByPopularity: function (req, res) {
@@ -132,11 +139,19 @@ const viewAllController = {
             }
             
         })  
+        
    },
 
-   getSearch: function (req, res) {
-    // var search = req.
-    },
+   getSearch: function(req, res) {
+    console.log("went here");
+    res.render('all-cartoons', {
+        layout: 'main',
+        style: 'all-cartoons-style.css',
+        headerStyle: 'header-style1.css',
+        users: req.session.user,
+        cartoons: shows,
+    });
+   },
 
    getByReleaseDate: function (req, res) {
     console.log("All Cartoons running...");
