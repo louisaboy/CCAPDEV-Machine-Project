@@ -148,23 +148,27 @@
                 <h3> Reviews </h3>
 
                 <section>
-                    <form action="/cartoon-info/{{title}}" method="POST">
-                        <textarea id="comment" name="comment" class="commentBox" placeholder="..." type="textarea"></textarea>
-                        <label for="rate" style="font-family: 'Work Sans'; color: #25aae7;">Rating:</label>
-                        <select name="cartoonrate" id="ratings">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select> 
-                        <button type="submit">Post</button>
-                    </form>
+                    {{#with users}}
+                         {{#if user}}
+                        <form action="/cartoon-info/{{title}}" method="POST">
+                            <textarea id="comment" name="comment" class="commentBox" placeholder="..." type="textarea"></textarea>
+                            <label for="rate" style="font-family: 'Work Sans'; color: #25aae7;">Rating:</label>
+                            <select name="cartoonrate" id="ratings">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select> 
+                            <button type="submit">Post</button>
+                        </form>
+                        {{/if}}
+                    {{/with}}
                     <ul class="clearfix comments">
                         <li class="item" style="display:none;">
                             <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
@@ -180,6 +184,12 @@
                                     <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
                                 <p class="username-text"> <h4 class="username-text"> {{username}} (</h4> <h4 class="rate1 username-text"> {{score}} </h4> <h4 class="username-text lasttext">):</h4></p>
                                 <textarea id="comment" id="comment" class="cmnt" readonly placeholder="{{review}}"></textarea>
+                                {{#with users}}
+                                    {{#if user}}
+                                        <p class="edt-bt right-text">Edit</p>
+                                        <p class="dlt-bt right-text">Delete</p>
+                                    {{/if}}
+                                 {{/with}}
                             </li>
                             
                         {{!-- {{/each}} --}}
