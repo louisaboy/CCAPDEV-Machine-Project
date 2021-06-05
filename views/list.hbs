@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title> ToonList </title>
+    
+        <link href="css/cartoon-style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header-style.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">     
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" 
+            integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" 
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+
 {{> header}}
 
 <div id="content">
@@ -12,17 +34,17 @@
 
     <div class = "inner">
         {{#each cartoons}}
-                <a href="/cartoon-info/{{title}}"><img src="/images/CartoonPic/{{title}}.jpg" class="cartoonpic" style="cursor:pointer;"></a> 
-                {{!-- <span id="add-list"><i class="fa fa-plus fa-2x" name="list-plus"></i></span> --}}
+                <a href="/cartoon-info"><img src="images/CartoonPic/{{path}}" class="cartoonpic" style="cursor:pointer;"></a> 
+                <span id="add-list"><i class="fa fa-plus fa-2x" name="list-plus"></i></span>
                 <i class="fa fa-times fa-2x" name="list-times" aria-hidden="true"></i>
-                {{!-- <div id="list-menu" class="drop-down-menu">
+                <div id="list-menu" class="drop-down-menu">
                     <ul>
                         <li>Watching</li>
                         <li>On Hold</li>
                         <li>Dropped</li>
                         <li>Plan to Watch</li>
                     </ul>
-                </div> --}}
+                </div>
         {{/each}}
     </div>
     <p class="view-all1">View More</p>
@@ -34,3 +56,6 @@
         $('.view-all1').css("display","none");
     }); 
 </script>
+
+</body>
+</html>

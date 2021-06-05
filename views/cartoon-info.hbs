@@ -166,8 +166,15 @@
                         <button type="submit">Post</button>
                     </form>
                     <ul class="clearfix comments">
-                        
-                        {{#each cartoonReview}} 
+                        <li class="item" style="display:none;">
+                            <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
+                                <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
+                            <p class="username-text"> <h4 class="username-text"> Yes (</h4> <h4 class="rate1 username-text"> 10 </h4> <h4 class="username-text lasttext">):</h4></p>
+                            <textarea class="cmnt" readonly>Galing mo talaga Allen</textarea>
+                            <p class="edt-bt right-text">Edit</p>
+                            <p class="dlt-bt right-text">Delete</p>
+                        </li>
+                        {{!-- {{#each cartoonReview}}  --}}
                             <li class="item">
                                 <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
                                     <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
@@ -175,7 +182,7 @@
                                 <textarea id="comment" id="comment" class="cmnt" readonly placeholder="{{review}}"></textarea>
                             </li>
                             
-                        {{/each}}
+                        {{!-- {{/each}} --}}
                     </ul>
                 </section>
 

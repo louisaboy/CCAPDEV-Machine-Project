@@ -101,7 +101,9 @@ const cartoonController = {
                             score: show.score,
                             ranking: show.ranking,
                             cartoons: show,
-                            cartoonReview: reviews
+                            username: reviews.username,
+                            score: reviews.score,
+                            review: reviews.review
                         });
                     }
                     
