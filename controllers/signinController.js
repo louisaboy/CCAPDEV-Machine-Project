@@ -111,6 +111,8 @@ const signinController = {
             else{
                 alert("Invalid User/Password");
             }
+        }, (error)=>{
+            res.sendFile(error)
         })
     }
     
