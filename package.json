@@ -21,7 +21,7 @@
   "homepage": "https://github.com/louisaboy/CCAPDEV-Machine-Project#readme",
   "dependencies": {
     "alert": "^5.0.10",
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cloudinary": "^1.25.1",
     "cloudinary-core": "^2.11.4",
     "connect-mongo": "^4.4.1",
