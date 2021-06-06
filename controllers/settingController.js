@@ -33,6 +33,7 @@ const settingController = {
                         users: req.session.user,
                         username: user.username,
                         email: user.email,
+                        pfp: user.pfp,
                     });
                 }
                 else{

@@ -57,11 +57,22 @@ exports.getCartoonReview = function(cartoontitle){
     })
 }
 
-exports.delete = function (id){
+exports.deleteId = function (id){
     return new Promise(function(resolve, reject){
         Reviews.deleteOne({_id: id
         }).then((poreviewsst)=>{
-            console.log("Deleted: ",  reviews)
+            console.log("Deleted: ",  poreviewsst)
+        },(err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.delete = function (id){
+    return new Promise(function(resolve, reject){
+        Reviews.deleteOne({username: id
+        }).then((poreviewsst)=>{
+            console.log("Deleted: ",  poreviewsst)
         },(err)=>{
             reject(err)
         })

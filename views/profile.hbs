@@ -5,8 +5,8 @@
         <meta charset="utf-8">
         <title> ToonList </title>
     
-        <link href="css/profile-style.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header-style1.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/profile-style.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/header-style1.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,8 +28,8 @@
             <span> <p><b>{{username}}'s Profile</b></p> </span>
         </div> 
         <div class="box">
-            <img class="profile-picture" src="images/ProfilePic/{{username}}.jpg"/> 
-            <a href="/list" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> {{username}}'s List </a>
+            <img class="profile-picture" src="{{pfp}}"/> 
+            <a href="/list/{{username}}" class="button"> <img src="https://static.thenounproject.com/png/576517-200.png" style="width: 12px; height: 12px;"> {{username}}'s List </a>
         </div>
         <div class="info">
             <table class="information">
@@ -81,31 +81,31 @@
         <div class="statistics">
             <div class="tablecell">
                 <h4>Cartoon Stats</h4>
-                <img src="images/Pics/bar.png" style="width: 100%; height: 10%; margin-left: auto; margin-right: auto; display: block;">
+                <img src="/images/Pics/bar.png" style="width: 100%; height: 10%; margin-left: auto; margin-right: auto; display: block;">
                 <div style="font-size: 13px;">
                     <table style="width: 100%;">
                         <tr>
-                            <td> <img src="images/Pics/green.png" style="width: 3%;"> Watching: </td>
+                            <td> <img src="/images/Pics/green.png" style="width: 3%;"> Watching: </td>
                             <td> 1 </td>
                             <td style="color: gray;"> Total Entries:</td>
                             <td style="color: gray;"> 5 </td>
                         </tr>
                         <tr>
-                            <td> <img src="images/Pics/blue.png" style="width: 3%;"> Completed: </td>
+                            <td> <img src="/images/Pics/blue.png" style="width: 3%;"> Completed: </td>
                             <td> 1 </td>
                             <td style="color: gray;"> Episodes</td>
                             <td style="color: gray;"> 274 </td>
                         </tr>
                         <tr>
-                            <td> <img src="images/Pics/yellow.png" style="width: 3%;"> On-Hold </td>
+                            <td> <img src="/images/Pics/yellow.png" style="width: 3%;"> On-Hold </td>
                             <td> 1 </td>
                         </tr>
                         <tr>
-                            <td> <img src="images/Pics/red.png" style="width: 3%;"> Droppped: </td>
+                            <td> <img src="/images/Pics/red.png" style="width: 3%;"> Droppped: </td>
                             <td> 1 </td> 
                         </tr>
                         <tr>
-                            <td> <img src="images/Pics/gray.png" style="width: 3%;"> Plan to Watch: </td> 
+                            <td> <img src="/images/Pics/gray.png" style="width: 3%;"> Plan to Watch: </td> 
                             <td> 1 </td>
                         </tr>
                     </table>
@@ -117,7 +117,7 @@
                 <table style="width: 100%;">
                     <tr>
                         <td style="width: 10%;">
-                            <img src="images/CartoonPic/adventure-time.jpg" style="height: 100px; width: 70px;">
+                            <img src="/images/CartoonPic/adventure-time.jpg" style="height: 100px; width: 70px;">
                         </td>
                         <td> 
                             <p class="right-text" style="font-size: 12px;"> April 12, 2021</p>
@@ -130,7 +130,7 @@
                     </tr>
                     <tr>
                         <td style="width: 10%;">
-                            <img src="images/CartoonPic/steven-universe.jpg" style="height: 100px; width: 70px;">
+                            <img src="/images/CartoonPic/Steven Universe.jpg" style="height: 100px; width: 70px;">
                         </td>
                         <td> 
                             <p class="right-text" style="font-size: 12px;"> April 11, 2021</p>
@@ -145,109 +145,12 @@
             </div>
         </div>
 
-        <h3> Comments </h3>
-
-        <section>
-            {{#with users}}
-                {{#if user}}
-                    <form method="POST" action="/profile/{{username}}" >
-                        <textarea id="comment" name="comment" class="commentBox" placeholder="..." type="textarea"></textarea>
-                        <button type="submit">Post</button>
-                    </form>
-                {{/if}}
-            {{/with}}
-			<ul class="clearfix comments">
-                <li class="item" style="display: none;"> {{!-- sample lang weak --}}
-                    <p class="toggleimg" style="max-width: 5%;"> <img src="images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
-                        <img src="images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                    <p class="username-text"> <h4 class="username-text"> Yes: </h4></p>
-                    <textarea class="cmnt" readonly>Galing mo talaga Allen</textarea>
-                    <p class="edt-bt right-text">Edit</p>
-                    <p class="dlt-bt right-text">Delete</p>
-                </li>
-                {{#each profileComments}}
-                    <li class="item">
-                        <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
-                            <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                        <p class="username-text"> <h4 class="username-text"> {{profileComments.username}}: </h4> </p>
-                        <textarea id="comment"class="cmnt" readonly>{{profileComments.comment}}</textarea>
-                        {{#with users}}
-                            {{#if user}}
-                                <p class="edt-bt right-text">Edit</p>
-                                <p class="dlt-bt right-text">Delete</p>
-                            {{/if}}
-                        {{/with}}
-                    </li>
-                {{/each}}
-			</ul>
-		</section>
-
-        {{!-- <div>
-            <form style="padding-left: 8px;"> 
-                <textarea class="txtarea" cols="60" rows="7" placeholder="Write a new comment" style="width: 60%; margin-bottom: 10px;"> </textarea>
-                <input type="button" value="Submit Comment" class="submit-btn">
-            </form>
-        </div>
-
-        <div class="comments">
-            <table style="width: 100%;">
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/Yotsubarashii.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 12, 2021 8:12 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text">Yotsubarashii </a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
-                        <p style="font-size: 14px;"> Nice list you got there 😍😍😍 </p>
-                        <p><img src="images/Pics/lineheart.png" style="width: 1.5%;"></p>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/Ichika-chan.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 12, 2021 6:12 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text">Ichika-chan</a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
-                        <p style="font-size: 14px;"> Hello </p>
-                        <p><img src="./Pics/lineheart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/Nakano_Itsuki.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 12, 2021 11:00 AM </p>
-                        <p><a href="http://www.twitter.com" class="username-text"> Nakano_Itsuki </a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
-                        <p style="font-size: 14px;"> I also like Adventure Time 💘 </p>
-                        <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/NakanoNino.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 11, 2021 10:30 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text">NakanoNino </a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
-                        <p style="font-size: 14px;"> I like your taste 😍😍😍 </p>
-                        <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7.5%;"><img src="images/ProfilePic/Yotsubarashii.jpg" class="comment-pic"></td>
-                    <td> 
-                        <p class="right-text" style="font-size: 12px;"> April 11, 2021 1:12 PM </p>
-                        <p><a href="http://www.twitter.com" class="username-text">Yotsubarashii </a></p> 
-                        <a class="right-text" href="http://www.facebook.com">Delete</a>
-                        <p style="font-size: 14px;"> Hi! Do you want to be friends? </p>
-                        <p><img src="images/Pics/heart.png" style="width: 1.5%;"></p>
-                    </td>
-                </tr>
-            </table> --}}
+        
         </div>
     </div>
 </div>        
 
-<script src="js/cartoon-script.js"></script>
+<script src="/js/cartoon-script.js"></script>
 
 </body>
 </html>

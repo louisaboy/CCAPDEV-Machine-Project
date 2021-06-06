@@ -40,8 +40,9 @@ $(document).ready(function() {
 		// btn.next(".toggleimg img").toggle();
 	});
 
-	$(".edt-bt").click(function() {
+	$("#edit").click(function() {
 		$(this).siblings().removeAttr('readonly');
+		document.getElementById("comment").readOnly = "false";
 	});
 
 	$(".dlt-bt").click(function() {

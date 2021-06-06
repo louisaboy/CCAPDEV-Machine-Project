@@ -30,19 +30,27 @@
                 
                 <div class="box">
                     <img class="cartoon-picture" src="/images/CartoonPic/{{path}}"> 
+                    {{#with users}}
+                    {{#if user}}
                     <a href="#" class="button"> 
                         <img src="https://static.thenounproject.com/png/576517-200.png" 
                         style="width: 12px; height: 12px;"> Add Cartoon </a>
                     <div id="list-menu" class="drop-down-menu">
-                        <ul>
-                            <li>Watching</li>
-                            <li>On Hold</li>
-                            <li>Dropped</li>
-                            <li>Plan to Watch</li>
-                        </ul>
+                        <form action="/cartoon-info/{{title}}"method="POST">
+                            <select name="status" onchange="this.form.submit()">
+                                    <option>Status</option>
+                                    <option name="Watching" value="Watching">Watching</option>
+                                    <option name="On Hold" value="On Hold">On Hold</option>
+                                    <option name="Dropped" value="Dropped">Dropped</option>
+                                    <option name="Plan to Watch" value="Plan to Watch">Plan to Watch</option>
+                                    <option name="Complete" value="Complete">Completed</option>
+                            </select>
+                        </form>
                     </div>
+                    {{/if}}
+                    {{/with}}
                 </div>
-
+            
                 <div class="info">
                     <table class="information">
                         <tr style="background-color: #ECECEC;">
@@ -148,9 +156,10 @@
                 <h3> Reviews </h3>
 
                 <section>
-                    {{#with users}}
-                         {{#if user}}
+                    
                         <form action="/cartoon-info/{{title}}" method="POST">
+                        {{#with users}}
+                         {{#if user}}
                             <textarea id="comment" name="comment" class="commentBox" placeholder="..." type="textarea"></textarea>
                             <label for="rate" style="font-family: 'Work Sans'; color: #25aae7;">Rating:</label>
                             <select name="cartoonrate" id="ratings">
@@ -166,9 +175,10 @@
                                 <option value="10">10</option>
                             </select> 
                             <button type="submit">Post</button>
+                            {{/if}}
+                            {{/with}}
                         </form>
-                        {{/if}}
-                    {{/with}}
+                        
                     <ul class="clearfix comments">
                         <li class="item" style="display:none;">
                             <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
@@ -178,30 +188,21 @@
                             <p class="edt-bt right-text">Edit</p>
                             <p class="dlt-bt right-text">Delete</p>
                         </li>
-<<<<<<< HEAD
-                        {{!-- {{#each cartoonReview}}  --}}
+                        
+                        {{#each cartoonreviews as |cartoonreviews index|}} 
                             <li class="item">
                                 <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
                                     <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                                <p class="username-text"> <h4 class="username-text"> {{username}} (</h4> <h4 class="rate1 username-text"> {{score}} </h4> <h4 class="username-text lasttext">):</h4></p>
-                                <textarea id="comment" id="comment" class="cmnt" readonly placeholder="{{review}}"></textarea>
-=======
-                        {{#each cartoonreviews}} 
-                            <li class="item">
-                                <p class="toggleimg" style="max-width: 5%;"> <img src="/images/Pics/lineheart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%;">
-                                    <img src="/images/Pics/heart.png" style="position: relative; top: 7px; min-width: 50%; max-width: 50%; display: none;"></p>
-                                <p class="username-text"> <h4 class="username-text"> {{name}} (</h4> <h4 class="rate1 username-text"> {{number}} </h4> <h4 class="username-text lasttext">):</h4></p>
-                                <textarea id="comment" id="comment" class="cmnt" readonly placeholder="{{comment}}"></textarea>
->>>>>>> 6454dccfa7627f7776b8a41a950bacbf52caa339
-                                {{#with users}}
-                                    {{#if user}}
-                                        <p class="edt-bt right-text">Edit</p>
-                                        <p class="dlt-bt right-text">Delete</p>
+                                <p class="username-text"> <h4 class="username-text"> {{cartoonreviews.username}} (</h4> <h4 class="rate1 username-text"> {{cartoonreviews.score}} </h4> <h4 class="username-text lasttext">):</h4></p>
+                                <textarea id="comment" id="comment" class="cmnt" readonly placeholder="{{cartoonreviews.review}}"></textarea>
+                                {{!-- {{index}} --}}
+                                    {{#if cartoonreviews.ishere}}
+                                        {{!-- <p class="edt-bt right-text" id="edit">Edit</p> --}}
+                                        <a href="/cartoon-info/delete/{{_id}}"><p class="dlt-bt right-text" id="delete">Delete</p></a>
                                     {{/if}}
-                                 {{/with}}
                             </li>
                             
-                        {{!-- {{/each}} --}}
+                        {{/each}}
                     </ul>
                 </section>
 

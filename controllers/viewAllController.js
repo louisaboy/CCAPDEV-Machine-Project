@@ -75,12 +75,6 @@ const viewAllController = {
             }
             
         })  
-
-        if(typeof(req.query.search) != 'undefined')
-        {
-            console.log("searching for: " + req.query.search)
-            res.redirect("/all-cartoons/" + req.query.search)
-        }
             
     },
     
@@ -208,7 +202,65 @@ const viewAllController = {
             }
             
         })  
-}
+    },
+
+    getSearch: function(req, res) {        
+        console.log("Searching for " + req.body.search + "...");
+        // var shows = [{
+        //     _id: "",
+        //     title: "",
+        //     episodes: "",
+        //     genre: "",
+        //     dateofrelease: "",
+        //     dateoflastrelease: "",
+        //     score: "",
+        //     ranking: "",
+        //     summary: "",
+        //     path: ""
+        // }];
+        var shows = [];
+        Cartoon.getAll().then((tempcartoons)=>{
+            // console.log(tempcartoons)
+            for(i in tempcartoons){
+                var temp ={
+                    _id: tempcartoons[i]._id,
+                    title: tempcartoons[i].title,
+                    episodes: tempcartoons[i].episodes,
+                    genre: tempcartoons[i].genre,
+                    dateofrelease: moment(tempcartoons[i].dateofrelease).format("MMMM D, YYYY, h:mm:ss a"),
+                    dateoflastrelease: moment(tempcartoons[i].dateoflastrelease).format("MMMM D, YYYY, h:mm:ss a"),
+                    score: tempcartoons[i].score,
+                    ranking: tempcartoons[i].ranking,
+                    summary: tempcartoons[i].summary,
+                    path: tempcartoons[i].path
+                }
+                // console.log(temp.title + " compare to " + req.body.search)
+                if (temp.title === req.body.search)
+                    shows.push(temp)
+            }
+            if(typeof(req.session.user) != 'undefined')
+            {
+                res.render('all-cartoons', {
+                    layout: 'main',
+                    style: 'all-cartoons-style.css',
+                    headerStyle: 'header-style1.css',
+                    users: req.session.user,
+                    cartoons: shows,
+                });
+            }
+            else
+            {
+                res.render('all-cartoons', {
+                    layout: 'main',
+                    style: 'all-cartoons-style.css',
+                    headerStyle: 'header-style1.css',
+                    users: sample,
+                    cartoons: shows,
+                });
+            }
+            
+        })  
+    }
 }
 
 module.exports = viewAllController;

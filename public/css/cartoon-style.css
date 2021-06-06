@@ -291,8 +291,10 @@ section ul li:hover {
     position: absolute;
 
     display: none;
-    width: 155px;
+    width: 200px;
     background-color: white;
+    padding: 20px;
+    margin: 90px;
 }
 
 #list-menu ul {
@@ -322,15 +324,15 @@ section ul li:hover {
     position: absolute;
     
     display: none;
-    width: 155px;
+    width: 300px;
     background-color: white;
 }
 
 .drop-down-menu ul {
     list-style-type: none;
     text-align: center;
-    margin: 2px;
-    padding: 10px;
+    margin: 200px;
+    padding: 100px;
 }
 
 .drop-down-menu a {

@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require("../models/user")
 const cartoonReview = require("../models/cartoonReview")
 const Cartoon = require("../models/cartoons")
-const Comment = require("../models/profileComment")
+// const Comment = require("../models/profileComment")
 const bodyparser = require("body-parser")
 const moment = require("moment")
 const main = require("../routes/route.js");
@@ -34,7 +34,7 @@ const profileController = {
         User.getUser(user).then((newUser)=>{
         //  console.log(newUser)
         // console.log(newUser)
-            Comment.getAllPosting(acc.username).then((comments)=>{
+            // Comment.getAllPosting(acc.username).then((comments)=>{
                 console.log(newUser)
                 acc.username = newUser.username,
                 acc.password = newUser.password,
@@ -51,34 +51,41 @@ const profileController = {
                     birthday: acc.birthday,
                     email: acc.email,
                     pfp: acc.pfp,
-                    profileComments: comments
+                    // profilecomments: comments
             });
-            })
+            // })
         
         })
     },
 
-    postComment: function(req, res){
-        let ts = Date.now();
-        let date_ob = new Date(ts);
-        let date = date_ob.getDate();
-        let month = date_ob.getMonth() + 1;
-        let year = date_ob.getFullYear();
-        console.log("wassup yo" + req.body.comment);
-        var comment = {
-            username: "sample",
-            profile: req.params.id,
-            comment: req.body.comment,
-            like: 1,
-            date: year+"-"+month+"-"+date
-        }
-        Comment.create(comment).then((result)=>{
-            console.log('asdfasdf');
-            console.log(result)
-            // res.redirect("/profile/" + req.params.id);
-            res.redirect('/profile/' + req.params.id)
-        })
-    }
+    // postComment: function(req, res){
+    //     let ts = Date.now();
+    //     let date_ob = new Date(ts);
+    //     let date = date_ob.getDate();
+    //     let month = date_ob.getMonth() + 1;
+    //     let year = date_ob.getFullYear();
+    //     console.log("wassup yo" + req.body.comment);
+    //     var comment = {
+    //         username: "sample",
+    //         profile: req.params.id,
+    //         comment: req.body.comment,
+    //         like: 1,
+    //         date: year+"-"+month+"-"+date
+    //     }
+    //     Comment.create(comment).then((result)=>{
+    //         console.log('asdfasdf');
+    //         console.log(result)
+    //         // res.redirect("/profile/" + req.params.id);
+    //         res.redirect('/profile/' + req.params.id)
+    //     })
+    // },
+
+    // getDelete: function(req, res) {
+    //     cartoonReview.deleteId(req.params.id).then((user)=>{
+    //         res.redirect("/");
+    //         res.render("/cartoon-info/" + req.session.show);
+    //     })
+    // }
 }
 
 module.exports = profileController;
